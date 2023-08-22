@@ -21,6 +21,7 @@
                             <th>Departement</th>
                             <th>Kategori
                                 Pengajuan</th>
+                            <th class="text-center">Payment</th>
                             <th>Status</th>
                             <th width='180px' style="text-align: center">Action</th>
                         </tr>
@@ -41,6 +42,10 @@
                             </td>
                             <td>
                                 {{ $data->kpengajuan->name }} </td>
+
+                            <td>
+                                {{ $data->payment }}
+                            </td>
                             <td>
                                 @switch($data)
                                 @case($data->status == 0)

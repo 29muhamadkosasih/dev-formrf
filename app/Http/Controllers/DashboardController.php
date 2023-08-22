@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
 use App\Models\Form;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
@@ -115,7 +116,7 @@ class DashboardController extends Controller
     public function checked()
     {
         abort_if(Gate::denies('dashboard.checked.index'), Response::HTTP_FORBIDDEN, 'Forbidden');
-        $userId = auth()->id();
+
         $form = Form::all();
         $total = Form::all()->count();
         $currentMonth = date('m');
@@ -132,8 +133,6 @@ class DashboardController extends Controller
         $data = Form::all()->groupBy(function ($data) {
             return Carbon::parse($data->created_at)->format('M');
         });
-
-        // dd($data);
         $months = [];
         $monthCount = [];
         foreach ($data as $month => $values) {
@@ -141,8 +140,170 @@ class DashboardController extends Controller
             $monthCount[] = count($values);
         }
 
-        $bulann = date('m');
 
+        //view dashboard tdp marketing
+        $report_tdp_marketing = DB::table('form')
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [1])
+            ->get()
+            ->count();
+
+        $reports_tdp_marketing = DB::table('form')
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', 2023)
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [1])
+            ->get()
+            ->count();
+        $jumlah_total_tdp_marketing = DB::table('form')
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [1])
+            ->get()
+            ->sum('jumlah_total');
+
+        $jumlah_total_bulan_tdp_marketing = DB::table('form')
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', 2023)
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [1])
+            ->get()
+            ->sum('jumlah_total');
+
+        $form_tdp_marketing = Form::orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [1])
+            ->get();
+
+        //view dashboard tdp admin
+        $report_tdp_admin = DB::table('form')
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '2')
+            ->get()
+            ->count();
+
+        $reports_tdp_admin = DB::table('form')
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', 2023)
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '2')
+            ->get()
+            ->count();
+        $jumlah_total_tdp_admin = DB::table('form')
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '2')
+            ->get()
+            ->sum('jumlah_total');
+
+        $jumlah_total_bulan_tdp_admin = DB::table('form')
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', 2023)
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '2')
+            ->get()
+            ->sum('jumlah_total');
+
+        $form_tdp_admin = Form::orderBy('created_at', 'desc')
+            ->where('departement_id', '2')
+            ->get();
+
+        //view dashboard tdp admin
+        $report_tdp_admin = DB::table('form')
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '2')
+            ->get()
+            ->count();
+
+        $reports_tdp_admin = DB::table('form')
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', 2023)
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '2')
+            ->get()
+            ->count();
+        $jumlah_total_tdp_admin = DB::table('form')
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '2')
+            ->get()
+            ->sum('jumlah_total');
+
+        $jumlah_total_bulan_tdp_admin = DB::table('form')
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', 2023)
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '2')
+            ->get()
+            ->sum('jumlah_total');
+
+        $form_tdp_admin = Form::orderBy('created_at', 'desc')
+            ->where('departement_id', '2')
+            ->get();
+
+        //view dashboard tdp op
+        $report_tdp_op = DB::table('form')
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [3, 4, 9, 10, 11])
+            ->get()
+            ->count();
+
+        $reports_tdp_op = DB::table('form')
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', 2023)
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [3, 4, 9, 10, 11])
+            ->get()
+            ->count();
+        $jumlah_total_tdp_op = DB::table('form')
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [3, 4, 9, 10, 11])
+            ->get()
+            ->sum('jumlah_total');
+
+        $jumlah_total_bulan_tdp_op = DB::table('form')
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', 2023)
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [3, 4, 9, 10, 11])
+            ->get()
+            ->sum('jumlah_total');
+
+        $form_tdp_op = Form::orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [3, 4, 9, 10, 11])
+            ->get();
+
+        //view dashboard tkki
+        $report_tkki = DB::table('form')
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [17, 18, 16, 19])
+            ->get()
+            ->count();
+
+        $reports_tkki = DB::table('form')
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', 2023)
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [17, 18, 16, 19])
+            ->get()
+            ->count();
+        $jumlah_total_tkki = DB::table('form')
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [17, 18, 16, 19])
+            ->get()
+            ->sum('jumlah_total');
+
+        $jumlah_total_bulan_tkki = DB::table('form')
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', 2023)
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [17, 18, 16, 19])
+            ->get()
+            ->sum('jumlah_total');
+
+        $form_tkki = Form::orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [17, 18, 16, 19])
+            ->get();
+
+
+
+        $bulann = date('m');
         $namaBulan = '';
 
         switch ($bulann) {
@@ -195,7 +356,27 @@ class DashboardController extends Controller
             'reports'   => $reports,
             'jumlah_total'   => $jumlah_total,
             'monthCount'   => $monthCount,
-            'months'   => $months
+            'months'   => $months,
+            'report_tdp_marketing'   => $report_tdp_marketing,
+            'reports_tdp_marketing'   => $reports_tdp_marketing,
+            'jumlah_total_tdp_marketing'   => $jumlah_total_tdp_marketing,
+            'jumlah_total_bulan_tdp_marketing'   => $jumlah_total_bulan_tdp_marketing,
+            'form_tdp_marketing'   => $form_tdp_marketing,
+            'report_tdp_admin'   => $report_tdp_admin,
+            'reports_tdp_admin'   => $reports_tdp_admin,
+            'jumlah_total_tdp_admin'   => $jumlah_total_tdp_admin,
+            'jumlah_total_bulan_tdp_admin'   => $jumlah_total_bulan_tdp_admin,
+            'form_tdp_admin'   => $form_tdp_admin,
+            'report_tdp_op'   => $report_tdp_op,
+            'reports_tdp_op'   => $reports_tdp_op,
+            'jumlah_total_tdp_op'   => $jumlah_total_tdp_op,
+            'jumlah_total_bulan_tdp_op'   => $jumlah_total_bulan_tdp_op,
+            'form_tdp_op'   => $form_tdp_op,
+            'report_tkki'   => $report_tkki,
+            'reports_tkki'   => $reports_tkki,
+            'jumlah_total_tkki'   => $jumlah_total_tkki,
+            'jumlah_total_bulan_tkki'   => $jumlah_total_bulan_tkki,
+            'form_tkki'   => $form_tkki,
         ]);
     }
 

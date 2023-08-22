@@ -18,17 +18,47 @@ class MancheckedController extends Controller
     {
         abort_if(Gate::denies('form-checkedman.index'), Response::HTTP_FORBIDDEN, 'Forbidden');
         // dd($id);
+        $departement = Departement::all();
         $form = Form::where('status', 0)
             ->orderBy('created_at', 'desc')
             ->get();
 
+        $ids = [1];
+        $tdpmarketing = Form::where('status', 0)
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', $ids)
+            ->get();
 
-        $departement = Departement::all();
+        $tdpadmin = Form::where('status', 0)
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '2')
+            ->get();
+
+        $tdpadmin = Form::where('status', 0)
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '2')
+            ->get();
+
+        $tkki = Form::where('status', 0)
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [17, 18, 16, 19])
+            ->get();
+        // dd($tkki);
+
+        $tdp_op = Form::where('status', 0)
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [3, 4, 9, 10, 11])
+            ->get();
+
 
         // dd($form);
         return view('pages.form.checkedman.index', [
             'form'   => $form,
-            'departement'  => $departement
+            'departement'  => $departement,
+            'tdpmarketing'  => $tdpmarketing,
+            'tdpadmin'  => $tdpadmin,
+            'tkki'  => $tkki,
+            'tdp_op'  => $tdp_op,
         ]);
     }
 

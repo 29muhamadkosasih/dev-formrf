@@ -40,6 +40,7 @@ class NoRekController extends Controller
             'nama_penerima' => 'required|max:255|min:4',
             'no_rekening' => 'required|max:17|min:10',
             'bank_id' => 'required|numeric',
+            'user_id' => '',
         ]);
         // dd($request);
         NoRek::create($validateData);
