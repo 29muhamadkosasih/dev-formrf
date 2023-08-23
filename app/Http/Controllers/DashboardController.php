@@ -208,7 +208,7 @@ class DashboardController extends Controller
         //view dashboard tdp admin
         $report_tdp_admin = DB::table('form')
             ->orderBy('created_at', 'desc')
-            ->where('departement_id', '2')
+            ->whereIn('departement_id', [2, 6])
             ->get()
             ->count();
 
@@ -216,12 +216,12 @@ class DashboardController extends Controller
             ->whereMonth('created_at', $currentMonth)
             ->whereYear('created_at', 2023)
             ->orderBy('created_at', 'desc')
-            ->where('departement_id', '2')
+            ->whereIn('departement_id', [2, 6])
             ->get()
             ->count();
         $jumlah_total_tdp_admin = DB::table('form')
             ->orderBy('created_at', 'desc')
-            ->where('departement_id', '2')
+            ->whereIn('departement_id', [2, 6])
             ->get()
             ->sum('jumlah_total');
 
@@ -229,12 +229,12 @@ class DashboardController extends Controller
             ->whereMonth('created_at', $currentMonth)
             ->whereYear('created_at', 2023)
             ->orderBy('created_at', 'desc')
-            ->where('departement_id', '2')
+            ->whereIn('departement_id', [2, 6])
             ->get()
             ->sum('jumlah_total');
 
         $form_tdp_admin = Form::orderBy('created_at', 'desc')
-            ->where('departement_id', '2')
+            ->whereIn('departement_id', [2, 6])
             ->get();
 
         //view dashboard tdp op
@@ -301,6 +301,38 @@ class DashboardController extends Controller
             ->whereIn('departement_id', [17, 18, 16, 19])
             ->get();
 
+        //view dashboard tdp-hr
+        $report_tdp_hr = DB::table('form')
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '7')
+            ->get()
+            ->count();
+
+        $reports_tdp_hr = DB::table('form')
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', 2023)
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '7')
+
+            ->get()
+            ->count();
+        $jumlah_total_tdp_hr = DB::table('form')
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '7')
+            ->get()
+            ->sum('jumlah_total');
+
+        $jumlah_total_bulan_tdp_hr = DB::table('form')
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', 2023)
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '7')
+            ->get()
+            ->sum('jumlah_total');
+
+        $form_tdp_hr = Form::orderBy('created_at', 'desc')
+            ->where('departement_id', '7')
+            ->get();
 
 
         $bulann = date('m');
@@ -377,6 +409,11 @@ class DashboardController extends Controller
             'jumlah_total_tkki'   => $jumlah_total_tkki,
             'jumlah_total_bulan_tkki'   => $jumlah_total_bulan_tkki,
             'form_tkki'   => $form_tkki,
+            'report_tdp_hr'   => $report_tdp_hr,
+            'reports_tdp_hr'   => $reports_tdp_hr,
+            'jumlah_total_tdp_hr'   => $jumlah_total_tdp_hr,
+            'jumlah_total_bulan_tdp_hr'   => $jumlah_total_bulan_tdp_hr,
+            'form_tdp_hr'   => $form_tdp_hr,
         ]);
     }
 

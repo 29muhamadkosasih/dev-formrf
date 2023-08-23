@@ -179,14 +179,28 @@
                                 @case($data->status == 0)
                                 <span class="badge bg-secondary">Pending</span>
                                 @break
-                                @case($data->status == 2)
+                                @case($data->status == 1)
                                 <span class="badge bg-danger">Reject</span>
                                 @break
-                                @case($data->status == 3)
-                                <span class="badge bg-warning">Approve</span>
+                                @case($data->status == 2)
+                                <span class="badge bg-info">Approve</span>
                                 @break
-                                @default
-                                <span class="badge bg-success">PAID</span>
+                                @case($data->status == 3)
+                                <span class="badge bg-danger">Cancel</span>
+                                @break
+                                @case($data->status == 4)
+                                <span class="badge bg-primary">Menuggu Konfirmasi Dana</span>
+                                @break
+                                @case($data->status == 5)
+                                <span class="badge bg-success">Konfirmasi Dana Masuk</span>
+                                @break
+
+                                @case($data->status == 6)
+                                <span class="badge bg-primary">Konfirmasi Pembayaran </span>
+                                @break
+                                @case($data->status == 7)
+                                <span class="badge bg-info">Menuggu Konfirmasi Pengembalian Dana </span>
+                                @break
                                 @endswitch
                             </td>
                         </tr>

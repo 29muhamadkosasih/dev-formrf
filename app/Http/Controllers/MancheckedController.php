@@ -36,7 +36,7 @@ class MancheckedController extends Controller
 
         $tdpadmin = Form::where('status', 0)
             ->orderBy('created_at', 'desc')
-            ->where('departement_id', '2')
+            ->whereIn('departement_id', [2, 6])
             ->get();
 
         $tkki = Form::where('status', 0)
@@ -50,6 +50,12 @@ class MancheckedController extends Controller
             ->whereIn('departement_id', [3, 4, 9, 10, 11])
             ->get();
 
+        $tdp_hr = Form::where('status', 0)
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '7')
+            ->get();
+        // dd($tdp_hr);
+
 
         // dd($form);
         return view('pages.form.checkedman.index', [
@@ -59,6 +65,7 @@ class MancheckedController extends Controller
             'tdpadmin'  => $tdpadmin,
             'tkki'  => $tkki,
             'tdp_op'  => $tdp_op,
+            'tdp_hr'  => $tdp_hr,
         ]);
     }
 
@@ -243,5 +250,16 @@ class MancheckedController extends Controller
         );
         return back()
             ->with('success', 'Congratulation !  Data Berhasil Di Reject');
+    }
+
+    public function destroy($id)
+    {
+        $delete = Form::find($id);
+        $delete->delete();
+        return redirect()->route('form-checkedman.index')
+            ->with(
+                'success',
+                'Success ! Data RF Berhasil di Hapus'
+            );
     }
 }

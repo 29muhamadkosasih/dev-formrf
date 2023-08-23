@@ -20,20 +20,22 @@ class CheckedController extends Controller
         abort_if(Gate::denies('form-checked.index'), Response::HTTP_FORBIDDEN, 'Forbidden');
         // dd($id);
         $userId = auth()->id();
+        $departement = Departement::all();
         $form = Form::where('status', 0)
             ->where('from_id', '!=', $userId)
             ->orderBy('created_at', 'desc')
             ->get();
 
+        $tdpmarketing = Form::where('status', 0)
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '1')
+            ->get();
         // dd($form);
 
-
-        $departement = Departement::all();
-
-        // dd($form);
         return view('pages.form.checked.index', [
             'form'   => $form,
-            'departement'  => $departement
+            'departement'  => $departement,
+            'tdpmarketing'  => $tdpmarketing,
         ]);
     }
 
@@ -218,5 +220,16 @@ class CheckedController extends Controller
         );
         return back()
             ->with('success', 'Congratulation !  Data Berhasil Di Reject');
+    }
+
+    public function destroy($id)
+    {
+        $delete = Form::find($id);
+        $delete->delete();
+        return redirect()->route('form-checked.index')
+            ->with(
+                'success',
+                'Success ! Data RF Berhasil di Hapus'
+            );
     }
 }
