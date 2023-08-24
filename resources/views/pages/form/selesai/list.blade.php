@@ -43,7 +43,7 @@
                     <h5 class="mb-0">Data Pengajuan
                 </div>
                 <div class="col-auto">
-                    <a href="/pegawai/cetak_pdf" class="btn btn-primary btn-sm" target="_blank"><i
+                    <a href="{{ url('pegawai/cetak_pdf') }}" class="btn btn-primary btn-sm" target="_blank"><i
                             class="menu-icon tf-icons ti ti-download"></i>PDF</a>
                 </div>
             </div>

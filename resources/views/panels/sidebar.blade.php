@@ -59,8 +59,7 @@
         @endcan
 
         @can('profile.index')
-        <li
-            class="menu-item {{ Route::currentRouteNamed('profile.index','profile.edit','profile.show') ? 'active' : '' }}">
+        <li class="menu-item {{ Route::currentRouteNamed('me.index','me.edit','me.show') ? 'active' : '' }}">
             <a href="{{ route('me.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-user"></i>
                 <div data-i18n="Profile">Profile</div>

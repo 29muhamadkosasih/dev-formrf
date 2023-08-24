@@ -212,7 +212,7 @@ class FormsController extends Controller
             'data' => $data
         ]);
         $pdf->set_paper('letter', 'landscape');
-        return $pdf->download('laporan-request-fund.pdf');
+        return $pdf->stream('laporan-request-fund.pdf');
     }
 
     public function cetak_pdf2($from, $to)
@@ -221,8 +221,10 @@ class FormsController extends Controller
             ->whereBetween('created_at', [$from, $to])
             ->get();
         // dd($data);
-        $pdf = PDF::loadview('pages.form.print', [
-            'data' => $data
+        $pdf = PDF::loadview('pages.form.printGet', [
+            'data' => $data,
+            'from' => $from,
+            'to' => $to,
         ]);
         $pdf->set_paper('letter', 'landscape');
         return $pdf->download('laporan-request-fund.pdf');
