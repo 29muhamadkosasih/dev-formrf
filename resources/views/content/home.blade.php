@@ -13,7 +13,7 @@
                             src="{{ asset('assets/img/illustrations/WhatsApp Image 2023-08-02 at 10.54.10.jpeg') }}"
                             alt="Card image" />
                     </div>
-                    <div class="col-md-8" style="background-color: #7367f0;">
+                    <div class="col-md-8 d-flex-center" style="background-color: #7367f0;">
                         <div class="card-body mt-5">
                             <h3 class="text-center" style="color: white">Hello {{ Auth::user()->name }},
                                 how

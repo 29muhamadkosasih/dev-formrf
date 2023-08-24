@@ -312,6 +312,15 @@ class ApproveController extends Controller
         ]);
     }
 
+    public function viewDetailShow($id)
+    {
+        $show = Form::find($id);
+        // dd($show);
+        return view('pages.form.approve.showDetailselesai', [
+            'show'   => $show
+        ]);
+    }
+
     public function destroy($id)
     {
         $delete = Form::find($id);

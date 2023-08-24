@@ -19,8 +19,8 @@
                         <div class="col-xl-4 col-md-6 col-12">
                             <div class="mb-1">
                                 <label class="form-label" for="basicInput">Dari</label>
-                                <input type="text" class="form-control" id="basicInput" name="from_id"
-                                    placeholder="Enter" required value="{{ $edit->user->name }}" readonly />
+                                <input type="text" class="form-control" name="from_id" placeholder="Enter" required
+                                    value="{{ $edit->user->name }}" readonly />
                             </div>
                         </div>
                         <div class="col-xl-4 col-md-6 col-12">
@@ -66,8 +66,8 @@
                             <div class="mb-1">
                                 <label class="form-label" for="basicInput">Tanggal
                                     Kebutuhan</label>
-                                <input type="date" class="form-control" id="basicInput" placeholder="Enter"
-                                    name="tanggal_kebutuhan" required value="{{ $edit->tanggal_kebutuhan }}" />
+                                <input type="date" class="form-control" placeholder="Enter" name="tanggal_kebutuhan"
+                                    required value="{{ $edit->tanggal_kebutuhan }}" />
                             </div>
                         </div>
                         <div class="col-xl-4 col-md-6 col-12">
@@ -123,8 +123,8 @@
                                 <label class="form-label" for="basicInput">
                                     No. Project
                                 </label>
-                                <input type="text" class="form-control" id="basicInput" name="no_project"
-                                    placeholder="Enter" autofocus />
+                                <input type="text" class="form-control" name="no_project" placeholder="Enter"
+                                    autofocus />
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-6 col-12 d-none" id="t2">
@@ -132,8 +132,8 @@
                                 <label class="form-label" for="basicInput">
                                     Jumlah Peserta
                                 </label>
-                                <input type="number" class="form-control" id="basicInput" name="j_peserta"
-                                    placeholder="Enter" autofocus />
+                                <input type="number" class="form-control" name="j_peserta" placeholder="Enter"
+                                    autofocus />
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-6 col-12 d-none" id="t3">
@@ -141,8 +141,8 @@
                                 <label class="form-label" for="helpInputTop">
                                     Jumlah Trainer / Asesor
                                 </label>
-                                <input type="number" class="form-control" id="basicInput" name="j_traine_asesor"
-                                    placeholder="Enter" autofocus />
+                                <input type="number" class="form-control" name="j_traine_asesor" placeholder="Enter"
+                                    autofocus />
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-6 col-12 d-none" id="t4">
@@ -150,8 +150,8 @@
                                 <label class="form-label" for="basicInput">
                                     Jumlah Assist
                                 </label>
-                                <input type="number" class="form-control" id="basicInput" name="j_assist"
-                                    placeholder="Enter" autofocus />
+                                <input type="number" class="form-control" name="j_assist" placeholder="Enter"
+                                    autofocus />
                             </div>
                         </div>
                     </div>
@@ -170,29 +170,29 @@
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="basicInput">Description</label>
-                                            <input type="text" class="form-control" id="basicInput" name="description"
+                                            <input type="text" class="form-control" name="description"
                                                 placeholder="Enter" value="{{ $edit->description }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="basicInput">Unit</label>
-                                            <input type="text" class="form-control" id="basicInput" name="unit"
-                                                placeholder="Enter" value="{{ $edit->unit }}" />
+                                            <input type="text" class="form-control" name="unit" placeholder="Enter"
+                                                value="{{ $edit->unit }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="helpInputTop">Price</label>
-                                            <input type="text" class="form-control" id="basicInput" name="price"
-                                                placeholder="Enter" value="{{ $edit->price }}" />
+                                            <input type="text" class="form-control" name="price" placeholder="Enter"
+                                                value="{{ $edit->price }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="basicInput">Qty</label>
-                                            <input type="number" class="form-control" id="basicInput" name="qty"
-                                                placeholder="Enter" value="{{ $edit->qty }}" />
+                                            <input type="number" class="form-control" name="qty" placeholder="Enter"
+                                                value="{{ $edit->qty }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-12 col-md-12 col-12">
@@ -222,29 +222,29 @@
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="basicInput">Description</label>
-                                            <input type="text" class="form-control" id="basicInput" name="description2"
+                                            <input type="text" class="form-control" name="description2"
                                                 placeholder="Enter" value="{{ $edit->description2 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="basicInput">Unit</label>
-                                            <input type="text" class="form-control" id="basicInput" name="unit2"
-                                                placeholder="Enter" value="{{ $edit->unit2 }}" />
+                                            <input type="text" class="form-control" name="unit2" placeholder="Enter"
+                                                value="{{ $edit->unit2 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="helpInputTop">Price</label>
-                                            <input type="text" class="form-control" id="basicInput" name="price2"
-                                                placeholder="Enter" value="{{ $edit->price2 }}" />
+                                            <input type="text" class="form-control" name="price2" placeholder="Enter"
+                                                value="{{ $edit->price2 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="basicInput">Qty</label>
-                                            <input type="number" class="form-control" id="basicInput" name="qty2"
-                                                placeholder="Enter" value="{{ $edit->qty2 }}" />
+                                            <input type="number" class="form-control" name="qty2" placeholder="Enter"
+                                                value="{{ $edit->qty2 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-12 col-md-12 col-12">
@@ -274,29 +274,29 @@
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="basicInput">Description</label>
-                                            <input type="text" class="form-control" id="basicInput" name="description3"
+                                            <input type="text" class="form-control" name="description3"
                                                 placeholder="Enter" value="{{ $edit->description3 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="basicInput">Unit</label>
-                                            <input type="text" class="form-control" id="basicInput" name="unit3"
-                                                placeholder="Enter" value="{{ $edit->unit3 }}" />
+                                            <input type="text" class="form-control" name="unit3" placeholder="Enter"
+                                                value="{{ $edit->unit3 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="helpInputTop">Price</label>
-                                            <input type="text" class="form-control" id="basicInput" name="price3"
-                                                placeholder="Enter" value="{{ $edit->price3 }}" />
+                                            <input type="text" class="form-control" name="price3" placeholder="Enter"
+                                                value="{{ $edit->price3 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="basicInput">Qty</label>
-                                            <input type="number" class="form-control" id="basicInput" name="qty3"
-                                                placeholder="Enter" value="{{ $edit->qty3 }}" />
+                                            <input type="number" class="form-control" name="qty3" placeholder="Enter"
+                                                value="{{ $edit->qty3 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-12 col-md-12 col-12">
@@ -326,29 +326,29 @@
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="basicInput">Description</label>
-                                            <input type="text" class="form-control" id="basicInput" name="description4"
+                                            <input type="text" class="form-control" name="description4"
                                                 placeholder="Enter" value="{{ $edit->description4 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="basicInput">Unit</label>
-                                            <input type="text" class="form-control" id="basicInput" name="unit4"
-                                                placeholder="Enter" value="{{ $edit->unit4 }}" />
+                                            <input type="text" class="form-control" name="unit4" placeholder="Enter"
+                                                value="{{ $edit->unit4 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="helpInputTop">Price</label>
-                                            <input type="text" class="form-control" id="basicInput" name="price4"
-                                                placeholder="Enter" value="{{ $edit->price4 }}" />
+                                            <input type="text" class="form-control" name="price4" placeholder="Enter"
+                                                value="{{ $edit->price4 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="basicInput">Qty</label>
-                                            <input type="number" class="form-control" id="basicInput" name="qty4"
-                                                placeholder="Enter" value="{{ $edit->qty4 }}" />
+                                            <input type="number" class="form-control" name="qty4" placeholder="Enter"
+                                                value="{{ $edit->qty4 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-12 col-md-12 col-12">
@@ -380,7 +380,7 @@
                                             <label class="form-label" for="basicInput">
                                                 Description
                                             </label>
-                                            <input type="text" class="form-control" id="basicInput" name="description5"
+                                            <input type="text" class="form-control" name="description5"
                                                 placeholder="Enter" autofocus value="{{ $edit->description5 }}" />
                                         </div>
                                     </div>
@@ -389,8 +389,8 @@
                                             <label class="form-label" for="basicInput">
                                                 Unit
                                             </label>
-                                            <input type="text" class="form-control" id="basicInput" name="unit5"
-                                                placeholder="Enter" autofocus value="{{ $edit->unit5 }}" />
+                                            <input type="text" class="form-control" name="unit5" placeholder="Enter"
+                                                autofocus value="{{ $edit->unit5 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
@@ -398,8 +398,8 @@
                                             <label class="form-label" for="helpInputTop">
                                                 Price
                                             </label>
-                                            <input type="number" class="form-control" id="basicInput" name="price5"
-                                                placeholder="Enter" autofocus value="{{ $edit->price5 }}" />
+                                            <input type="number" class="form-control" name="price5" placeholder="Enter"
+                                                autofocus value="{{ $edit->price5 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
@@ -407,8 +407,8 @@
                                             <label class="form-label" for="basicInput">
                                                 Qty
                                             </label>
-                                            <input type="number" class="form-control" id="basicInput" name="qty5"
-                                                placeholder="Enter" autofocus value="{{ $edit->qty5 }}" />
+                                            <input type="number" class="form-control" name="qty5" placeholder="Enter"
+                                                autofocus value="{{ $edit->qty5 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-12 col-md-12 col-12">
@@ -439,7 +439,7 @@
                                             <label class="form-label" for="basicInput">
                                                 Description
                                             </label>
-                                            <input type="text" class="form-control" id="basicInput" name="description6"
+                                            <input type="text" class="form-control" name="description6"
                                                 placeholder="Enter" autofocus value="{{ $edit->description6 }}" />
                                         </div>
                                     </div>
@@ -448,8 +448,8 @@
                                             <label class="form-label" for="basicInput">
                                                 Unit
                                             </label>
-                                            <input type="text" class="form-control" id="basicInput" name="unit6"
-                                                placeholder="Enter" autofocus value="{{ $edit->unit6 }}" />
+                                            <input type="text" class="form-control" name="unit6" placeholder="Enter"
+                                                autofocus value="{{ $edit->unit6 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
@@ -457,8 +457,8 @@
                                             <label class="form-label" for="helpInputTop">
                                                 Price
                                             </label>
-                                            <input type="number" class="form-control" id="basicInput" name="price6"
-                                                placeholder="Enter" autofocus value="{{ $edit->price6 }}" />
+                                            <input type="number" class="form-control" name="price6" placeholder="Enter"
+                                                autofocus value="{{ $edit->price6 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
@@ -466,8 +466,8 @@
                                             <label class="form-label" for="basicInput">
                                                 Qty
                                             </label>
-                                            <input type="number" class="form-control" id="basicInput" name="qty6"
-                                                placeholder="Enter" autofocus value="{{ $edit->qty6 }}" />
+                                            <input type="number" class="form-control" name="qty6" placeholder="Enter"
+                                                autofocus value="{{ $edit->qty6 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-12 col-md-12 col-12">
@@ -498,7 +498,7 @@
                                             <label class="form-label" for="basicInput">
                                                 Description
                                             </label>
-                                            <input type="text" class="form-control" id="basicInput" name="description7"
+                                            <input type="text" class="form-control" name="description7"
                                                 placeholder="Enter" autofocus value="{{ $edit->description7 }}" />
                                         </div>
                                     </div>
@@ -507,8 +507,8 @@
                                             <label class="form-label" for="basicInput">
                                                 Unit
                                             </label>
-                                            <input type="text" class="form-control" id="basicInput" name="unit7"
-                                                placeholder="Enter" autofocus value="{{ $edit->unit7 }}" />
+                                            <input type="text" class="form-control" name="unit7" placeholder="Enter"
+                                                autofocus value="{{ $edit->unit7 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
@@ -516,8 +516,8 @@
                                             <label class="form-label" for="helpInputTop">
                                                 Price
                                             </label>
-                                            <input type="number" class="form-control" id="basicInput" name="price7"
-                                                placeholder="Enter" autofocus value="{{ $edit->price7 }}" />
+                                            <input type="number" class="form-control" name="price7" placeholder="Enter"
+                                                autofocus value="{{ $edit->price7 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
@@ -525,8 +525,8 @@
                                             <label class="form-label" for="basicInput">
                                                 Qty
                                             </label>
-                                            <input type="number" class="form-control" id="basicInput" name="qty7"
-                                                placeholder="Enter" autofocus value="{{ $edit->qty7 }}" />
+                                            <input type="number" class="form-control" name="qty7" placeholder="Enter"
+                                                autofocus value="{{ $edit->qty7 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-12 col-md-12 col-12">
@@ -557,7 +557,7 @@
                                             <label class="form-label" for="basicInput">
                                                 Description
                                             </label>
-                                            <input type="text" class="form-control" id="basicInput" name="description8"
+                                            <input type="text" class="form-control" name="description8"
                                                 placeholder="Enter" autofocus value="{{ $edit->description8 }}" />
                                         </div>
                                     </div>
@@ -566,8 +566,8 @@
                                             <label class="form-label" for="basicInput">
                                                 Unit
                                             </label>
-                                            <input type="text" class="form-control" id="basicInput" name="unit8"
-                                                placeholder="Enter" autofocus value="{{ $edit->unit8 }}" />
+                                            <input type="text" class="form-control" name="unit8" placeholder="Enter"
+                                                autofocus value="{{ $edit->unit8 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
@@ -575,8 +575,8 @@
                                             <label class="form-label" for="helpInputTop">
                                                 Price
                                             </label>
-                                            <input type="number" class="form-control" id="basicInput" name="price8"
-                                                placeholder="Enter" autofocus value="{{ $edit->price8 }}" />
+                                            <input type="number" class="form-control" name="price8" placeholder="Enter"
+                                                autofocus value="{{ $edit->price8 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-md-6 col-12">
@@ -584,8 +584,8 @@
                                             <label class="form-label" for="basicInput">
                                                 Qty
                                             </label>
-                                            <input type="number" class="form-control" id="basicInput" name="qty8"
-                                                placeholder="Enter" autofocus value="{{ $edit->qty8 }}" />
+                                            <input type="number" class="form-control" name="qty8" placeholder="Enter"
+                                                autofocus value="{{ $edit->qty8 }}" />
                                         </div>
                                     </div>
                                     <div class="col-xl-12 col-md-12 col-12">
@@ -624,8 +624,8 @@
                         <div class="col-xl-4 col-md-6 col-12">
                             <div class="mb-1">
                                 <label class="form-label" for="basicInput">Dari</label>
-                                <input type="text" class="form-control" id="basicInput" name="from_id"
-                                    placeholder="Enter" required value="{{ $edit->user->name }}" readonly />
+                                <input type="text" class="form-control" name="from_id" placeholder="Enter" required
+                                    value="{{ $edit->user->name }}" readonly />
                             </div>
                         </div>
                         <div class="col-xl-4 col-md-6 col-12">
@@ -672,8 +672,8 @@
                             <div class="mb-1">
                                 <label class="form-label" for="basicInput">Tanggal
                                     Kebutuhan</label>
-                                <input type="date" class="form-control" id="basicInput" placeholder="Enter"
-                                    name="tanggal_kebutuhan" required value="{{ $edit->tanggal_kebutuhan }}" />
+                                <input type="date" class="form-control" placeholder="Enter" name="tanggal_kebutuhan"
+                                    required value="{{ $edit->tanggal_kebutuhan }}" />
                             </div>
                         </div>
                         <div class="col-xl-4 col-md-6 col-12">
@@ -681,7 +681,8 @@
                                 <label class="form-label" for="helpInputTop">Ditujukan Untuk</label>
                                 <select class="form-select @error('rujukan_id') is-invalid @enderror" id="selectDefault"
                                     name="rujukan_id" required>
-                                    <option selected>Open this select</option> @foreach ($rujukan as $item)
+                                    <option selected>Open this select</option>
+                                    @foreach ($rujukan as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                     @endforeach
                                 </select>
@@ -729,8 +730,8 @@
                                 <label class="form-label" for="basicInput">
                                     No. Project
                                 </label>
-                                <input type="text" class="form-control" id="basicInput" name="no_project"
-                                    placeholder="Enter" autofocus value="{{ $edit->no_project }}" />
+                                <input type="text" class="form-control" name="no_project" placeholder="Enter" autofocus
+                                    value="{{ $edit->no_project }}" />
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-6 col-12 d-none" id="t2">
@@ -738,8 +739,8 @@
                                 <label class="form-label" for="basicInput">
                                     Jumlah Peserta
                                 </label>
-                                <input type="number" class="form-control" id="basicInput" name="j_peserta"
-                                    placeholder="Enter" autofocus value="{{ $edit->j_peserta }}" />
+                                <input type="number" class="form-control" name="j_peserta" placeholder="Enter" autofocus
+                                    value="{{ $edit->j_peserta }}" />
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-6 col-12 d-none" id="t3">
@@ -747,8 +748,8 @@
                                 <label class="form-label" for="helpInputTop">
                                     Jumlah Trainer / Asesor
                                 </label>
-                                <input type="number" class="form-control" id="basicInput" name="j_traine_asesor"
-                                    placeholder="Enter" autofocus value="{{ $edit->j_traine_asesor }}" />
+                                <input type="number" class="form-control" name="j_traine_asesor" placeholder="Enter"
+                                    autofocus value="{{ $edit->j_traine_asesor }}" />
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-6 col-12 d-none" id="t4">
@@ -756,13 +757,14 @@
                                 <label class="form-label" for="basicInput">
                                     Jumlah Assist
                                 </label>
-                                <input type="number" class="form-control" id="basicInput" name="j_assist"
-                                    placeholder="Enter" autofocus value="{{ $edit->j_assist }}" />
+                                <input type="number" class="form-control" name="j_assist" placeholder="Enter" autofocus
+                                    value="{{ $edit->j_assist }}" />
                             </div>
                         </div>
 
                         <div class="col-xl-12 col-md-12 col-12">
                             <div class="accordion mt-3" id="accordionExample">
+
                                 <div class="card accordion-item active">
                                     <h2 class="accordion-header" id="headingOne">
                                         <button type="button" class="accordion-button" data-bs-toggle="collapse"
@@ -778,31 +780,30 @@
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="basicInput">Description</label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="description" placeholder="Enter"
-                                                            value="{{ $edit->description }}" />
+                                                        <input type="text" class="form-control" name="description"
+                                                            placeholder="Enter" value="{{ $edit->description }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="basicInput">Unit</label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="unit" placeholder="Enter" value="{{ $edit->unit }}" />
+                                                        <input type="text" class="form-control" name="unit"
+                                                            placeholder="Enter" value="{{ $edit->unit }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
-                                                        <label class="form-label" for="helpInputTop">Price</label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="price" placeholder="Enter"
-                                                            value="{{ $edit->price }}" />
+                                                        <label class="form-label" for="helpInputTop">Price Rp.</label>
+                                                        <input type="text" class="form-control" name="price"
+                                                            placeholder="Enter" value=" {{ $edit->price}}"
+                                                            id="tanpa-rupiah" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="basicInput">Qty</label>
-                                                        <input type="number" class="form-control" id="basicInput"
-                                                            name="qty" placeholder="Enter" value="{{ $edit->qty }}" />
+                                                        <input type="number" class="form-control" name="qty"
+                                                            placeholder="Enter" value="{{ $edit->qty}}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-12 col-md-12 col-12">
@@ -838,32 +839,30 @@
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="basicInput">Description</label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="description2" placeholder="Enter"
-                                                            value="{{ $edit->description2 }}" />
+                                                        <input type="text" class="form-control" name="description2"
+                                                            placeholder="Enter" value="{{ $edit->description2 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="basicInput">Unit</label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="unit2" placeholder="Enter"
-                                                            value="{{ $edit->unit2 }}" />
+                                                        <input type="text" class="form-control" name="unit2"
+                                                            placeholder="Enter" value="{{ $edit->unit2 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
-                                                        <label class="form-label" for="helpInputTop">Price</label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="price2" placeholder="Enter"
-                                                            value="{{ $edit->price2 }}" />
+                                                        <label class="form-label" for="helpInputTop">Price Rp.</label>
+                                                        <input type="text" class="form-control" name="price2"
+                                                            placeholder="Enter" value="{{ $edit->price2}}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="basicInput">Qty</label>
-                                                        <input type="number" class="form-control" id="basicInput"
-                                                            name="qty2" placeholder="Enter" value="{{ $edit->qty2 }}" />
+                                                        <input type="text" class="form-control" name="qty2"
+                                                            placeholder="Enter" value="{{ $edit->qty2 }}"
+                                                            id="tanpa-rupiah2" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-12 col-md-12 col-12">
@@ -898,32 +897,30 @@
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="basicInput">Description</label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="description3" placeholder="Enter"
-                                                            value="{{ $edit->description3 }}" />
+                                                        <input type="text" class="form-control" name="description3"
+                                                            placeholder="Enter" value="{{ $edit->description3 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="basicInput">Unit</label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="unit3" placeholder="Enter"
-                                                            value="{{ $edit->unit3 }}" />
+                                                        <input type="text" class="form-control" name="unit3"
+                                                            placeholder="Enter" value="{{ $edit->unit3 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
-                                                        <label class="form-label" for="helpInputTop">Price</label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="price3" placeholder="Enter"
-                                                            value="{{ $edit->price3 }}" />
+                                                        <label class="form-label" for="helpInputTop">Price Rp.</label>
+                                                        <input type="text" class="form-control" name="price3"
+                                                            placeholder="Enter" value="{{ $edit->price3}}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="basicInput">Qty</label>
-                                                        <input type="number" class="form-control" id="basicInput"
-                                                            name="qty3" placeholder="Enter" value="{{ $edit->qty3 }}" />
+                                                        <input type="text" class="form-control" name="qty3"
+                                                            placeholder="Enter" value="{{ $edit->qty3 }}"
+                                                            id="tanpa-rupiah3" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-12 col-md-12 col-12">
@@ -958,32 +955,30 @@
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="basicInput">Description</label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="description4" placeholder="Enter"
-                                                            value="{{ $edit->description4 }}" />
+                                                        <input type="text" class="form-control" name="description4"
+                                                            placeholder="Enter" value="{{ $edit->description4 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="basicInput">Unit</label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="unit4" placeholder="Enter"
-                                                            value="{{ $edit->unit4 }}" />
+                                                        <input type="text" class="form-control" name="unit4"
+                                                            placeholder="Enter" value="{{ $edit->unit4 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
-                                                        <label class="form-label" for="helpInputTop">Price</label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="price4" placeholder="Enter"
-                                                            value="{{ $edit->price4 }}" />
+                                                        <label class="form-label" for="helpInputTop">Price Rp.</label>
+                                                        <input type="text" class="form-control" name="price4"
+                                                            placeholder="Enter" value="{{ $edit->price4}}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="basicInput">Qty</label>
-                                                        <input type="number" class="form-control" id="basicInput"
-                                                            name="qty4" placeholder="Enter" value="{{ $edit->qty4 }}" />
+                                                        <input type="text" class="form-control" name="qty4"
+                                                            placeholder="Enter" value="{{ $edit->qty4 }}"
+                                                            id="tanpa-rupiah4" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-12 col-md-12 col-12">
@@ -1020,8 +1015,8 @@
                                                         <label class="form-label" for="basicInput">
                                                             Description
                                                         </label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="description5" placeholder="Enter" autofocus
+                                                        <input type="text" class="form-control" name="description5"
+                                                            placeholder="Enter" autofocus
                                                             value="{{ $edit->description5 }}" />
                                                     </div>
                                                 </div>
@@ -1030,19 +1025,18 @@
                                                         <label class="form-label" for="basicInput">
                                                             Unit
                                                         </label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="unit5" placeholder="Enter" autofocus
-                                                            value="{{ $edit->unit5 }}" />
+                                                        <input type="text" class="form-control" name="unit5"
+                                                            placeholder="Enter" autofocus value="{{ $edit->unit5 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="helpInputTop">
-                                                            Price
+                                                            Price Rp.
                                                         </label>
-                                                        <input type="number" class="form-control" id="basicInput"
-                                                            name="price5" placeholder="Enter" autofocus
-                                                            value="{{ $edit->price5 }}" />
+                                                        <input type="text" class="form-control" name="price5"
+                                                            placeholder="Enter" autofocus value="{{ $edit->price5}}"
+                                                            id="tanpa-rupiah5" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -1050,9 +1044,8 @@
                                                         <label class="form-label" for="basicInput">
                                                             Qty
                                                         </label>
-                                                        <input type="number" class="form-control" id="basicInput"
-                                                            name="qty5" placeholder="Enter" autofocus
-                                                            value="{{ $edit->qty5 }}" />
+                                                        <input type="number" class="form-control" name="qty5"
+                                                            placeholder="Enter" autofocus value="{{ $edit->qty5 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-12 col-md-12 col-12">
@@ -1089,8 +1082,8 @@
                                                         <label class="form-label" for="basicInput">
                                                             Description
                                                         </label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="description6" placeholder="Enter" autofocus
+                                                        <input type="text" class="form-control" name="description6"
+                                                            placeholder="Enter" autofocus
                                                             value="{{ $edit->description6 }}" />
                                                     </div>
                                                 </div>
@@ -1099,19 +1092,18 @@
                                                         <label class="form-label" for="basicInput">
                                                             Unit
                                                         </label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="unit6" placeholder="Enter" autofocus
-                                                            value="{{ $edit->unit6 }}" />
+                                                        <input type="text" class="form-control" name="unit6"
+                                                            placeholder="Enter" autofocus value="{{ $edit->unit6 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="helpInputTop">
-                                                            Price
+                                                            Price Rp.
                                                         </label>
-                                                        <input type="number" class="form-control" id="basicInput"
-                                                            name="price6" placeholder="Enter" autofocus
-                                                            value="{{ $edit->price6 }}" />
+                                                        <input type="text" class="form-control" name="price6"
+                                                            placeholder="Enter" autofocus value="{{ $edit->price6}}"
+                                                            id="tanpa-rupiah6" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -1119,9 +1111,8 @@
                                                         <label class="form-label" for="basicInput">
                                                             Qty
                                                         </label>
-                                                        <input type="number" class="form-control" id="basicInput"
-                                                            name="qty6" placeholder="Enter" autofocus
-                                                            value="{{ $edit->qty6 }}" />
+                                                        <input type="number" class="form-control" name="qty6"
+                                                            placeholder="Enter" autofocus value="{{ $edit->qty6 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-12 col-md-12 col-12">
@@ -1158,8 +1149,8 @@
                                                         <label class="form-label" for="basicInput">
                                                             Description
                                                         </label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="description7" placeholder="Enter" autofocus
+                                                        <input type="text" class="form-control" name="description7"
+                                                            placeholder="Enter" autofocus
                                                             value="{{ $edit->description7 }}" />
                                                     </div>
                                                 </div>
@@ -1168,19 +1159,18 @@
                                                         <label class="form-label" for="basicInput">
                                                             Unit
                                                         </label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="unit7" placeholder="Enter" autofocus
-                                                            value="{{ $edit->unit7 }}" />
+                                                        <input type="text" class="form-control" name="unit7"
+                                                            placeholder="Enter" autofocus value="{{ $edit->unit7 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="helpInputTop">
-                                                            Price
+                                                            Price Rp.
                                                         </label>
-                                                        <input type="number" class="form-control" id="basicInput"
-                                                            name="price7" placeholder="Enter" autofocus
-                                                            value="{{ $edit->price7 }}" />
+                                                        <input type="text" class="form-control" name="price7"
+                                                            placeholder="Enter" autofocus value="{{ $edit->price7}}"
+                                                            id="tanpa-rupiah7" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -1188,9 +1178,8 @@
                                                         <label class="form-label" for="basicInput">
                                                             Qty
                                                         </label>
-                                                        <input type="number" class="form-control" id="basicInput"
-                                                            name="qty7" placeholder="Enter" autofocus
-                                                            value="{{ $edit->qty7 }}" />
+                                                        <input type="number" class="form-control" name="qty7"
+                                                            placeholder="Enter" autofocus value="{{ $edit->qty7 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-12 col-md-12 col-12">
@@ -1227,8 +1216,8 @@
                                                         <label class="form-label" for="basicInput">
                                                             Description
                                                         </label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="description8" placeholder="Enter" autofocus
+                                                        <input type="text" class="form-control" name="description8"
+                                                            placeholder="Enter" autofocus
                                                             value="{{ $edit->description8 }}" />
                                                     </div>
                                                 </div>
@@ -1237,19 +1226,18 @@
                                                         <label class="form-label" for="basicInput">
                                                             Unit
                                                         </label>
-                                                        <input type="text" class="form-control" id="basicInput"
-                                                            name="unit8" placeholder="Enter" autofocus
-                                                            value="{{ $edit->unit8 }}" />
+                                                        <input type="text" class="form-control" name="unit8"
+                                                            placeholder="Enter" autofocus value="{{ $edit->unit8}}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="helpInputTop">
-                                                            Price
+                                                            Price Rp.
                                                         </label>
-                                                        <input type="number" class="form-control" id="basicInput"
-                                                            name="price8" placeholder="Enter" autofocus
-                                                            value="{{ $edit->price8 }}" />
+                                                        <input type="text" class="form-control" name="price8"
+                                                            placeholder="Enter" autofocus value="{{ $edit->price8}}"
+                                                            id="tanpa-rupiah8" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -1257,9 +1245,8 @@
                                                         <label class="form-label" for="basicInput">
                                                             Qty
                                                         </label>
-                                                        <input type="number" class="form-control" id="basicInput"
-                                                            name="qty8" placeholder="Enter" autofocus
-                                                            value="{{ $edit->qty8 }}" />
+                                                        <input type="number" class="form-control" name="qty8"
+                                                            placeholder="Enter" autofocus value="{{ $edit->qty8 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-12 col-md-12 col-12">
@@ -1290,7 +1277,6 @@
         </div>
     </div>
 </div>
-
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <!-- Optional JavaScript; choose one of the two! -->
@@ -1327,4 +1313,191 @@
         }
     }
 </script>
+
+<script>
+    /* Tanpa Rupiah */
+    var tanpa_rupiah = document.getElementById('tanpa-rupiah');
+    tanpa_rupiah.addEventListener('keyup', function (e) {
+        tanpa_rupiah.value = formatRupiah(this.value);
+    });
+
+    /* Fungsi */
+    function formatRupiah(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+</script>
+
+<script>
+    var tanpa_rupiah2 = document.getElementById('tanpa-rupiah2');
+        tanpa_rupiah2.addEventListener('keyup', function (e) {
+            tanpa_rupiah2.value = formatRupiah2(this.value);
+        });
+
+        /* Fungsi */
+        function formatRupiah2(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+
+        var tanpa_rupiah4 = document.getElementById('tanpa-rupiah4');
+        tanpa_rupiah4.addEventListener('keyup', function (e) {
+            tanpa_rupiah4.value = formatRupiah4(this.value);
+        });
+
+        /* Fungsi */
+        function formatRupiah4(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+
+        var tanpa_rupiah5 = document.getElementById('tanpa-rupiah5');
+        tanpa_rupiah5.addEventListener('keyup', function (e) {
+            tanpa_rupiah5.value = formatRupiah5(this.value);
+        });
+
+        /* Fungsi */
+        function formatRupiah5(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+        var tanpa_rupiah6 = document.getElementById('tanpa-rupiah6');
+        tanpa_rupiah6.addEventListener('keyup', function (e) {
+            tanpa_rupiah6.value = formatRupiah6(this.value);
+        });
+
+        /* Fungsi */
+        function formatRupiah6(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+        var tanpa_rupiah7 = document.getElementById('tanpa-rupiah7');
+        tanpa_rupiah7.addEventListener('keyup', function (e) {
+            tanpa_rupiah7.value = formatRupiah7(this.value);
+        });
+
+        /* Fungsi */
+        function formatRupiah7(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+        var tanpa_rupiah8 = document.getElementById('tanpa-rupiah8');
+        tanpa_rupiah8.addEventListener('keyup', function (e) {
+            tanpa_rupiah8.value = formatRupiah8(this.value);
+        });
+
+        /* Fungsi */
+        function formatRupiah8(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+
+        $(document).ready(function(){
+            // Format mata uang.
+            $( '#uang' ).mask('000.000.000', {reverse: true});
+        })
+
+</script>
+
+<script>
+    var tanpa_rupiah3 = document.getElementById('tanpa-rupiah3');
+    tanpa_rupiah3.addEventListener('keyup', function (e) {
+        tanpa_rupiah3.value = formatRupiah3(this.value);
+    });
+
+    /* Fungsi */
+    function formatRupiah3(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+</script>
+
 @endsection

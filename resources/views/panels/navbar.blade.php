@@ -18,12 +18,16 @@
         <ul class="navbar-nav flex-row align-items-center ms-auto">
             <!-- User -->
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                <a class="nav-link dropdown-toggle hide-arrow" href="#" data-bs-toggle="dropdown">
+                <div class="flex-grow-5">
+                    <span class="fw-medium" style="color: white">Hi, &nbsp;{{ Auth::user()->name }}</span>
+                    {{-- <small class="text-muted">{{ Auth::user()->email }}</small> --}}
+                </div>
+                {{-- <a class="nav-link dropdown-toggle hide-arrow" href="#" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
                         <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}?background=0D8ABC&color=fff"
                             alt class="h-auto rounded-circle" />
                     </div>
-                </a>
+                </a> --}}
 
                 {{-- <ul class="dropdown-menu dropdown-menu-end">
                     <li>

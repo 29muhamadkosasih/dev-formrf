@@ -8,13 +8,13 @@
         <div class="col-12">
             @foreach ($user as $data)
             <div class="card">
-                {{-- <div class="card-header">
+                <div class="card-header justify-content-end d-flex-end">
                     <h4 class="card-title mb-50"></h4>
                     <a href="{{ route('me.edit', $data->id) }}" class="btn btn-primary btn-sm">
                         <i data-feather='edit'></i>
                         Edit Profile
                     </a>
-                </div> --}}
+                </div>
                 <div class="card-body">
                     <div class="user-avatar-section">
                         <div class="d-flex align-items-center flex-column">

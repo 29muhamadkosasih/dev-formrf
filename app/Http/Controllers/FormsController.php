@@ -212,7 +212,7 @@ class FormsController extends Controller
             'data' => $data
         ]);
         $pdf->set_paper('letter', 'landscape');
-        return $pdf->stream('laporan-pegawai-pdf');
+        return $pdf->download('laporan-request-fund.pdf');
     }
 
     public function cetak_pdf2($from, $to)
@@ -225,6 +225,6 @@ class FormsController extends Controller
             'data' => $data
         ]);
         $pdf->set_paper('letter', 'landscape');
-        return $pdf->stream('laporan-pegawai-pdf');
+        return $pdf->download('laporan-request-fund.pdf');
     }
 }

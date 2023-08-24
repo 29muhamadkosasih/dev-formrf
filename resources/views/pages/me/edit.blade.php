@@ -5,7 +5,7 @@
     <div class="row">
         <div class="offset-2 col-8">
             <div class="card">
-                <div class="card-header border-bottom">
+                <div class="card-header">
                     <h4 class="card-title">Profile Details</h4>
                 </div>
                 <div class="card-body py-2 my-25">
@@ -24,24 +24,28 @@
                                 <input type="email" class="form-control" id="accountEmail" name="email"
                                     placeholder="Email" value="{{ $edit->email }}" />
                             </div>
-                            <div class="col-12 col-sm-6 mb-1">
-                                <label class="form-label" for="accountLastName">Password</label>
-                                <input type="Password" class="form-control" id="accountLastName" name="password"
-                                    placeholder="Doe" value="{{ $edit->password }}" data-msg="Please enter last name" />
+                            {{-- <input type="hidden"> --}}
+                            <div class="col-12 col-sm-12 mb-1">
+                                <div class="form-password-toggle">
+                                    <div class="d-flex justify-content-between">
+                                        <label class="form-label" for="password">Password</label>
+                                    </div>
+                                    <div class="input-group input-group-merge">
+                                        <input type="password" id="password"
+                                            class="form-control @error('password') is-invalid @enderror"
+                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                            name="password" required autocomplete="current-password" />
+                                        <span class="input-group-text cursor-pointer"><i
+                                                class="ti ti-eye-off"></i></span>
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-12 col-sm-6 mb-1">
-                                <label for="language" class="form-label">Jabatan</label>
-                                <select id="language" class="select2 form-select" name="jabatan_id">
-                                    <option>{{ $edit->jabatan->jabatan }}</option>
-                                    <option value="1">General</option>
-                                    <option value="2">Cashier</option>
-                                    <option value="3">Supervisor</option>
-                                    <option value="4">Finance</option>
-                                    <option value="5">Manager</option>
-                                    <option value="6">Direktor</option>
-                                </select>
-                            </div>
-                            <div class="col-12" style="text-align: right">
+                            <div class="col-12 mb-3" style="text-align: right">
                                 <a href="{{ route('me.index') }}" class="btn btn-outline-secondary mt-1 me-1">Back</a>
                                 <button type="submit" class="btn btn-primary mt-1 ">Save changes</button>
                             </div>

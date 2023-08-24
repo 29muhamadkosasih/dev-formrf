@@ -53,6 +53,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('form-approve/detail/{id}', [ApproveController::class, 'detail'])->name('form-approve.detail');
     Route::get('form-approve/view/{id}', [ApproveController::class, 'view'])->name('form-approve.view');
     Route::get('form-approve/viewDetail/{id}', [ApproveController::class, 'viewDetail'])->name('form-approve.viewDetail');
+    Route::get('form-approve/viewDetailShow/{id}', [ApproveController::class, 'viewDetailShow'])->name('form-approve.viewDetailShow');
     Route::get('form/detail/{id}', [FormController::class, 'detail'])->name('form.detail');
     Route::get('formspv/detail/{id}', [FspvController::class, 'detail'])->name('form-spv.detail');
     Route::get('forman/detail/{id}', [FmanController::class, 'detail'])->name('form-man.detail');

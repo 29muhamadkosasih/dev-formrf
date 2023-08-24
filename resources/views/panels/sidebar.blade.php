@@ -57,6 +57,16 @@
             </a>
         </li>
         @endcan
+
+        @can('profile.index')
+        <li
+            class="menu-item {{ Route::currentRouteNamed('profile.index','profile.edit','profile.show') ? 'active' : '' }}">
+            <a href="{{ route('me.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-user"></i>
+                <div data-i18n="Profile">Profile</div>
+            </a>
+        </li>
+        @endcan
         <!-- Apps & Pages -->
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text"> <b>Form RF</b> </span>
@@ -67,16 +77,6 @@
             <a href="{{ route('layout.empty') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-mail"></i>
                 <div data-i18n="Layout Empty">Layout Empty</div>
-            </a>
-        </li>
-        @endcan
-
-        @can('profile.index')
-        <li
-            class="menu-item {{ Route::currentRouteNamed('profile.index','profile.edit','profile.show') ? 'active' : '' }}">
-            <a href="{{ route('me.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-user"></i>
-                <div data-i18n="Profile">Profile</div>
             </a>
         </li>
         @endcan
@@ -336,12 +336,12 @@
 
         @endcanany
     </ul>
-    <footer class="content-footer footer bg-footer-theme">
-        <ul class="menu-inner py-3">
+    <footer class="content-footer footer bg-footer-theme bg-primary">
+        <ul class="menu-inner py-2">
             <li class="menu-item">
                 <a href="#" onclick="$('#logout-form').submit();" class="menu-link">
-                    <i class="menu-icon tf-icons ti ti-logout"></i>
-                    <div data-i18n="Logout">Logout</div>
+                    <i class="menu-icon tf-icons ti ti-logout " style="color: black"></i>
+                    <div data-i18n="Logout" style="color: black">Logout</div>
                 </a>
             </li>
         </ul>

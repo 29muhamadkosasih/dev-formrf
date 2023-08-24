@@ -60,18 +60,71 @@ class FmanController extends Controller
             'price' => 'required',
             'departement_id' => 'required|numeric',
             'kpengajuan_id' => 'required|numeric',
-            'payment' => 'required',
+            'payment' => ['required', 'in:Cash,Transfer'],
             'rujukan_id' => 'required|numeric',
             'keperluan_id' => 'required|numeric',
         ]);
-        $total = $request->qty * $request->price;
-        $total2 = $request->qty2 * $request->price2;
-        $total3 = $request->qty3 * $request->price3;
-        $total4 = $request->qty4 * $request->price4;
-        $total5 = $request->qty * $request->price5;
-        $total6 = $request->qty * $request->price6;
-        $total7 = $request->qty * $request->price7;
-        $total8 = $request->qty * $request->price8;
+        $amount = $request->input('price');
+        $amountWithoutDots = str_replace('.', '', $amount);
+        $amount2 = $request->price2;
+        if ($amount2 == NULL) {
+            $amountWithoutDots2 = NULL;
+        } else {
+            $amountWithoutDots2 = str_replace('.', '', $amount2);
+        }
+
+        $amount3 = $request->price3;
+        if ($amount3 == NULL) {
+            $amountWithoutDots3 = NULL;
+        } else {
+            $amountWithoutDots3 = str_replace('.', '', $amount3);
+        }
+
+
+        $amount4 = $request->price4;
+        if ($amount4 == NULL) {
+            $amountWithoutDots4 = NULL;
+        } else {
+            $amountWithoutDots4 = str_replace('.', '', $amount4);
+        }
+
+        $amount5 = $request->price5;
+        if ($amount5 == NULL) {
+            $amountWithoutDots5 = NULL;
+        } else {
+            $amountWithoutDots5 = str_replace('.', '', $amount5);
+        }
+
+        $amount6 = $request->price6;
+        if ($amount6 == NULL) {
+            $amountWithoutDots6 = NULL;
+        } else {
+            $amountWithoutDots6 = str_replace('.', '', $amount6);
+        }
+
+        $amount7 = $request->price7;
+        if ($amount7 == NULL) {
+            $amountWithoutDots7 = NULL;
+        } else {
+            $amountWithoutDots7 = str_replace('.', '', $amount7);
+        }
+
+        $amount8 = $request->price8;
+        if ($amount8 == NULL) {
+            $amountWithoutDots8 = NULL;
+        } else {
+            $amountWithoutDots8 = str_replace('.', '', $amount8);
+        }
+
+        $total = $request->qty * $amountWithoutDots;
+        $total2 = $request->qty2 * $amountWithoutDots2;
+        $total3 = $request->qty3 * $amountWithoutDots3;
+        $total4 = $request->qty4 * $amountWithoutDots4;
+        $total5 = $request->qty5 * $amountWithoutDots5;
+        $total6 = $request->qty6 * $amountWithoutDots6;
+        $total7 = $request->qty7 * $amountWithoutDots7;
+        $total8 = $request->qty8 * $amountWithoutDots8;
+
         $jumlah = $total + $total2;
         $jumlah2 = $total3 + $total4;
         $jumlah3 = $total5 + $total6;
@@ -223,42 +276,42 @@ class FmanController extends Controller
             'description' => $request->description,
             'unit' => $request->unit,
             'qty' => $request->qty,
-            'price' => $request->price,
+            'price' => $amountWithoutDots,
             'total' => $total,
             'description2' => $request->description2,
             'unit2' => $request->unit2,
             'qty2' => $request->qty2,
-            'price2' => $request->price2,
+            'price2' => $amountWithoutDots2,
             'total2' => $total2,
             'description3' => $request->description3,
             'unit3' => $request->unit3,
             'qty3' => $request->qty3,
-            'price3' => $request->price3,
+            'price3' => $amountWithoutDots3,
             'total3' => $total3,
             'description4' => $request->description4,
             'unit4' => $request->unit4,
             'qty4' => $request->qty4,
-            'price4' => $request->price4,
+            'price4' => $amountWithoutDots4,
             'total4' => $total4,
             'description5' => $request->description5,
             'unit5' => $request->unit5,
             'qty5' => $request->qty5,
-            'price5' => $request->price5,
+            'price5' => $amountWithoutDots5,
             'total5' => $total5,
             'description6' => $request->description6,
             'unit6' => $request->unit6,
             'qty6' => $request->qty6,
-            'price6' => $request->price6,
+            'price6' => $amountWithoutDots6,
             'total6' => $total6,
             'description7' => $request->description7,
             'unit7' => $request->unit7,
             'qty7' => $request->qty7,
-            'price7' => $request->price7,
+            'price7' => $amountWithoutDots7,
             'total7' => $total7,
             'description8' => $request->description8,
             'unit8' => $request->unit8,
             'qty8' => $request->qty8,
-            'price8' => $request->price8,
+            'price8' => $amountWithoutDots8,
             'total8' => $total8,
             'jumlah_total' => $jumlah_total_akhir,
             'norek_id' => $request->norek_id,
@@ -271,12 +324,13 @@ class FmanController extends Controller
             'image6' => $filename6,
             'image7' => $filename7,
             'image8' => $filename8,
-            'status' => 2,
+            'status' => 0,
             'no_project'  => $request->no_project,
             'j_peserta'  => $request->j_peserta,
             'j_traine_asesor'  => $request->j_traine_asesor,
             'j_assist'  => $request->j_assist
         ]);
+
 
         return redirect()->route('form-man.index')
             ->with(
@@ -321,43 +375,91 @@ class FmanController extends Controller
             'price' => 'required',
             'departement_id' => 'required|numeric',
             'kpengajuan_id' => 'required|numeric',
-            'payment' => 'required',
+            'payment' => ['required', 'in:Cash,Transfer'],
             'rujukan_id' => 'required|numeric',
             'keperluan_id' => 'required|numeric',
         ]);
+
         $data = Form::findOrFail($id);
         $userId = auth()->id();
         $username = Auth::user()->name;
         // dd($request);
-        $total = $request->qty * $request->price;
-        $total2 = $request->qty2 * $request->price2;
-        $total3 = $request->qty3 * $request->price3;
-        $total4 = $request->qty4 * $request->price4;
-        $total5 = $request->qty * $request->price5;
-        $total6 = $request->qty * $request->price6;
-        $total7 = $request->qty * $request->price7;
-        $total8 = $request->qty * $request->price8;
+        $amount = $request->input('price');
+        $amountWithoutDots = str_replace('.', '', $amount);
+        $amount2 = $request->price2;
+        if ($amount2 == NULL) {
+            $amountWithoutDots2 = NULL;
+        } else {
+            $amountWithoutDots2 = str_replace('.', '', $amount2);
+        }
+
+        $amount3 = $request->price3;
+        if ($amount3 == NULL) {
+            $amountWithoutDots3 = NULL;
+        } else {
+            $amountWithoutDots3 = str_replace('.', '', $amount3);
+        }
+
+
+        $amount4 = $request->price4;
+        if ($amount4 == NULL) {
+            $amountWithoutDots4 = NULL;
+        } else {
+            $amountWithoutDots4 = str_replace('.', '', $amount4);
+        }
+
+        $amount5 = $request->price5;
+        if ($amount5 == NULL) {
+            $amountWithoutDots5 = NULL;
+        } else {
+            $amountWithoutDots5 = str_replace('.', '', $amount5);
+        }
+
+        $amount6 = $request->price6;
+        if ($amount6 == NULL) {
+            $amountWithoutDots6 = NULL;
+        } else {
+            $amountWithoutDots6 = str_replace('.', '', $amount6);
+        }
+
+        $amount7 = $request->price7;
+        if ($amount7 == NULL) {
+            $amountWithoutDots7 = NULL;
+        } else {
+            $amountWithoutDots7 = str_replace('.', '', $amount7);
+        }
+
+        $amount8 = $request->price8;
+        if ($amount8 == NULL) {
+            $amountWithoutDots8 = NULL;
+        } else {
+            $amountWithoutDots8 = str_replace('.', '', $amount8);
+        }
+
+        $total = $request->qty * $amountWithoutDots;
+        $total2 = $request->qty2 * $amountWithoutDots2;
+        $total3 = $request->qty3 * $amountWithoutDots3;
+        $total4 = $request->qty4 * $amountWithoutDots4;
+        $total5 = $request->qty5 * $amountWithoutDots5;
+        $total6 = $request->qty6 * $amountWithoutDots6;
+        $total7 = $request->qty7 * $amountWithoutDots7;
+        $total8 = $request->qty8 * $amountWithoutDots8;
 
         $jumlah = $total + $total2;
         $jumlah2 = $total3 + $total4;
-
         $jumlah3 = $total5 + $total6;
         $jumlah4 = $total7 + $total8;
-
         $total_jumlah1 = $jumlah + $jumlah2;
         $total_jumlah2 = $jumlah3 + $jumlah4;
-
         $jumlah_akhir = $total_jumlah1 + $total_jumlah2;
-        // dd($jumlah);
 
-
-        $data2 = $request->norek_id;
-        if ($data2 == NULL) {
+        $data10 = $request->norek_id;
+        if ($data10 == NULL) {
             $jumlah_total_akhir = $jumlah_akhir + 0;
         } else {
-            $jumlah_total_akhir = $jumlah_akhir + 6500;
-        };
-        // dd($jumlah_total_akhir);
+            $jumlah_total_akhir = $jumlah_akhir + 0;
+        }
+
         $documentNumber = $username;
         $data2 = $request->image1;
         if ($data2 == NULL) {
@@ -365,7 +467,7 @@ class FmanController extends Controller
         } else {
             if ($request->hasFile('image1')) {
                 $this->validate($request, [
-                    'image1'          => 'image|mimes:jpeg,png,jpg,gif|max:15048',
+                    'image1'          => 'mimes:jpeg,png,jpg,gif,pdf|max:15048',
                 ]);
                 $file               = $request->file('image1');
                 $temp               = str_replace('/', '_', $documentNumber);
@@ -374,6 +476,7 @@ class FmanController extends Controller
                 $file->move($destinationPath, $filename1);
             }
         }
+
         $data3 = $request->image2;
         if ($data3 == NULL) {
             $filename2 = 0;
@@ -479,56 +582,59 @@ class FmanController extends Controller
                 $file->move($destinationPath, $filename8);
             }
         }
+
+        // dd($data);
         $data->update([
             'from_id' => $userId,
             'rujukan_id' => $request->rujukan_id,
             'kpengajuan_id' => $request->kpengajuan_id,
-            'departement_id' => $request->departement_id,
             'keperluan_id' => $request->keperluan_id,
+            'departement_id' => $request->departement_id,
             'tanggal_kebutuhan' => $request->tanggal_kebutuhan,
             'payment' => $request->payment,
             'description' => $request->description,
             'unit' => $request->unit,
             'qty' => $request->qty,
-            'price' => $request->price,
+            'price' => $amountWithoutDots,
             'total' => $total,
             'description2' => $request->description2,
             'unit2' => $request->unit2,
             'qty2' => $request->qty2,
-            'price2' => $request->price2,
+            'price2' => $amountWithoutDots2,
             'total2' => $total2,
             'description3' => $request->description3,
             'unit3' => $request->unit3,
             'qty3' => $request->qty3,
-            'price3' => $request->price3,
+            'price3' => $amountWithoutDots3,
             'total3' => $total3,
             'description4' => $request->description4,
             'unit4' => $request->unit4,
             'qty4' => $request->qty4,
-            'price4' => $request->price4,
+            'price4' => $amountWithoutDots4,
             'total4' => $total4,
             'description5' => $request->description5,
             'unit5' => $request->unit5,
             'qty5' => $request->qty5,
-            'price5' => $request->price5,
+            'price5' => $amountWithoutDots5,
             'total5' => $total5,
             'description6' => $request->description6,
             'unit6' => $request->unit6,
             'qty6' => $request->qty6,
-            'price6' => $request->price6,
+            'price6' => $amountWithoutDots6,
             'total6' => $total6,
             'description7' => $request->description7,
             'unit7' => $request->unit7,
             'qty7' => $request->qty7,
-            'price7' => $request->price7,
+            'price7' => $amountWithoutDots7,
             'total7' => $total7,
             'description8' => $request->description8,
             'unit8' => $request->unit8,
             'qty8' => $request->qty8,
-            'price8' => $request->price8,
+            'price8' => $amountWithoutDots8,
             'total8' => $total8,
             'jumlah_total' => $jumlah_total_akhir,
             'norek_id' => $request->norek_id,
+            // 'file' => $filename,
             'image1' => $filename1,
             'image2' => $filename2,
             'image3' => $filename3,
@@ -537,13 +643,12 @@ class FmanController extends Controller
             'image6' => $filename6,
             'image7' => $filename7,
             'image8' => $filename8,
+            'status' => 0,
             'no_project'  => $request->no_project,
             'j_peserta'  => $request->j_peserta,
             'j_traine_asesor'  => $request->j_traine_asesor,
             'j_assist'  => $request->j_assist
-
         ]);
-
         // dd($data);
         return redirect()->route('form-man.index')
             ->with(

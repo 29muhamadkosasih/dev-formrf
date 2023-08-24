@@ -117,7 +117,7 @@
                                 <span class="badge bg-danger">Cancel</span>
                                 @break
                                 @case($data->status == 4)
-                                <span class="badge bg-primary">Menuggu Konfirmasi Dana</span>
+                                <span class="badge bg-primary">Menunggu Konfirmasi Dana</span>
                                 @break
                                 @case($data->status == 5)
                                 <span class="badge bg-success">Konfirmasi Dana Masuk</span>
@@ -127,7 +127,7 @@
                                 <span class="badge bg-primary">Konfirmasi Pembayaran </span>
                                 @break
                                 @case($data->status == 7)
-                                <span class="badge bg-info">Menuggu Konfirmasi Pengembalian Dana </span>
+                                <span class="badge bg-info">Menunggu Konfirmasi Pengembalian Dana </span>
                                 @break
 
                                 @default

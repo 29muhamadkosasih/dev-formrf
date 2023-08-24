@@ -15,17 +15,17 @@ class ProfileController extends Controller
     {
         abort_if(Gate::denies('profile.index'), Response::HTTP_FORBIDDEN, 'Forbidden');
         $userId = auth()->id();
-        $user =User::where('id', $userId)->get();
-        return view('pages.me.index',[
-        'user'   =>$user
+        $user = User::where('id', $userId)->get();
+        return view('pages.me.index', [
+            'user'   => $user
         ]);
     }
 
     public function edit($id)
     {
         $edit = User::find($id);
-        return view('pages.me.edit',[
-            'edit'   =>$edit
+        return view('pages.me.edit', [
+            'edit'   => $edit
         ]);
     }
 
@@ -36,14 +36,12 @@ class ProfileController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'jabatan_id' => $request->jabatan_id,
         ]);
-            // dd($data);
+        // dd($data);
 
         // dd($data);
 
         return redirect()->route('me.index')
-        ->with('success', 'Congratulation !  Data Berhasil diupdate');
-
+            ->with('success', 'Congratulation !  Data Berhasil diupdate');
     }
 }

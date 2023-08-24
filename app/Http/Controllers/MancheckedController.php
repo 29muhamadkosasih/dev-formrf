@@ -52,7 +52,7 @@ class MancheckedController extends Controller
 
         $tdp_hr = Form::where('status', 0)
             ->orderBy('created_at', 'desc')
-            ->where('departement_id', '7')
+            ->whereIn('departement_id', [7, 8, 5])
             ->get();
         // dd($tdp_hr);
 
