@@ -72,6 +72,7 @@
                             <th>No Rekening </th>
                             <th>Penerima </th>
                             <th class="text-center">Status</th>
+                            <th class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -159,6 +160,14 @@
                                 @default
                                 <span class="badge bg-success">PAID</span>
                                 @endswitch
+                            </td>
+                            <td class="text-center">
+                                <a href="{{ route('form-approve.viewDetailShow', $data->id) }}"
+                                    class="btn btn-icon btn-secondary btn-sm" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" data-bs-custom-class="tooltip-secondary"
+                                    data-bs-original-title="Show Detail">
+                                    <span class="ti ti-eye"></span>
+                                </a>
                             </td>
                         </tr>
                         @endforeach

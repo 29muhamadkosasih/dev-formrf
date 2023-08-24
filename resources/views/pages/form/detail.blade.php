@@ -685,8 +685,8 @@
 
                 <div class="mb-3">
                     <label class="form-label">Jumlah Pemakaian</label>
-                    <input type="number" class="form-control @error('jumlah_pemakaian') is-invalid @enderror"
-                        placeholder="Masukkan Jumlah Uang" name="jumlah_pemakaian"
+                    <input type="text" class="form-control @error('jumlah_pemakaian') is-invalid @enderror"
+                        placeholder="Masukkan Jumlah Uang" name="jumlah_pemakaian" id="tanpa-rupiah"
                         value="{{ old('jumlah_pemakaian') }}" />
                 </div>
                 <div class="mb-3">
@@ -698,4 +698,61 @@
     </div>
 </div>
 <!--/ Source Visit -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+
+<script type="text/javascript">
+    function enableBrand(answer) {
+        console.log(answer.value);
+        if (answer.value == 'Transfer') {
+            document.getElementById('carbrand').classList.remove('d-none');
+        } else {
+            document.getElementById('carbrand').classList.add('d-none');
+        }
+    }
+</script>
+<script type="text/javascript">
+    function enableBrand2(answer) {
+        console.log(answer.value);
+        if (answer.value == 1 ) {
+            document.getElementById('t1').classList.remove('d-none');
+            document.getElementById('t2').classList.remove('d-none');
+            document.getElementById('t3').classList.remove('d-none');
+            document.getElementById('t4').classList.remove('d-none');
+
+        } else {
+            document.getElementById('t1').classList.add('d-none');
+            document.getElementById('t2').classList.add('d-none');
+            document.getElementById('t3').classList.add('d-none');
+            document.getElementById('t4').classList.add('d-none');
+        }
+    }
+</script>
+
+<script>
+    /* Tanpa Rupiah */
+    var tanpa_rupiah = document.getElementById('tanpa-rupiah');
+    tanpa_rupiah.addEventListener('keyup', function (e) {
+        tanpa_rupiah.value = formatRupiah(this.value);
+    });
+
+    /* Fungsi */
+    function formatRupiah(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+</script>
 @endsection

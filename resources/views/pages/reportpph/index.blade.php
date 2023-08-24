@@ -42,9 +42,9 @@
                     <h5 class="mb-0">List Data Report PPH 23</h5>
                 </div>
                 <div class="col-auto">
-                    {{-- <a href="{{ url('/export_excel/reportpph') }}" class="btn btn-success me-2" target="_blank">
+                    <a href="{{ url('/export_excel/reportpph') }}" class="btn btn-success me-2" target="_blank">
                         <span class="ti ti-arrow-bar-to-down"></span>&nbsp;
-                        Excel</a> --}}
+                        Excel</a>
                     <a href="{{ route('reportpph.create') }}" class="btn btn-primary">Create</a>
                 </div>
             </div>

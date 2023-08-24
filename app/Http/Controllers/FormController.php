@@ -772,6 +772,16 @@ class FormController extends Controller
         $date = date('y-m-d');
         $data = Form::findOrFail($id);
 
+        $amount2 = $request->jumlah_pemakaian;
+        if ($amount2 == NULL) {
+            $amountWithoutDots2 = NULL;
+            // dd($amountWithoutDots2);
+        } else {
+            $amountWithoutDots2 = str_replace('.', '', $amount2);
+            // dd($amountWithoutDots2);
+        }
+
+
         $total = $request->qty * $request->price;
         $total2 = $request->qty2 * $request->price2;
         $total3 = $request->qty3 * $request->price3;
@@ -782,7 +792,7 @@ class FormController extends Controller
         $total8 = $request->qty * $request->price8;
 
         $jumlah_total = $request->jumlah_dana;
-        $jumlah_total2 = $request->jumlah_pemakaian;
+        $jumlah_total2 = $amountWithoutDots2;
 
         // $jumlahpengakaian = $request->$jumlah_pemakaian;
 
@@ -845,7 +855,7 @@ class FormController extends Controller
             'tgl_terima_dana' => $request->tgl_terima_dana,
             'tgl_pembayaran'    => $date,
             'balance'  => $totalBalance,
-            'jumlah_pemakaian'    => $request->jumlah_pemakaian,
+            'jumlah_pemakaian'    => $amountWithoutDots2,
             'status' => 7,
 
         ]);

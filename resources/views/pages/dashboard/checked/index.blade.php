@@ -178,6 +178,10 @@
                                 @default
                                 <span class="badge bg-success">PAID</span>
                                 @endswitch
+                                <a href=" {{ route('form.showDetailCek', $data->id) }}"
+                                    class="btn btn-icon btn-secondary btn-sm">
+                                    <span class="ti ti-eye"></span>
+                                </a>
                             </td>
                         </tr>
                         @endforeach

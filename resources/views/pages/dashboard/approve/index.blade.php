@@ -176,6 +176,10 @@
                                 <span class="badge bg-info">Menunggu Konfirmasi Pengembalian Dana </span>
                                 @break
                                 @endswitch
+                                <a href=" {{ route('form.showDetailApp', $data->id) }}"
+                                    class="btn btn-icon btn-secondary btn-sm">
+                                    <span class="ti ti-eye"></span>
+                                </a>
                             </td>
                         </tr>
                         @endforeach

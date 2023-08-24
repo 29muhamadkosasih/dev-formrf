@@ -9,6 +9,10 @@
                 <div class="col-auto me-auto ">
                     <h5 class="mb-0">Tanggal : {{ $currentDate }}
                 </div>
+                <div class="col-auto">
+                    <a href="{{ url('form-list/print') }}" class="btn btn-primary btn-sm" target="_blank"><i
+                            class="menu-icon tf-icons ti ti-download"></i>PDF</a>
+                </div>
             </div>
             <div class="table-responsive text-nowrap">
                 <table class="table table-hover table-bordered">
@@ -130,8 +134,8 @@
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">Saldo 899</label>
-                    <input type="number" class="form-control @error('jumlah_saldo') is-invalid @enderror"
-                        placeholder="Masukkan Jumlah Saldo" name="jumlah_saldo" required />
+                    <input type="text" class="form-control @error('jumlah_saldo') is-invalid @enderror"
+                        placeholder="Masukkan Jumlah Saldo" id="tanpa-rupiah" name="jumlah_saldo" required />
                 </div>
                 <div class="mb-2">
                     <button type="submit" class="btn btn-primary float-end ms-2 mb-2 d-none"></button>
@@ -140,13 +144,13 @@
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">PB 899-893</label>
-                    <input type="number" class="form-control @error('a_b') is-invalid @enderror"
-                        placeholder="Masukkan Jumlah Saldo" name="a_b" />
+                    <input type="text" class="form-control @error('a_b') is-invalid @enderror"
+                        placeholder="Masukkan Jumlah Saldo" id="tanpa-rupiah2" name="a_b" />
                 </div>
                 <div class="mb-3">
                     <label class="form-label">PB 893-899</label>
-                    <input type="number" class="form-control @error('b_a') is-invalid @enderror"
-                        placeholder="Masukkan Jumlah Saldo" name="b_a" />
+                    <input type="text" class="form-control @error('b_a') is-invalid @enderror"
+                        placeholder="Masukkan Jumlah Saldo" id="tanpa-rupiah3" name="b_a" />
                 </div>
                 <div class="mb-2">
                     <button type="submit" class="btn btn-primary float-end ms-2 mb-2 d-none">Submit</button>
@@ -157,4 +161,166 @@
     </div>
 </div>
 <!--/ Source Visit -->
+
+<script>
+    /* Tanpa Rupiah */
+    var tanpa_rupiah = document.getElementById('tanpa-rupiah');
+    tanpa_rupiah.addEventListener('keyup', function (e) {
+        tanpa_rupiah.value = formatRupiah(this.value);
+    });
+
+    /* Fungsi */
+    function formatRupiah(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+</script>
+
+<script>
+    var tanpa_rupiah2 = document.getElementById('tanpa-rupiah2');
+        tanpa_rupiah2.addEventListener('keyup', function (e) {
+            tanpa_rupiah2.value = formatRupiah2(this.value);
+        });
+
+        /* Fungsi */
+        function formatRupiah2(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+
+        var tanpa_rupiah4 = document.getElementById('tanpa-rupiah4');
+        tanpa_rupiah4.addEventListener('keyup', function (e) {
+            tanpa_rupiah4.value = formatRupiah4(this.value);
+        });
+
+        /* Fungsi */
+        function formatRupiah4(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+
+        var tanpa_rupiah5 = document.getElementById('tanpa-rupiah5');
+        tanpa_rupiah5.addEventListener('keyup', function (e) {
+            tanpa_rupiah5.value = formatRupiah5(this.value);
+        });
+
+        /* Fungsi */
+        function formatRupiah5(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+        var tanpa_rupiah6 = document.getElementById('tanpa-rupiah6');
+        tanpa_rupiah6.addEventListener('keyup', function (e) {
+            tanpa_rupiah6.value = formatRupiah6(this.value);
+        });
+
+        /* Fungsi */
+        function formatRupiah6(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+        var tanpa_rupiah7 = document.getElementById('tanpa-rupiah7');
+        tanpa_rupiah7.addEventListener('keyup', function (e) {
+            tanpa_rupiah7.value = formatRupiah7(this.value);
+        });
+
+        /* Fungsi */
+        function formatRupiah7(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+        var tanpa_rupiah8 = document.getElementById('tanpa-rupiah8');
+        tanpa_rupiah8.addEventListener('keyup', function (e) {
+            tanpa_rupiah8.value = formatRupiah8(this.value);
+        });
+
+        /* Fungsi */
+        function formatRupiah8(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+
+        $(document).ready(function(){
+            // Format mata uang.
+            $( '#uang' ).mask('000.000.000', {reverse: true});
+        })
+
+</script>
 @endsection

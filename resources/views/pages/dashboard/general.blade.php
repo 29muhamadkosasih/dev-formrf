@@ -201,12 +201,12 @@
                                 <span class="badge bg-info">Menunggu Konfirmasi Pengembalian Dana </span>
                                 @break
                                 @default
+                                <span class="badge bg-success">PAID</span>
+                                @endswitch
                                 <a href=" {{ route('form.showDetail', $data->id) }}"
                                     class="btn btn-icon btn-secondary btn-sm">
                                     <span class="ti ti-eye"></span>
                                 </a>
-                                <span class="badge bg-success">PAID</span>
-                                @endswitch
                             </td>
                         </tr>
                         @endforeach

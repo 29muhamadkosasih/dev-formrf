@@ -16,38 +16,43 @@
             text-align: center;
         }
 
-        #halaman {
-            width: auto;
-            height: auto;
-            border: 1px solid;
-            padding-top: 30px;
-            padding-left: 30px;
-            padding-right: 30px;
-            padding-bottom: 80px;
-
-        }
-
         .tab,
+        tr,
         th {
             border: 1px solid black;
+            border-bottom: 1px solid black;
+            border-right: 1px solid black;
+            border-left: 1px solid black;
             /* Mengatur garis tepi tabel dengan ketebalan 1px dan warna hitam */
-            border-collapse: collapse;
+            /* border-collapse: collapse; */
             /* Menggabungkan garis tepi sel-sel yang berdekatan */
             text-align: center;
             padding-left: 2px;
+            display: contents;
+        }
+
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
         }
     </style>
 </head>
 
 <body>
     <div id=halaman class="container-fluid">
-        <h3 id=judul>FUND REQUEST FORM </h3>
+        <h3 id=judul>RESUME REQUEST FORM </h3>
         <div class="col-auto me-auto ">
-            <h5 class="mb-0">Tanggal : {{ $currentDate }}
+            <h4 id=judul>Tanggal
+                <b>
+                    {{ $currentDay}}
+                </b>
+            </h4>
         </div>
         <table class="table table-bordered tab mt-4">
             <thead>
-                <tr>
+                <tr style="background-color:skyblue">
                     <th width='10px' style="text-align: center">No</th>
                     <th>Dari</th>
                     <th>Payment Method</th>
@@ -75,10 +80,10 @@
                 </tr>
                 @empty
                 @endforelse
-                <tr style="color:black; background-color: skyblue">
-                    <th colspan="4" style="text-align :right ">TOTAL CASH</th>
-                    <th style="text-align :right"> {{ number_format($jumlah_total, 0, ',',
-                        '.') }}</th>
+                <tr style="color:black; background-color: lightgreen">
+                    <th colspan="4" style="text-align :right ">Total Cash</th>
+                    <td style="text-align :right"> {{ number_format($jumlah_total, 0, ',',
+                        '.') }}</td>
                 </tr>
 
                 @forelse ($form2 as $data)
@@ -99,15 +104,18 @@
                 </tr>
                 @empty
                 @endforelse
-                <tr style="color:black;
-                                                    background-color: skyblue">
-                    <th colspan="4" style="text-align :right ">TOTAL TRANSFER </th>
+                <tr style="color:black; background-color: lightgreen">
+                    <th colspan="4" style="text-align :right ">Total Transfer </th>
                     <th style="text-align :right"> {{ number_format($jumlah_total2, 0, ',',
                         '.') }}</th>
                 </tr>
-                <tr style="color:black;
-                                                                            background-color: skyblue">
-                    <th colspan="4" style="text-align :right ">JUMLAH TOTAL </th>
+                <tr style="color:black; background-color: lightgreen">
+                    <th colspan="4" style="text-align :right ">Total Biaya Transfer </th>
+                    <td style="text-align :right"> {{ number_format($jumlah_admin, 0, ',',
+                        '.') }}</td>
+                </tr>
+                <tr style="color:black; background-color: lightgreen">
+                    <th colspan="4" style="text-align :right ">Jumlah Total </th>
                     <th style="text-align :right"> {{ number_format($jumlah_total3, 0, ',',
                         '.') }}</th>
                 </tr>

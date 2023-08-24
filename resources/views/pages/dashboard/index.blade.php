@@ -122,21 +122,19 @@
                                 @case($data->status == 5)
                                 <span class="badge bg-success">Konfirmasi Dana Masuk</span>
                                 @break
-
                                 @case($data->status == 6)
                                 <span class="badge bg-primary">Konfirmasi Pembayaran </span>
                                 @break
                                 @case($data->status == 7)
                                 <span class="badge bg-info">Menunggu Konfirmasi Pengembalian Dana </span>
                                 @break
-
                                 @default
+                                <span class="badge bg-success">PAID</span>
+                                @endswitch
                                 <a href=" {{ route('form.showDetail', $data->id) }}"
                                     class="btn btn-icon btn-secondary btn-sm">
                                     <span class="ti ti-eye"></span>
                                 </a>
-                                <span class="badge bg-success">PAID</span>
-                                @endswitch
                             </td>
                         </tr>
                         @endforeach

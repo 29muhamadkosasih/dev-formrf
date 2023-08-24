@@ -335,7 +335,7 @@
 
         @endcanany
     </ul>
-    <footer class="content-footer footer bg-footer-theme bg-primary">
+    <footer class="content-footer footer bg-footer-theme bg-danger">
         <ul class="menu-inner py-2">
             <li class="menu-item">
                 <a href="#" onclick="$('#logout-form').submit();" class="menu-link">

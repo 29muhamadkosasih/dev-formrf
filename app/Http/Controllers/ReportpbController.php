@@ -14,10 +14,22 @@ class ReportpbController extends Controller
 {
     public function store(Request $request)
     {
-        // dd($request);
+        $amount2 = $request->a_b;
+        if ($amount2 == NULL) {
+            $amountWithoutDots2 = NULL;
+        } else {
+            $amountWithoutDots2 = str_replace('.', '', $amount2);
+        }
+
+        $amount3 = $request->b_a;
+        if ($amount3 == NULL) {
+            $amountWithoutDots3 = NULL;
+        } else {
+            $amountWithoutDots3 = str_replace('.', '', $amount3);
+        }
         Reportpb::create([
-            'a_b' => $request->a_b,
-            'b_a' => $request->b_a,
+            'a_b' => $amountWithoutDots2,
+            'b_a' => $amountWithoutDots3,
         ]);
         return back()
             ->with('success', 'Congratulation ! Pemindahan Buku Berhasil');
@@ -72,8 +84,14 @@ class ReportpbController extends Controller
     public function saldoStore(Request $request)
     {
 
+        $amount2 = $request->jumlah_saldo;
+        if ($amount2 == NULL) {
+            $amountWithoutDots2 = NULL;
+        } else {
+            $amountWithoutDots2 = str_replace('.', '', $amount2);
+        }
         Saldo::create([
-            'jumlah_saldo'   => $request->jumlah_saldo
+            'jumlah_saldo'   => $amountWithoutDots2,
         ]);
 
         return redirect()->route('today')->with('success', 'Congratulation ! Saldo Berhasil');

@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>FUND REQUEST FORM</title>
+    <title>PAID - REQUEST FORM</title>
     <style>
         #judul {
             text-align: center;
@@ -41,7 +41,7 @@
 
 <body>
     <div id=halaman class="container-fluid">
-        <h3 id=judul>FUND REQUEST FORM </h3>
+        <h3 id=judul>PAID - REQUEST FORM </h3>
         <h4 id=judul>Tanggal
             <b>
                 {{ \Carbon\Carbon::parse($from)->format('d-m-Y')}}
@@ -54,66 +54,73 @@
         <table class="table table-bordered tab mt-4">
             <thead>
                 <tr width='20px' style="background-color:skyblue">
-                    <th width='20px'>No</th>
-                    <th>Tanggal</th>
-                    <th>Nama</th>
-                    <th>Departement</th>
-                    <th>Payment Method</th>
-                    <th>Kategori
-                        Pengajuan</th>
-                    <th>Jumlah (Rp)</th>
-                    <th>Nama Bank </th>
-                    <th>No Rekening </th>
-                    <th>Nama Penerima </th>
+                    <th width='300px'>Description</th>
+                    <th width='200px'>Nama Penerima</th>
+                    <th width='200px'>Jumlah Rp.</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($data as $data)
                 <tr>
-                    <th>{{ $loop->iteration }}</th>
-                    <th>{{ $data->created_at->format('d-m-Y')}}</th>
-                    <th>{{ $data->user->name }}</th>
-                    <th>{{ $data->departement->nama_departement }}</th>
-                    <th>{{ $data->payment }}</th>
-                    <th>{{ $data->kpengajuan->name }}</th>
-                    <th>{{ number_format($data->jumlah_total, 0, ',', '.',) }}</th>
-                    <th>
-                        @switch($data)
-                        @case($data->norek_id == null)
-                        <span class="badge bg-info m-1">
-                            <i data-feather='dollar-sign'></i>
-                            Cash
-                        </span>
-                        @break
-                        @default
-                        {{ $data->norek->bank->nama_bank }}
-                        @endswitch
+                    <th style="text-align: left">
+
+                        <ul>
+                            <li>
+                                {{ $data->description}}
+                            </li>
+                            <li>
+                                {{ $data->description2}}
+                            </li>
+                            <li>
+                                {{ $data->description3}}
+                            </li>
+                            <li>
+                                {{ $data->description4}}
+                            </li>
+                            <li>
+                                {{ $data->description5}}
+                            </li>
+                            <li>
+                                {{ $data->description6}}
+                            </li>
+                            <li>
+                                {{ $data->description7}}
+                            </li>
+                            <li>
+                                {{ $data->description8}}
+                            </li>
+                        </ul>
                     </th>
                     <th>
-                        @switch($data)
-                        @case($data->norek_id == null)
-                        <span class="badge bg-info m-1">
-                            <i data-feather='dollar-sign'></i>
-                            Cash
-                        </span>
-                        @break
-                        @default
-                        {{ $data->norek->no_rekening }} @endswitch
+                        {{ $data->user->name }}
                     </th>
-                    <th>
-                        @switch($data)
-                        @case($data->norek_id == null)
-                        <span class=" badge bg-info m-1">
-                            <i data-feather='dollar-sign'></i>
-                            Cash
-                        </span>
-                        @break
-                        @default
-                        {{ $data->norek->nama_penerima }}
-                        @endswitch
-                    </th>
+
+                    <th style="text-align: right">{{ number_format($data->jumlah_total, 0, ',', '.',) }}</th>
+
+
+                    @endforeach
                 </tr>
-                @endforeach
+                <tr style="color:black; background-color: lightgreen">
+                    <th colspan="2" style="text-align :right ">Total Cash</th>
+                    <td style="text-align :right"> {{ number_format($jumlah_total, 0, ',',
+                        '.') }}</td>
+                </tr>
+                <tr style="color:black; background-color: lightgreen">
+                    <th colspan="2" style="text-align :right ">Total Transfer </th>
+                    <td style="text-align :right"> {{ number_format($jumlah_total2, 0, ',',
+                        '.') }}</td>
+                </tr>
+                <tr style="color:black; background-color: lightgreen">
+                    <th colspan="2" style="text-align :right ">Total Biaya Transfer </th>
+                    <td style="text-align :right"> {{ number_format($jumlah_admin, 0, ',',
+                        '.') }}</td>
+                </tr>
+                <tr style="color:black; background-color: lightgreen">
+                    <th colspan="2" style="text-align :right ">Jumlah Total </th>
+                    <td style="text-align :right"> {{ number_format($jumlah_akhir, 0, ',',
+                        '.') }}</td>
+                </tr>
+
             </tbody>
         </table>
 

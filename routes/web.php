@@ -43,7 +43,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('layouts/empty', [StaterkitController::class, 'layout_empty'])->name('layout.empty');
     Route::get('form/print/{id}', [FormController::class, 'print'])->name('form.print');
     Route::get('form/showDetail/{id}', [FormController::class, 'showDetail'])->name('form.showDetail');
-    Route::get('form-list/print/{id}', [FormsController::class, 'printToday'])->name('form-list.print');
+    Route::get('form/showDetailCek/{id}', [MancheckedController::class, 'showDetailCek'])->name('form.showDetailCek');
+    Route::get('form/showDetailApp/{id}', [ApproveController::class, 'showDetailApp'])->name('form.showDetailApp');
+    Route::get('form-list/print', [FormsController::class, 'printToday'])->name('form-list.print');
     Route::get('form/listAdvance', [FormController::class, 'listAdvance'])->name('listAdvance');
     Route::put('form-checked/checked/{id}', [CheckedController::class, 'checked'])->name('form-checked.checked');
     Route::get('form-checked/detail/{id}', [CheckedController::class, 'detail'])->name('form-checked.detail');
@@ -95,10 +97,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('paymentIn/report', [PaymentInController::class, 'report'])->name('paymentIn.report');
     Route::get('invoiceOut/report', [InvoiceOutController::class, 'report'])->name('invoiceOut.report');
     Route::get('export_excel/reportpph', [ReportPPH23Controller::class, 'export_excel'])->name('export_excel.reportpph');
+    Route::get('export_pdf/reportpph', [ReportPPH23Controller::class, 'export_pdf'])->name('export_pdf');
     Route::post('getLaporan/reportpph', [ReportPPH23Controller::class, 'getLaporan'])->name('laporan.getLaporan.reportpph');
     Route::post('getLaporan/InvPayment', [InvPaymentController::class, 'getLaporan'])->name('laporan.getLaporan.InvPayment');
     Route::get('/pegawai/cetak_pdf', [FormsController::class, 'cetak_pdf'])->name('cetak_pdf');
     Route::get('/pegawai/cetak_pdf2/{from}/{to}', [FormsController::class, 'cetak_pdf2'])->name('cetak_pdf2');
+    Route::get('/pegawai/cetak_pdfpb', [FormsController::class, 'cetak_pdfpb'])->name('cetak_pdfpb');
     Route::resource('/users', UserController::class);
     Route::resource('/roles', RoleController::class);
     Route::resource('/permissions', PermissionController::class)->except(['show']);
