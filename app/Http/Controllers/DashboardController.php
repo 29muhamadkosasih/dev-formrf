@@ -620,4 +620,14 @@ class DashboardController extends Controller
 
         ]);
     }
+
+    public function showDetailGen($id)
+    {
+        $show = Form::find($id);
+
+        // dd($show->file);
+        return view('pages.form.showDetailGen', [
+            'show'   => $show
+        ]);
+    }
 }

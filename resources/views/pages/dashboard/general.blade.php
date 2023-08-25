@@ -203,7 +203,7 @@
                                 @default
                                 <span class="badge bg-success">PAID</span>
                                 @endswitch
-                                <a href=" {{ route('form.showDetail', $data->id) }}"
+                                <a href=" {{ route('form.showDetailGen', $data->id) }}"
                                     class="btn btn-icon btn-secondary btn-sm">
                                     <span class="ti ti-eye"></span>
                                 </a>

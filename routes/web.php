@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('layouts/empty', [StaterkitController::class, 'layout_empty'])->name('layout.empty');
     Route::get('form/print/{id}', [FormController::class, 'print'])->name('form.print');
     Route::get('form/showDetail/{id}', [FormController::class, 'showDetail'])->name('form.showDetail');
+    Route::get('form/showDetailGen/{id}', [DashboardController::class, 'showDetailGen'])->name('form.showDetailGen');
     Route::get('form/showDetailCek/{id}', [MancheckedController::class, 'showDetailCek'])->name('form.showDetailCek');
     Route::get('form/showDetailApp/{id}', [ApproveController::class, 'showDetailApp'])->name('form.showDetailApp');
     Route::get('form-list/print', [FormsController::class, 'printToday'])->name('form-list.print');

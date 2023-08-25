@@ -79,7 +79,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-12 col-md-12 col-12 align-self-end">
+                    <div class="col-xl-4 col-md-6 col-6 align-self-end">
                         <div class="mb-1">
                             <label class="form-label" for="basicInput">No. RF</label>
                             <input type="text" class="form-control" name="no_rf" id="basicInput"

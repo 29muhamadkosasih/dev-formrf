@@ -324,7 +324,7 @@ class FmanController extends Controller
             'image6' => $filename6,
             'image7' => $filename7,
             'image8' => $filename8,
-            'status' => 0,
+            'status' => 2,
             'no_project'  => $request->no_project,
             'j_peserta'  => $request->j_peserta,
             'j_traine_asesor'  => $request->j_traine_asesor,

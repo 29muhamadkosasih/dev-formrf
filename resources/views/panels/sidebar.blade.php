@@ -150,7 +150,7 @@
         @endcan
 
         @can('form-list.index')
-        <li class="menu-item {{ (request()->is('form-list')) ? 'active' : '' }}">
+        <li class="menu-item {{ Route::currentRouteNamed('form-list.index','form-approve.view') ? 'active' : '' }}">
             <a href="{{ route('form-list.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-list"></i>
                 <div data-i18n="List">List</div>
