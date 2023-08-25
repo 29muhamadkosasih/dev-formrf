@@ -10,23 +10,17 @@
     <style type=”text/css”>
         table {
 
+            border-spacing: 0px;
+            border-collapse: separate;
             border: 1px solid black;
             font-family: sans-serif;
             width: 100%;
             max-width: 600px;
+            margin: 15px auto;
+            font-family: sans-serif;
+            width: 100%;
+            max-width: 600px;
             margin: 20px auto;
-
-        }
-
-
-
-        th {}
-
-
-
-        tr:hover {
-
-            background-color: yellow;
 
         }
 
@@ -49,7 +43,7 @@
     </h4>
     <table align=”center” border=”1″>
         <tr style="background-color: skyblue">
-            <th width='10px' style="text-align: center">No</th>
+            <th width='80px' style="text-align: center">No RF</th>
             <th>Dari</th>
             <th>Payment Method</th>
             <th>Kategori
@@ -58,7 +52,7 @@
         </tr>
         @forelse ($form as $data)
         <tr>
-            <td style="text-align: center">{{ $loop->iteration }}</td>
+            <td style="text-align: center">{{ $data->no_rf}}</td>
             <td>
                 {{ $data->user->name }}
             </td>

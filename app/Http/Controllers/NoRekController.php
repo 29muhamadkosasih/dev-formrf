@@ -113,7 +113,6 @@ class NoRekController extends Controller
     {
         $fileName = request()->file->getClientOriginalName();
         request()->file('file')->storeAs('DatabaseUsers', $fileName, 'public');
-        // dd($fileName);
         Excel::import(new DatabaseUsersImport, $request->file);
         return redirect()->back()->with('success', 'Success ! Data Users Berhasil di Tambahkan');
     }
