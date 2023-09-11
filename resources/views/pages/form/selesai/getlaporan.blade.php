@@ -62,6 +62,7 @@
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
                             <th>Tanggal</th>
+                            <th>No. RF</th>
                             <th>Dari</th>
                             <th>Departement</th>
                             <th>Payment Method</th>
@@ -81,6 +82,9 @@
                             <td style="text-align: center">{{ $loop->iteration }}</td>
                             <td>
                                 {{ $data->created_at->format('d-m-Y')}}
+                            </td>
+                            <td>
+                                {{ $data->no_rf }}
                             </td>
                             <td>
                                 {{ $data->user->name }}
