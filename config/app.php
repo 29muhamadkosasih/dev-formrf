@@ -67,8 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'Asia/Jakarta',
-
+    'timezone' => env('APP_TIMEZONE', 'Asia/Jakarta'),
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration
@@ -93,7 +92,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'id',
 
     /*
     |--------------------------------------------------------------------------
@@ -106,8 +105,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
-
+    'faker_locale' => 'id_ID',
     /*
     |--------------------------------------------------------------------------
     | Encryption Key
@@ -232,5 +230,6 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
+
 
 ];

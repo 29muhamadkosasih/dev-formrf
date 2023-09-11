@@ -220,11 +220,9 @@
                             </td>
                             <td style="text-align: center">
 
-                                <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                    action="{{ route('form.destroy', $data->id) }}" method="POST">
+                                <form method="POST" action="{{ route('form.destroy', $data->id) }}">
                                     @csrf
-                                    @method('DELETE')
-                                    {{-- @can('form-checked.detail') --}}
+                                    <input name="_method" type="hidden" value="DELETE">
                                     <a href="{{ route('form-checked.detail', $data->id) }}"
                                         class="btn btn-icon btn-secondary btn-sm" data-bs-toggle="tooltip"
                                         data-bs-placement="top" data-bs-custom-class="tooltip-secondary"
@@ -253,20 +251,17 @@
 
                                     {{-- @can('form-checked.approve') --}}
                                     <a href="{{ url('approve/maker', $data->id) }}"
-                                        class="btn btn-icon btn-success btn-sm" data-bs-toggle="tooltip"
+                                        class="btn btn-icon btn-success btn-sm button1" data-bs-toggle="tooltip"
                                         data-bs-placement="top" data-bs-custom-class="tooltip-success"
                                         data-bs-original-title="Approve">
                                         <span class="ti ti-check"></span>
                                     </a>
-                                    {{-- @endcan --}}
-                                    {{-- @can('form-checked.delete') --}}
-                                    <button type="submit" class="btn btn-icon btn-danger btn-sm"
-                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                        data-bs-custom-class="tooltip-danger" data-bs-original-title="Hapus">
-                                        <span class="ti ti-trash"></span>
 
+                                    <button type="submit" class="btn btn-icon btn-danger btn-sm show_confirm"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete"
+                                        aria-describedby="tooltip358783">
+                                        <span class="ti ti-trash"></span>
                                     </button>
-                                    {{-- @endcan --}}
                                 </form>
 
                             </td>
@@ -281,4 +276,48 @@
 
 @endif
 <!-- /Invoice table -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+    $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Are you sure you want to delete this record?`,
+              text: "If you delete this, it will be gone forever.",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            }
+          });
+      });
+
+</script>
+
+<script type="text/javascript">
+    $('.button1').click(function () {
+
+    swal({
+        title: 'Are you sure?',
+        text: "It will permanently deleted !",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then(function () {
+        swal(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+        );
+    })
+
+})
+</script>
 @endsection

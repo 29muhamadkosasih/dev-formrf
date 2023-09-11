@@ -10,9 +10,6 @@
     <style type=”text/css”>
         table {
 
-            border-spacing: 0px;
-            border-collapse: separate;
-            border: 1px solid black;
             font-family: sans-serif;
             width: 100%;
             max-width: 600px;
@@ -23,6 +20,31 @@
         #judul {
             text-align: center;
             font-family: sans-serif;
+            text-align: center;
+            line-height: 5px;
+        }
+
+        }
+
+        .rangkasurat {
+            width: auto;
+            margin: auto;
+            background-color: #fff;
+            height: auto;
+            padding: auto;
+
+        }
+
+        .tengah {
+            text-align: left;
+            line-height: 5px;
+        }
+
+        #ping {
+
+            border-spacing: 0px;
+            border-collapse: separate;
+            border: 1px solid black;
         }
     </style>
 
@@ -31,7 +53,21 @@
 </head>
 
 <body>
-    <h3 id=judul>PAID - REQUEST FORM </h3>
+    <div class="rangkasurat">
+        <table>
+            <tr>
+                <td>
+                    <img src="{{ asset('assets/img/favicon/lgo.png') }}" width="140px">
+                </td>
+                <td class="tengah">
+                    <h3>PAID - REQUEST FORM</h3>
+                    <!--<h2>DINAS PENDIDIKAN</h2>-->
+
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--<h3 id=judul>PAID - REQUEST FORM </h3>-->
     <h4 id=judul>Tanggal
         <b>
             {{ \Carbon\Carbon::parse($from)->format('d-m-Y')}}
@@ -41,17 +77,20 @@
             {{ \Carbon\Carbon::parse($to)->format('d-m-Y')}}
         </b>
     </h4>
-    <table align=”center” border=”1″>
+    <table align=”center” border=”1″ id="ping">
         <tr style="background-color: skyblue">
             <th width='80px' style="text-align: center">No RF</th>
-            <th width='300px'>Description</th>
-            <th width='200px'>Nama Penerima</th>
-            <th width='200px'>Jumlah Rp.</th>
+            <th width='350px'>Description</th>
+            <th width='150px'>Nama Penerima</th>
+            <th width='100px'>Payment Method</th>
+
+            <th width='110px'>Jumlah Rp.</th>
         </tr>
         @foreach ($data as $data)
         <tr>
             <td style="text-align: center">{{ $data->no_rf}}</td>
             <td align=left>
+                <ul>
                     1. {{ $data->description}} <br>
 
                     @switch($data)
@@ -102,8 +141,11 @@
                     @default
                     8. {{ $data->description8}}
                     @endswitch
+                </ul>
             </td>
             <td style="text-align: center">{{ $data->user->name }}</td>
+            <td style="text-align: center">{{ $data->payment }}</td>
+
             <td style="text-align: right">{{ number_format($data->jumlah_total, 0, ',', '.',) }}</td>
         </tr>
         @endforeach

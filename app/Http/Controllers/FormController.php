@@ -12,6 +12,7 @@ use App\Models\Rujukan;
 use App\Models\Keperluan;
 use App\Models\Kpengajuan;
 use App\Models\Departement;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
@@ -73,6 +74,8 @@ class FormController extends Controller
 
         $amount = $request->input('price');
         $amountWithoutDots = str_replace('.', '', $amount);
+
+
         $amount2 = $request->price2;
         if ($amount2 == NULL) {
             $amountWithoutDots2 = NULL;
@@ -147,7 +150,11 @@ class FormController extends Controller
             $jumlah_total_akhir = $jumlah_akhir + 0;
         }
 
-        $documentNumber = $username;
+        $randomString = Str::random(5);
+
+        // $acak =$username . '_', $username;
+
+        $documentNumber = $username . $randomString;
         $data2 = $request->image1;
         if ($data2 == NULL) {
             $filename1 = 0;
@@ -163,6 +170,8 @@ class FormController extends Controller
                 $file->move($destinationPath, $filename1);
             }
         }
+
+        // dd($filename1);
 
         $data3 = $request->image2;
         if ($data3 == NULL) {

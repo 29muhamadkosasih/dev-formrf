@@ -65,6 +65,9 @@ class ApproveController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request->all());
+        $this->validate($request, [
+            'no_rf'     => 'required|unique:form,no_rf,',
+        ]);
         $data = Form::findOrFail($id);
         $amount = $request->input('price');
         $amountWithoutDots = str_replace('.', '', $amount);
@@ -305,7 +308,7 @@ class ApproveController extends Controller
         if ($data2 == NULL) {
             $jumlah_total_akhir = $jumlah_akhir + 0;
         } else {
-            $jumlah_total_akhir = $jumlah_akhir + 6500;
+            $jumlah_total_akhir = $jumlah_akhir + 0;
         };
         // dd($jumlah_total_akhir);
 

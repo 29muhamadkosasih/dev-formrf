@@ -50,29 +50,29 @@
                             <td>{{$user->departement->nama_departement}}</td>
                             <td>{{$user->role->title ?? "--"}}</td>
                             <td class="text-center">
-                                @can('users.show')
-                                <a href="{{ route('users.show', $user->id) }}" class="btn btn-icon btn-secondary btn-sm"
-                                    data-bs-toggle="tooltip" data-bs-placement="top"
-                                    data-bs-custom-class="tooltip-secondary" data-bs-original-title="Show">
-                                    <span class="ti ti-eye"></span>
-                                </a>
-                                @endcan
-                                @can('users.edit')
-                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-icon btn-warning btn-sm"
-                                    data-bs-toggle="tooltip" data-bs-placement="top"
-                                    data-bs-custom-class="tooltip-warning" data-bs-original-title="Edit">
-                                    <span class="ti ti-edit"></span>
-                                </a>
-                                @endcan
                                 @can('users.delete')
-                                <form action="{{ route('users.destroy', $user->id) }}" class="d-inline-block"
-                                    method="post">
+                                <form method="POST" action="{{ route('users.destroy', $user->id) }}">
                                     @csrf
-                                    @method('DELETE')
-                                    <button type="submit" onclick="return confirm('Are you sure?')"
-                                        class="btn btn-icon btn-danger btn-sm" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="tooltip-danger"
-                                        data-bs-original-title="Hapus">
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    @can('users.show')
+                                    <a href="{{ route('users.show', $user->id) }}"
+                                        class="btn btn-icon btn-secondary btn-sm" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" data-bs-custom-class="tooltip-secondary"
+                                        data-bs-original-title="Show">
+                                        <span class="ti ti-eye"></span>
+                                    </a>
+                                    @endcan
+                                    @can('users.edit')
+                                    <a href="{{ route('users.edit', $user->id) }}"
+                                        class="btn btn-icon btn-warning btn-sm" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" data-bs-custom-class="tooltip-warning"
+                                        data-bs-original-title="Edit">
+                                        <span class="ti ti-edit"></span>
+                                    </a>
+                                    @endcan
+                                    <button type="submit" class="btn btn-icon btn-danger btn-sm show_confirm"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete"
+                                        aria-describedby="tooltip358783">
                                         <span class="ti ti-trash"></span>
                                     </button>
                                 </form>
@@ -107,4 +107,26 @@
         </form>
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+    $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Are you sure you want to delete this record?`,
+              text: "If you delete this, it will be gone forever.",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            }
+          });
+      });
+
+</script>
 @endsection

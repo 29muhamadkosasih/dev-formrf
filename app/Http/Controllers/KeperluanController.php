@@ -31,7 +31,7 @@ class KeperluanController extends Controller
         Keperluan::create($validateData);
         return redirect()->route('keperluan.index')->with(
             'success',
-            'Success ! Data Bank Berhasil di Tambahkan'
+            'Success ! Data Keperluan Berhasil di Tambahkan'
         );
     }
 
@@ -60,7 +60,7 @@ class KeperluanController extends Controller
         return redirect()->route('keperluan.index')
             ->with(
                 'success',
-                'Success ! Data Bank Berhasil di Update'
+                'Success ! Data Keperluan Berhasil di Update'
             );
     }
 
@@ -72,7 +72,7 @@ class KeperluanController extends Controller
         return redirect()->route('keperluan.index')
             ->with(
                 'success',
-                'Success ! Data Bank Berhasil di Hapus'
+                'Success ! Data Keperluan Berhasil di Hapus'
             );
     }
 }

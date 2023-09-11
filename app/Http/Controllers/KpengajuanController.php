@@ -30,7 +30,7 @@ class KpengajuanController extends Controller
         Kpengajuan::create($validateData);
         return redirect()->route('kpengajuan.index')->with(
             'success',
-            'Success ! Data Bank Berhasil di Tambahkan'
+            'Success ! Data Kategori Pengajuan Berhasil di Tambahkan'
         );
     }
 
@@ -59,7 +59,7 @@ class KpengajuanController extends Controller
         return redirect()->route('kpengajuan.index')
             ->with(
                 'success',
-                'Success ! Data Bank Berhasil di Update'
+                'Success ! Data Kategori Pengajuan Berhasil di Update'
             );
     }
 
@@ -71,7 +71,7 @@ class KpengajuanController extends Controller
         return redirect()->route('kpengajuan.index')
             ->with(
                 'success',
-                'Success ! Data Bank Berhasil di Hapus'
+                'Success ! Data Kategori Pengajuan Berhasil di Hapus'
             );
     }
 }

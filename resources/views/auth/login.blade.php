@@ -14,12 +14,12 @@
                             class="h-auto" />
                     </div>
                     <!-- /Logo -->
-                    <h4 class="mb-1 pt-2">Welcome to Transafe </h4>
+                    <h4 class="mb-1 pt-2">Welcome to REQUEST FUND </h4>
                     {{-- <p class="mb-3">Please sign-in to your account</p> --}}
                     <form id="formAuthentication" class="mb-3" method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label">Email or Username</label>
+                            <label class="form-label">Email</label>
                             <input type="text" class="form-control @error('email') is-invalid @enderror"
                                 placeholder="Enter your email or username" name="email" value="{{ old('email') }}"
                                 required autocomplete="email" autofocus />

@@ -408,12 +408,14 @@
                                                     <div class="mb-1">
                                                         <label class="form-label" for="basicInput">
                                                             Lampirkan File
+                                                             <div id="defaultFormControlHelp"
+                                                                class="form-text">
+                                                                * Max. file 15MB
+                                                            </div>
                                                         </label>
                                                         <input type="file" class="form-control" name="image1"
                                                             placeholder="Enter" autofocus />
-                                                        <div id="defaultFormControlHelp" class="form-text">
-                                                            * Max. file 15MB
-                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>

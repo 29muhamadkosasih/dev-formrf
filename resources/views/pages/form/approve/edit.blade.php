@@ -82,8 +82,13 @@
                     <div class="col-xl-4 col-md-6 col-6 align-self-end">
                         <div class="mb-1">
                             <label class="form-label" for="basicInput">No. RF</label>
-                            <input type="text" class="form-control" name="no_rf" id="basicInput"
-                                placeholder="Masukkan No. RF" required autofocus />
+                            <input type="text" class="form-control @error('no_rf') is-invalid @enderror " name="no_rf"
+                                id="basicInput" placeholder="Masukkan No. RF" required autofocus />
+                            @error('no_rf')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                     </div>
 

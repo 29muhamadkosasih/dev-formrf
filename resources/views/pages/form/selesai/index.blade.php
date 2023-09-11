@@ -17,6 +17,7 @@
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
+                            <th class="text-center">No. RF</th>
                             <th class="text-center">Dari</th>
                             <th class="text-center">Departement</th>
                             <th class="text-center">Payment Method</th>
@@ -33,6 +34,9 @@
                         @foreach ($form as $data)
                         <tr>
                             <td style="text-align: center">{{ $loop->iteration }}</td>
+                            <td>
+                                {{ $data->no_rf }}
+                            </td>
                             <td>
                                 {{ $data->user->name }}
                             </td>

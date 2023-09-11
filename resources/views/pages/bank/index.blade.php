@@ -58,24 +58,24 @@
                                 @endswitch
                             </td>
                             <td style="text-align: center">
-                                @can('bank.edit')
-                                <a href="{{ route('bank.edit', $data->id) }}" class="btn btn-icon btn-warning btn-sm"
-                                    data-bs-toggle="tooltip" data-bs-placement="top"
-                                    data-bs-custom-class="tooltip-warning" data-bs-original-title="Edit">
-                                    <span class="ti ti-edit"></span>
-                                </a>
-                                @endcan
 
                                 @can('bank.delete')
-                                <form action="{{ route('bank.destroy', $data->id) }}" class="d-inline-block"
-                                    method="post">
+
+                                <form method="POST" action="{{ route('bank.destroy', $data->id) }}">
                                     @csrf
-                                    @method('DELETE')
-                                    <button type="submit" onclick="return confirm('Are you sure?')"
-                                        class="btn btn-icon btn-danger btn-sm" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="tooltip-danger"
-                                        data-bs-original-title="Hapus">
-                                        <span class="ti ti-trash "></span>
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    @can('bank.edit')
+                                    <a href="{{ route('bank.edit', $data->id) }}"
+                                        class="btn btn-icon btn-warning btn-sm" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" data-bs-custom-class="tooltip-warning"
+                                        data-bs-original-title="Edit">
+                                        <span class="ti ti-edit"></span>
+                                    </a>
+                                    @endcan
+                                    <button type="submit" class="btn btn-icon btn-danger btn-sm show_confirm"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete"
+                                        aria-describedby="tooltip358783">
+                                        <span class="ti ti-trash"></span>
                                     </button>
                                 </form>
                                 @endcan
@@ -88,5 +88,26 @@
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+    $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Are you sure you want to delete this record?`,
+              text: "If you delete this, it will be gone forever.",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            }
+          });
+      });
+
+</script>
 <!-- /Invoice table -->
 @endsection

@@ -19,6 +19,7 @@
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
+                            <th>No. RF</th>
                             <th>Dari</th>
                             <th>Payment Method</th>
                             <th>Bank</th>
@@ -36,6 +37,9 @@
                         </tr> --}}
                         <tr>
                             <td style="text-align: center">{{ $loop->iteration }}</td>
+                            <td>
+                                {{ $data->no_rf }}
+                            </td>
                             <td>
                                 {{ $data->user->name }}
                             </td>
@@ -65,7 +69,7 @@
                         @empty
                         @endforelse
                         <tr style="color:black; background-color: lightgreen">
-                            <th colspan="5" style="text-align :right ">TOTAL CASH</th>
+                            <th colspan="6" style="text-align :right ">TOTAL CASH</th>
                             <td style="text-align :right"> {{ number_format($jumlah_total, 0, ',',
                                 '.') }}</td>
                         </tr>
@@ -73,6 +77,9 @@
                         @forelse ($form2 as $data)
                         <tr>
                             <td style="text-align: center">{{ $loop->iteration }}</td>
+                            <td>
+                                {{ $data->no_rf }}
+                            </td>
                             <td>
                                 {{ $data->user->name }}
                             </td>
@@ -92,23 +99,23 @@
                         @empty
                         @endforelse
                         <tr style="color:black; background-color: lightgreen">
-                            <th colspan="5" style="text-align :right ">TOTAL TRANSFER </th>
+                            <th colspan="6" style="text-align :right ">TOTAL TRANSFER </th>
                             <td style="text-align :right"> {{ number_format($jumlah_total2, 0, ',',
                                 '.') }}</td>
                         </tr>
                         <tr style="color:black; background-color: lightgreen">
-                            <th colspan="5" style="text-align :right ">TOTAL BIAYA TRANSFER </th>
+                            <th colspan="6" style="text-align :right ">TOTAL BIAYA TRANSFER </th>
                             <td style="text-align :right"> {{ number_format($jumlah_admin, 0, ',',
                                 '.') }}</td>
                         </tr>
                         <tr style="color:black; background-color: lightgreen">
-                            <th colspan="5" style="text-align :right ">JUMLAH TOTAL </th>
+                            <th colspan="6" style="text-align :right ">JUMLAH TOTAL </th>
                             <td style="text-align :right"> {{ number_format($jumlah_akhir, 0, ',',
                                 '.') }}</td>
                         </tr>
                         @foreach ($latestData as $item)
                         <tr style="color:black; background-color: lightgreen">
-                            <th colspan="5" style="text-align :right ">JUMLAH TOTAL SALDO </th>
+                            <th colspan="6" style="text-align :right ">JUMLAH TOTAL SALDO </th>
 
                             <td style="text-align :right">{{ number_format($item->jumlah_saldo, 0, ',',
                                 '.') }}</td>
