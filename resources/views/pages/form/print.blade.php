@@ -12,6 +12,7 @@
 
             font-family: sans-serif;
             width: 100%;
+            font-size: 12px;
             max-width: 600px;
             margin: 15px auto;
 
@@ -32,12 +33,13 @@
             background-color: #fff;
             height: auto;
             padding: auto;
+            margin-bottom: 30px;
 
         }
 
         .tengah {
             text-align: left;
-            line-height: 5px;
+            line-height: 10px;
         }
 
         #ping {
@@ -58,12 +60,10 @@
         <table>
             <tr>
                 <td>
-                    <img src="{{ asset('assets/img/favicon/lgo.png') }}" width="140px">
+                    <img src="{{ asset('assets/img/favicon/lgo.png') }}" width="130px">
                 </td>
                 <td class="tengah">
                     <h3>PAID - REQUEST FORM</h3>
-                    <!--<h2>DINAS PENDIDIKAN</h2>-->
-
                 </td>
             </tr>
         </table>
@@ -73,16 +73,15 @@
     <table align=”center” border=”1″ id="ping">
         <tr style="background-color: skyblue">
             <th width='80px' style="text-align: center">No RF</th>
-            <th width='350px'>Description</th>
-            <th width='150px'>Nama Penerima</th>
-            <th width='100px'>Payment Method</th>
-
+            <th>Description</th>
+            <th>Nama Penerima</th>
+            <th>Payment Method</th>
             <th width='110px'>Jumlah Rp.</th>
         </tr>
         @foreach ($data as $data)
         <tr>
             <td style="text-align: center">{{ $data->no_rf}}</td>
-            <td align=left>
+            <td style="text-align :left;padding-left: 10px; padding-right: 10px;">
                 <!--<ul>-->
                 1. {{ $data->description}} <br>
 
@@ -136,30 +135,36 @@
                 @endswitch
                 <!--</ul>-->
             </td>
-            <td style="text-align: center">{{ $data->user->name }}</td>
-            <td style="text-align: center">{{ $data->payment }}</td>
+            <td style="text-align :left;padding-left: 10px; padding-right: 10px;">{{ $data->user->name }}</td>
+            <td style="text-align :left;padding-left: 10px; padding-right: 10px;">{{ $data->payment }}</td>
 
-            <td style="text-align: right">{{ number_format($data->jumlah_total, 0, ',', '.',) }}</td>
+            <td style="text-align :right;padding-left: 10px; padding-right: 10px;">{{ number_format($data->jumlah_total,
+                0, ',', '.',) }}</td>
         </tr>
         @endforeach
         <tr style="color:black; background-color: lightgreen">
-            <th colspan="4" style="text-align :right ">Total Cash</th>
-            <td style="text-align :right"> {{ number_format($jumlah_total, 0, ',',
+            <th colspan="4" style="text-align :right;padding-left: 10px; padding-right: 10px;">Total Cash</th>
+            <td style="text-align :right;padding-left: 10px; padding-right: 10px;"> {{ number_format($jumlah_total, 0,
+                ',',
                 '.') }}</td>
         </tr>
         <tr style="color:black; background-color: lightgreen">
-            <th colspan="4" style="text-align :right ">Total Transfer </th>
-            <td style="text-align :right"> {{ number_format($jumlah_total2, 0, ',',
+            <th colspan="4" style="text-align :right;padding-left: 10px; padding-right: 10px;">Total Transfer </th>
+            <td style="text-align :right;padding-left: 10px; padding-right: 10px;"> {{ number_format($jumlah_total2, 0,
+                ',',
                 '.') }}</td>
         </tr>
         <tr style="color:black; background-color: lightgreen">
-            <th colspan="4" style="text-align :right ">Total Biaya Transfer </th>
-            <td style="text-align :right"> {{ number_format($jumlah_admin, 0, ',',
+            <th colspan="4" style="text-align :right;padding-left: 10px; padding-right: 10px;">Total Biaya Transfer
+            </th>
+            <td style="text-align :right;padding-left: 10px; padding-right: 10px;"> {{ number_format($jumlah_admin, 0,
+                ',',
                 '.') }}</td>
         </tr>
         <tr style="color:black; background-color: lightgreen">
-            <th colspan="4" style="text-align :right ">Jumlah Total </th>
-            <td style="text-align :right"> {{ number_format($jumlah_akhir, 0, ',',
+            <th colspan="4" style="text-align :right;padding-left: 10px; padding-right: 10px;">Jumlah Total </th>
+            <td style="text-align :right;padding-left: 10px; padding-right: 10px;"> {{ number_format($jumlah_akhir, 0,
+                ',',
                 '.') }}</td>
         </tr>
     </table>

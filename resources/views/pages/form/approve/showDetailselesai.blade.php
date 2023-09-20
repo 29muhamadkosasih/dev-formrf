@@ -18,7 +18,7 @@
                     <dl class="row mb-0">
 
                         <dt class="col-sm-4 fw-bolder mb-1"> No. RF </dt>
-                        <dd class="col-sm-8 mb-1"> {{ $show->no_rf }}</dd>
+                        <dd class="col-sm-8 mb-1">: {{ $show->no_rf }}</dd>
 
                         <dt class="col-sm-4 fw-bolder mb-1"> Dari </dt>
                         <dd class="col-sm-8 mb-1">: {{ $show->user->name }}</dd>

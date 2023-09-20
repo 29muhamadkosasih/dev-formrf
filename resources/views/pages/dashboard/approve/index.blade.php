@@ -2,10 +2,9 @@
 
 @section('content')
 @section('title', 'Dashboard')
-<div class="col-xl-4 col-12">
-    <div class="row">
-        <!-- Expenses -->
-        <div class="col-xl-6 mb-4 col-md-3 col-6">
+<div class="col-xl-12">
+    <div class="row g-2 mb-2">
+        <div class=" col-sm-6 ">
             <div class="card">
                 <div class="card-header pb-0">
                     <h5 class="card-title mb-0">Total RF</h5>
@@ -17,10 +16,7 @@
                 </div>
             </div>
         </div>
-        <!--/ Expenses -->
-
-        <!-- Profit last month -->
-        <div class="col-xl-6 mb-4 col-md-3 col-6">
+        <div class=" col-sm-6">
             <div class="card">
                 <div class="card-header pb-0">
                     <h5 class="card-title mb-0">RF Perbulan</h5>
@@ -33,10 +29,7 @@
                 </div>
             </div>
         </div>
-        <!--/ Profit last month -->
-
-        <!-- Generated Leads -->
-        <div class="col-xl-12 mb-4 col-md-6">
+        <div class=" col-sm-6">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
@@ -54,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-12 mb-4 col-md-6">
+        <div class=" col-sm-6">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
@@ -74,32 +67,8 @@
                 </div>
             </div>
         </div>
-        <!--/ Generated Leads -->
     </div>
 </div>
-
-<div class="col-lg-8 col-12">
-    <div class="row">
-        <div class="col-xl-6 mb-4">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="m-0 card-title">Total Pengajuan Perbulan</h5>
-
-                </div>
-                <div class="card-body mb-2"><canvas id="myAreaChart" width="100%" height="75"></canvas></div>
-            </div>
-        </div>
-        <div class="col-xl-6 mb-4">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="m-0 card-title">Total Pengajuan Perbulan</h5>
-                </div>
-                <div class="card-body"><canvas id="myBarChart" width="100%" height="75"></canvas></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--/ Revenue Report -->
 <div class="col-xl-12">
     <div class="card">
         <div class="card-body">
@@ -189,7 +158,8 @@
         </div>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous">
+</script>
 <script type="text/javascript">
     var _ydata=JSON.parse('{!! json_encode($months) !!}');
 	var _xdata=JSON.parse('{!! json_encode($monthCount) !!}');

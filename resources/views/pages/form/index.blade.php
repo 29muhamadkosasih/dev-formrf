@@ -27,6 +27,7 @@
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
                             <th class="text-center">Tgl Pengajuan</th>
+                            <th class="text-center">No RF</th>
                             {{-- <th>Dari</th>
                             <th>Departement</th> --}}
                             <th class="text-center">Keperluan</th>
@@ -44,6 +45,9 @@
                             <td style="text-align: center">{{ $loop->iteration }}</td>
                             <td>
                                 {{ $data->created_at->format('d-m-Y')}}
+                            </td>
+                            <td>
+                                {{ $data->no_rf}}
                             </td>
                             <td>
                                 {{ $data->keperluan->name }}
@@ -408,8 +412,7 @@
                                                     <div class="mb-1">
                                                         <label class="form-label" for="basicInput">
                                                             Lampirkan File
-                                                             <div id="defaultFormControlHelp"
-                                                                class="form-text">
+                                                            <div id="defaultFormControlHelp" class="form-text">
                                                                 * Max. file 15MB
                                                             </div>
                                                         </label>

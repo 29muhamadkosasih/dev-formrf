@@ -6,6 +6,10 @@
 <script src="{{ asset('plugins/tables/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plugins/tables/js/datatable/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('plugins/tables/js/datatable-init/datatable-basic.min.js') }}"></script>
+<script src="{{ asset('plugins/tables/js/datatables-extensions-init/datatable-fixed-column.min.js') }}"></script>
+<script src="{{ asset('plugins/tables/js/datatables-extensions-init/datatable-fixed-header.min.js') }}"></script>
+<script src="{{ asset('plugins/tables/js/datatables-extensions-init/datatables-colreorder.min.js') }}"></script>
+<script src="{{ asset('plugins/tables/js/datatables-extensions-init/datatable-rowreorder.min.js') }}"></script>
 
 <!-- Core JS -->
 <!-- build:js assets/vendor/js/core.js -->

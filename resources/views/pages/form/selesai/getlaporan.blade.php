@@ -1,40 +1,6 @@
 @extends('layouts/master')
 @section('content')
-
 @section('title', 'Form')
-
-
-<div class="col-xl-12 mb-3">
-    <div class="card">
-        <div class="card-body">
-            <div class="row mb-2">
-                <div class="col-auto me-auto ">
-                    <h5 class="mb-0">Report Data Pengajuan
-                </div>
-            </div>
-            <form action="{{ route('laporan.getLaporan') }}" method="POST">
-                @csrf
-                <div class="row g-4">
-                    <div class="col-md-5 mb-2">
-                        <label for="from" class="mb-2">Start Date</label><br> <input type="text" name="from"
-                            class="form-control mb-0" placeholder="Start Date" onfocusin="(this.type='date')"
-                            onfocusout="(this.type='text')">
-                    </div>
-                    <div class="col-md-5 mb-2">
-                        <label for="to" class="mb-2">End Date</label><br>
-                        <input type="text" name="to" class="form-control mb-0" placeholder="End Date"
-                            onfocusin="(this.type='date')" onfocusout="(this.type='text')">
-                    </div>
-                    <div class="col-md-2 mb-2">
-                        <label for="to" class="mb-2"></label><br>
-                        <button type="submit" class="btn btn-primary float-end mt-2">Cari Data</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- Invoice table -->
 <div class="col-xl-12">
     <div class="card">
         <div class="card-body">
@@ -52,6 +18,9 @@
                         </b>
                 </div>
                 <div class="col-auto">
+                    <a href="{{ route('list' ) }}" class="btn btn-secondary btn-sm"><i
+                            class="menu-icon tf-icons ti ti-brand-gravatar"></i>Reset</a>
+
                     <a href="{{ route('cetak_pdf2', ['from' => $from, 'to' => $to] ) }}" class="btn btn-primary btn-sm"
                         target="_blank"><i class="menu-icon tf-icons ti ti-download"></i>PDF</a>
                 </div>

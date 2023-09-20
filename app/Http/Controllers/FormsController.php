@@ -75,6 +75,8 @@ class FormsController extends Controller
         $form = Form::whereBetween('created_at', [$from, $to])
             ->where('status', '8')
             ->get();
+
+        // dd($form);
         // $jumlah_total = Form::whereBetween('created_at', [$from, $to])->get()->sum('jumlah_total');
 
 
@@ -85,6 +87,25 @@ class FormsController extends Controller
             'from' => $from,
             'to' => $to,
             // 'jumlah_total' => $jumlah_total,
+
+        ]);
+    }
+    public function getLaporanDay(Request $request)
+    {
+        // dd($request);
+        $date = $request->input('date');
+
+        // dd($date);
+        $form = Form::whereDate('created_at', $date)
+            ->where('status', '8')
+            ->get();
+
+        // dd($form);
+
+        return view('pages.form.selesai.getlaporanDay', [
+            'form' => $form,
+            'date' => $date,
+
 
         ]);
     }
@@ -167,23 +188,36 @@ class FormsController extends Controller
             ->whereDay('created_at', $currentDay)
             ->get();
         $jumlah_total = DB::table('form')
+            ->whereDay('created_at', $currentDay)
             ->where('status', '4')
             ->where('payment', 'Cash')
             ->sum('jumlah_total');
         // ->get();
         // dd($jumlah_total);
         $jumlah_total2 = DB::table('form')
+            ->whereDay('created_at', $currentDay)
             ->where('status', '4')
             ->where('payment', 'Transfer')
             ->sum('jumlah_total');
         $jumlah_admin = Form::where('status', '4')
+            ->whereDay('created_at', $currentDay)
             ->where('payment', 'Transfer')
             ->sum('b_admin');
 
         $jumlah_total3 = DB::table('form')
+            ->whereDay('created_at', $currentDay)
             ->where('status', '4')
             ->sum('jumlah_total');
         $jumlah_akhir = $jumlah_total3 + $jumlah_admin;
+        $latestData = Saldo::orderBy('created_at', 'desc')
+            ->whereDay('created_at', $currentDay)
+            ->take(1)
+            ->get();
+
+        $latestData2 = Reportpb::orderBy('created_at', 'desc')
+            ->whereDay('created_at', $currentDay)
+            ->take(1)
+            ->get();
 
         $pdf = PDF::loadview('pages.form.selesai.printToday', [
             'jumlah_admin' => $jumlah_admin,
@@ -194,8 +228,10 @@ class FormsController extends Controller
             'currentDay' => $currentDay,
             'form' => $form,
             'form2' => $form2,
+            'latestData' => $latestData,
+            'latestData2' => $latestData2,
         ]);
-        $pdf->set_paper('letter', 'landscape');
+        $pdf->set_paper('letter', 'potrait');
         return $pdf->stream('laporan-request-fund.pdf');
     }
 
@@ -236,7 +272,7 @@ class FormsController extends Controller
             'jumlah_akhir' => $jumlah_akhir,
             'jumlah_total3' => $jumlah_total3,
         ]);
-        $pdf->set_paper('letter', 'landscape');
+        $pdf->set_paper('letter', 'potrait');
         return $pdf->stream('laporan-request-fund.pdf');
     }
 
@@ -278,7 +314,48 @@ class FormsController extends Controller
             'jumlah_akhir' => $jumlah_akhir,
             'jumlah_total3' => $jumlah_total3,
         ]);
-        $pdf->set_paper('letter', 'landscape');
+        $pdf->set_paper('letter', 'potrait');
+        return $pdf->stream('laporan-request-fund.pdf');
+    }
+
+    public function cetak_pdfDay($date,)
+    {
+        $data = Form::where('status', '8')
+            ->whereDate('created_at', $date)
+            ->get();
+        $jumlah_total = DB::table('form')
+            ->where('status', '8')
+            ->whereDate('created_at', $date)
+            ->where('payment', 'Cash')
+            ->sum('jumlah_total');
+        // ->get();
+        // dd($jumlah_total);
+        $jumlah_total2 = DB::table('form')
+            ->where('status', '8')
+            ->whereDate('created_at', $date)
+            ->where('payment', 'Transfer')
+            ->sum('jumlah_total');
+        $jumlah_admin = Form::where('status', '8')
+            ->whereDate('created_at', $date)
+            ->where('payment', 'Transfer')
+            ->sum('b_admin');
+
+        $jumlah_total3 = DB::table('form')
+            ->where('status', '8')
+            ->whereDate('created_at', $date)
+            ->sum('jumlah_total');
+        $jumlah_akhir = $jumlah_total3 + $jumlah_admin;
+        // dd($data);
+        $pdf = PDF::loadview('pages.form.printGetDay', [
+            'data' => $data,
+            'date' => $date,
+            'jumlah_admin' => $jumlah_admin,
+            'jumlah_total2' => $jumlah_total2,
+            'jumlah_total' => $jumlah_total,
+            'jumlah_akhir' => $jumlah_akhir,
+            'jumlah_total3' => $jumlah_total3,
+        ]);
+        $pdf->set_paper('letter', 'potrait');
         return $pdf->stream('laporan-request-fund.pdf');
     }
 
@@ -319,7 +396,7 @@ class FormsController extends Controller
             'jumlah_akhir' => $jumlah_akhir,
             'jumlah_total3' => $jumlah_total3,
         ]);
-        $pdf->set_paper('letter', 'landscape');
+        $pdf->set_paper('letter', 'potrait');
         return $pdf->stream('laporan-request-fund-today.pdf');
     }
 }

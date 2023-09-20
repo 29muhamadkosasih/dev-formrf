@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-complex-headers">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
@@ -103,7 +103,7 @@
                                 <span class="badge bg-secondary">Menunggu Konfirmasi Dana Masuk</span>
                                 @break
                                 @case($data->status == 6)
-                                <span class="badge bg-primary">Menunggu Konfirmasi Pembayaran</span>
+                                <span class="badge bg-primary">Menunggu Konfirmasi Pengembalian</span>
                                 @break
                                 @case($data->status == 7)
                                 <a href="{{ route('form-approve.viewDetail', $data->id) }}"

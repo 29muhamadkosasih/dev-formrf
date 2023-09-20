@@ -71,11 +71,7 @@
     <!--<h3 id=judul>PAID - REQUEST FORM </h3>-->
     <h4 id=judul>Tanggal
         <b>
-            {{ \Carbon\Carbon::parse($from)->format('d-m-Y')}}
-        </b>
-        Sampai
-        <b>
-            {{ \Carbon\Carbon::parse($to)->format('d-m-Y')}}
+            {{ \Carbon\Carbon::parse($date)->format('d-m-Y')}}
         </b>
     </h4>
     <table align=”center” border=”1″ id="ping">

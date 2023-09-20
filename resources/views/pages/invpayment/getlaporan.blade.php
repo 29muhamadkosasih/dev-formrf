@@ -3,37 +3,6 @@
 @section('title', 'Invoice & Payment In')
 
 @section('content')
-<!-- Invoice table -->
-<div class="col-xl-12 mb-3">
-    <div class="card">
-        <div class="card-body">
-            <div class="row mb-2">
-                <div class="col-auto me-auto ">
-                    <h5 class="mb-0">Report Data Invoice & Payment In
-                </div>
-            </div>
-            <form action="{{ route('laporan.getLaporan.InvPayment') }}" method="POST">
-                @csrf
-                <div class="row g-4">
-                    <div class="col-md-5 mb-2">
-                        <label for="from" class="mb-2">Start Date</label><br> <input type="text" name="from"
-                            class="form-control mb-0" placeholder="Start Date" onfocusin="(this.type='date')"
-                            onfocusout="(this.type='text')">
-                    </div>
-                    <div class="col-md-5 mb-2">
-                        <label for="to" class="mb-2">End Date</label><br>
-                        <input type="text" name="to" class="form-control mb-0" placeholder="End Date"
-                            onfocusin="(this.type='date')" onfocusout="(this.type='text')">
-                    </div>
-                    <div class="col-md-2 mb-2">
-                        <label for="to" class="mb-2"></label><br>
-                        <button type="submit" class="btn btn-primary float-end mt-2">Cari Data</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 <div class="col-xl-12">
     <div class="card">
         <div class="card-body">
@@ -52,11 +21,8 @@
                     </h5>
                 </div>
                 <div class="col-auto mt-1">
-                    {{-- <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                        data-bs-target="#modalCenter">
-                        Import
-                    </button>
-                    <a href="{{ route('invpayment.create') }}" class="btn btn-primary me-2">Create</a> --}}
+                    <a href="{{ route('invpayment.index' ) }}" class="btn btn-secondary btn-sm"><i
+                            class="menu-icon tf-icons ti ti-brand-gravatar"></i>Reset</a>
                 </div>
             </div>
             <div class="table-responsive text-nowrap">

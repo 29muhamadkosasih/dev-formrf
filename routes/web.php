@@ -85,6 +85,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('dashboard-checked', [DashboardController::class, 'checked'])->name('dashboard.checked');
     Route::get('dashboard-approve', [DashboardController::class, 'approve'])->name('dashboard.approve');
     Route::get('dashboard-general', [DashboardController::class, 'general'])->name('dashboard.general');
+    Route::post('getLaporanDay', [FormsController::class, 'getLaporanDay'])->name('laporan.getLaporanDay');
     Route::post('getLaporan', [FormsController::class, 'getLaporan'])->name('laporan.getLaporan');
     Route::post('import-file', [InvPaymentController::class, 'import'])->name('import');
     Route::get('export_excel', [UserController::class, 'export_excel'])->name('export_excel');
@@ -103,6 +104,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('getLaporan/InvPayment', [InvPaymentController::class, 'getLaporan'])->name('laporan.getLaporan.InvPayment');
     Route::get('/pegawai/cetak_pdf', [FormsController::class, 'cetak_pdf'])->name('cetak_pdf');
     Route::get('/pegawai/cetak_pdf2/{from}/{to}', [FormsController::class, 'cetak_pdf2'])->name('cetak_pdf2');
+    Route::get('/pegawai/cetak_pdfDay/{date}', [FormsController::class, 'cetak_pdfDay'])->name('cetak_pdfDay');
     Route::get('/pegawai/cetak_pdfpb', [FormsController::class, 'cetak_pdfpb'])->name('cetak_pdfpb');
     Route::resource('/users', UserController::class);
     Route::resource('/roles', RoleController::class);
