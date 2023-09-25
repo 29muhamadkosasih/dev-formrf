@@ -1,615 +1,6 @@
 @extends('layouts.master')
 @section('content')
 @section('title', 'Form')
-
-{{-- <div class="col-xl-12 mb-3">
-    <div class="card">
-        <div class="card-body">
-            <div class="row ">
-                <div class="col-auto me-auto ">
-                    <h5 class="mb-0 ms-3">Edit Form
-
-                </div>
-            </div>
-            <form action="{{ route('form.update', $edit->id) }}" method="POST" enctype="multipart/form-data">
-                @method('PUT')
-                @csrf
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6 col-12">
-                            <div class="mb-1">
-                                <label class="form-label" for="basicInput">Dari</label>
-                                <input type="text" class="form-control" name="from_id" placeholder="Enter" required
-                                    value="{{ $edit->user->name }}" readonly />
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6 col-12">
-                            <div class="mb-1">
-                                <label class="form-label" for="basicInput">
-                                    Kategori
-                                    Pengajuan
-                                </label>
-                                <select class="form-select @error('kpengajuan_id') is-invalid @enderror"
-                                    id="selectDefault" name="kpengajuan_id" required readonly>
-                                    <option selected>Open this select</option> @foreach ($kpengajuan as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                    @endforeach
-                                </select>
-                                @error('kpengajuan_id')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6 col-12">
-                            <div class="mb-1">
-                                <label class="form-label" for="basicInput">
-                                    Keperluan
-                                </label>
-                                <select class="form-select @error('keperluan_id') is-invalid @enderror"
-                                    onchange="enableBrand2(this)" id="selectDefault" name="keperluan_id" required>
-                                    <option selected>Open this select</option>
-                                    @foreach ($keperluan as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                    @endforeach
-                                </select>
-                                @error('keperluan_id')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                        </div>
-                        <input type="hidden" name="departement_id" value="{{ Auth::user()->departement_id }}">
-                        <div class="col-xl-4 col-md-6 col-12">
-                            <div class="mb-1">
-                                <label class="form-label" for="basicInput">Tanggal
-                                    Kebutuhan</label>
-                                <input type="date" class="form-control" placeholder="Enter" name="tanggal_kebutuhan"
-                                    required value="{{ $edit->tanggal_kebutuhan }}" />
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6 col-12">
-                            <div class="mb-1">
-                                <label class="form-label" for="helpInputTop">Ditujukan Untuk</label>
-                                <select class="form-select @error('rujukan_id') is-invalid @enderror" id="selectDefault"
-                                    name="rujukan_id" required>
-                                    <option selected>Open this select</option> @foreach ($rujukan as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                    @endforeach
-                                </select>
-                                @error('rujukan_id')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6 col-12">
-                            <div class="mb-1">
-                                <label class="form-label" for="helpInputTop">Payment</label>
-                                <select class="form-select @error('payment') is-invalid @enderror" id="selectDefault"
-                                    name="payment" id="car" onchange="enableBrand(this)" required>
-                                    <option selected>Open this select</option>
-                                    <option value="Cash">Cash</option>
-                                    <option value="Transfer">Transfer</option>
-                                </select>
-                                @error('payment')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-xl-12 col-md-12 col-12 d-none" id="carbrand">
-                            <div class="mb-1">
-                                <label class="form-label" for="select2-basic">
-                                    Nama Rekening Penerima
-                                </label>
-                                <select class="select2 form-select" id="select2-basic" name="norek_id">
-                                    <option></option>
-                                    @foreach ($norek as $item)
-                                    <option value="{{ $item->id }}">
-                                        {{ $item->no_rekening }} &nbsp; A/N &nbsp; {{ $item->nama_penerima }} &nbsp;
-                                        ( {{ $item->bank->nama_bank }} ) </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-6 col-md-6 col-12 d-none" id="t1">
-                            <div class="mb-1">
-                                <label class="form-label" for="basicInput">
-                                    No. Project
-                                </label>
-                                <input type="text" class="form-control" name="no_project" placeholder="Enter"
-                                    autofocus />
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-6 col-12 d-none" id="t2">
-                            <div class="mb-1">
-                                <label class="form-label" for="basicInput">
-                                    Jumlah Peserta
-                                </label>
-                                <input type="number" class="form-control" name="j_peserta" placeholder="Enter"
-                                    autofocus />
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-6 col-12 d-none" id="t3">
-                            <div class="mb-1">
-                                <label class="form-label" for="helpInputTop">
-                                    Jumlah Trainer / Asesor
-                                </label>
-                                <input type="number" class="form-control" name="j_traine_asesor" placeholder="Enter"
-                                    autofocus />
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-6 col-12 d-none" id="t4">
-                            <div class="mb-1">
-                                <label class="form-label" for="basicInput">
-                                    Jumlah Assist
-                                </label>
-                                <input type="number" class="form-control" name="j_assist" placeholder="Enter"
-                                    autofocus />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="accordionIcon" class="accordion accordion-without-arrow">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionIconTwo">
-                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#accordionIcon-2" aria-controls="accordionIcon-2">
-                                Pengajuan 1
-                            </button>
-                        </h2>
-                        <div id="accordionIcon-2" class="accordion-collapse collapse" data-bs-parent="#accordionIcon">
-                            <div class="accordion-body">
-                                <div class="row">
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">Description</label>
-                                            <input type="text" class="form-control" name="description"
-                                                placeholder="Enter" value="{{ $edit->description }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">Unit</label>
-                                            <input type="text" class="form-control" name="unit" placeholder="Enter"
-                                                value="{{ $edit->unit }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="helpInputTop">Price</label>
-                                            <input type="text" class="form-control" name="price" placeholder="Enter"
-                                                value="{{ $edit->price }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">Qty</label>
-                                            <input type="number" class="form-control" name="qty" placeholder="Enter"
-                                                value="{{ $edit->qty }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-md-12 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Lampirkan File
-                                            </label>
-                                            <input type="file" class="form-control" name="image1" placeholder="Enter"
-                                                autofocus value="{{$edit->image1}}" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionIconThree">
-                            <button type="button" class="accordion-button" data-bs-toggle="collapse"
-                                data-bs-target="#accordionIcon-3" aria-expanded="true" aria-controls="accordionIcon-3">
-                                Pengajuan 2
-                            </button>
-                        </h2>
-                        <div id="accordionIcon-3" class="accordion-collapse collapse" data-bs-parent="#accordionIcon">
-                            <div class="accordion-body">
-                                <div class="row">
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">Description</label>
-                                            <input type="text" class="form-control" name="description2"
-                                                placeholder="Enter" value="{{ $edit->description2 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">Unit</label>
-                                            <input type="text" class="form-control" name="unit2" placeholder="Enter"
-                                                value="{{ $edit->unit2 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="helpInputTop">Price</label>
-                                            <input type="text" class="form-control" name="price2" placeholder="Enter"
-                                                value="{{ $edit->price2 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">Qty</label>
-                                            <input type="number" class="form-control" name="qty2" placeholder="Enter"
-                                                value="{{ $edit->qty2 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-md-12 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Lampirkan File
-                                            </label>
-                                            <input type="file" class="form-control" name="image2" placeholder="Enter"
-                                                autofocus value="{{$edit->image2}}" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionIconFour">
-                            <button type="button" class="accordion-button" data-bs-toggle="collapse"
-                                data-bs-target="#accordionIcon-4" aria-expanded="true" aria-controls="accordionIcon-4">
-                                Pengajuan 3
-                            </button>
-                        </h2>
-                        <div id="accordionIcon-4" class="accordion-collapse collapse" data-bs-parent="#accordionIcon">
-                            <div class="accordion-body">
-                                <div class="row">
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">Description</label>
-                                            <input type="text" class="form-control" name="description3"
-                                                placeholder="Enter" value="{{ $edit->description3 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">Unit</label>
-                                            <input type="text" class="form-control" name="unit3" placeholder="Enter"
-                                                value="{{ $edit->unit3 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="helpInputTop">Price</label>
-                                            <input type="text" class="form-control" name="price3" placeholder="Enter"
-                                                value="{{ $edit->price3 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">Qty</label>
-                                            <input type="number" class="form-control" name="qty3" placeholder="Enter"
-                                                value="{{ $edit->qty3 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-md-12 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Lampirkan File
-                                            </label>
-                                            <input type="file" class="form-control" name="image3" placeholder="Enter"
-                                                autofocus value="{{$edit->image3}}" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionIconOne">
-                            <button type="button" class="accordion-button" data-bs-toggle="collapse"
-                                data-bs-target="#accordionIcon-1" aria-expanded="true" aria-controls="accordionIcon-1">
-                                Pengajuan 4
-                            </button>
-                        </h2>
-                        <div id="accordionIcon-1" class="accordion-collapse collapse" data-bs-parent="#accordionIcon">
-                            <div class="accordion-body">
-                                <div class="row">
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">Description</label>
-                                            <input type="text" class="form-control" name="description4"
-                                                placeholder="Enter" value="{{ $edit->description4 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">Unit</label>
-                                            <input type="text" class="form-control" name="unit4" placeholder="Enter"
-                                                value="{{ $edit->unit4 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="helpInputTop">Price</label>
-                                            <input type="text" class="form-control" name="price4" placeholder="Enter"
-                                                value="{{ $edit->price4 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">Qty</label>
-                                            <input type="number" class="form-control" name="qty4" placeholder="Enter"
-                                                value="{{ $edit->qty4 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-md-12 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Lampirkan File
-                                            </label>
-                                            <input type="file" class="form-control" name="image4" placeholder="Enter"
-                                                autofocus value="{{$edit->image4}}" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionIconFive">
-                            <button type="button" class="accordion-button" data-bs-toggle="collapse"
-                                data-bs-target="#accordionIcon-5" aria-expanded="true" aria-controls="accordionIcon-5">
-                                Pengajuan 5
-                            </button>
-                        </h2>
-                        <div id="accordionIcon-5" class="accordion-collapse collapse" data-bs-parent="#accordionIcon">
-                            <div class="accordion-body">
-                                <div class="row">
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Description
-                                            </label>
-                                            <input type="text" class="form-control" name="description5"
-                                                placeholder="Enter" autofocus value="{{ $edit->description5 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Unit
-                                            </label>
-                                            <input type="text" class="form-control" name="unit5" placeholder="Enter"
-                                                autofocus value="{{ $edit->unit5 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="helpInputTop">
-                                                Price
-                                            </label>
-                                            <input type="number" class="form-control" name="price5" placeholder="Enter"
-                                                autofocus value="{{ $edit->price5 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Qty
-                                            </label>
-                                            <input type="number" class="form-control" name="qty5" placeholder="Enter"
-                                                autofocus value="{{ $edit->qty5 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-md-12 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Lampirkan File
-                                            </label>
-                                            <input type="file" class="form-control" name="image5" placeholder="Enter"
-                                                autofocus value="{{$edit->image5}}" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionIconSix">
-                            <button type="button" class="accordion-button" data-bs-toggle="collapse"
-                                data-bs-target="#accordionIcon-6" aria-expanded="true" aria-controls="accordionIcon-6">
-                                Pengajuan 6
-                            </button>
-                        </h2>
-                        <div id="accordionIcon-6" class="accordion-collapse collapse" data-bs-parent="#accordionIcon">
-                            <div class="accordion-body">
-                                <div class="row">
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Description
-                                            </label>
-                                            <input type="text" class="form-control" name="description6"
-                                                placeholder="Enter" autofocus value="{{ $edit->description6 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Unit
-                                            </label>
-                                            <input type="text" class="form-control" name="unit6" placeholder="Enter"
-                                                autofocus value="{{ $edit->unit6 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="helpInputTop">
-                                                Price
-                                            </label>
-                                            <input type="number" class="form-control" name="price6" placeholder="Enter"
-                                                autofocus value="{{ $edit->price6 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Qty
-                                            </label>
-                                            <input type="number" class="form-control" name="qty6" placeholder="Enter"
-                                                autofocus value="{{ $edit->qty6 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-md-12 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Lampirkan File
-                                            </label>
-                                            <input type="file" class="form-control" name="image6" placeholder="Enter"
-                                                autofocus value="{{$edit->image6}}" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionIconSeven">
-                            <button type="button" class="accordion-button" data-bs-toggle="collapse"
-                                data-bs-target="#accordionIcon-7" aria-expanded="true" aria-controls="accordionIcon-7">
-                                Pengajuan 7
-                            </button>
-                        </h2>
-                        <div id="accordionIcon-7" class="accordion-collapse collapse" data-bs-parent="#accordionIcon">
-                            <div class="accordion-body">
-                                <div class="row">
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Description
-                                            </label>
-                                            <input type="text" class="form-control" name="description7"
-                                                placeholder="Enter" autofocus value="{{ $edit->description7 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Unit
-                                            </label>
-                                            <input type="text" class="form-control" name="unit7" placeholder="Enter"
-                                                autofocus value="{{ $edit->unit7 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="helpInputTop">
-                                                Price
-                                            </label>
-                                            <input type="number" class="form-control" name="price7" placeholder="Enter"
-                                                autofocus value="{{ $edit->price7 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Qty
-                                            </label>
-                                            <input type="number" class="form-control" name="qty7" placeholder="Enter"
-                                                autofocus value="{{ $edit->qty7 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-md-12 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Lampirkan File
-                                            </label>
-                                            <input type="file" class="form-control" name="image7" placeholder="Enter"
-                                                autofocus value="{{$edit->image7}}" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header text-body d-flex justify-content-between" id="accordionIconEight">
-                            <button type="button" class="accordion-button" data-bs-toggle="collapse"
-                                data-bs-target="#accordionIcon-8" aria-expanded="true" aria-controls="accordionIcon-8">
-                                Pengajuan 8
-                            </button>
-                        </h2>
-                        <div id="accordionIcon-8" class="accordion-collapse collapse" data-bs-parent="#accordionIcon">
-                            <div class="accordion-body">
-                                <div class="row">
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Description
-                                            </label>
-                                            <input type="text" class="form-control" name="description8"
-                                                placeholder="Enter" autofocus value="{{ $edit->description8 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Unit
-                                            </label>
-                                            <input type="text" class="form-control" name="unit8" placeholder="Enter"
-                                                autofocus value="{{ $edit->unit8 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="helpInputTop">
-                                                Price
-                                            </label>
-                                            <input type="number" class="form-control" name="price8" placeholder="Enter"
-                                                autofocus value="{{ $edit->price8 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-md-6 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Qty
-                                            </label>
-                                            <input type="number" class="form-control" name="qty8" placeholder="Enter"
-                                                autofocus value="{{ $edit->qty8 }}" />
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-12 col-md-12 col-12">
-                                        <div class="mb-1">
-                                            <label class="form-label" for="basicInput">
-                                                Lampirkan File
-                                            </label>
-                                            <input type="file" class="form-control" name="image8" placeholder="Enter"
-                                                autofocus value="{{$edit->image8}}" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 text-center mb-4 mt-1 pt-20">
-                    <a href="{{ route('form.index') }}" class="btn btn-outline-secondary me-1">Back</a>
-                    <button type="submit" class="btn btn-primary ">Update</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div> --}}
 <div class="col-xl-12">
     <div class="col-xl">
         <div class="card mb-4">
@@ -634,11 +25,12 @@
                                     Kategori
                                     Pengajuan
                                 </label>
-                                <select class="form-select @error('kpengajuan_id') is-invalid @enderror"
-                                    id="selectDefault" name="kpengajuan_id" required readonly>
-                                    <option selected>{{ $edit->kpengajuan->name}}</option>
+                                <select class="form-control @error('kpengajuan_id') is-invalid @enderror"
+                                    id="selectDefault" name="kpengajuan_id" required>
+                                    <option value="">Open this select</option>
                                     @foreach ($kpengajuan as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    <option value="{{ $item->id }}" {{ old('kpengajuan_id', $edit->kpengajuan_id) ==
+                                        $item->id ? 'selected' : null }}>{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('kpengajuan_id')
@@ -653,11 +45,13 @@
                                 <label class="form-label" for="basicInput">
                                     Keperluan
                                 </label>
-                                <select class="form-select @error('keperluan_id') is-invalid @enderror"
+                                <select class="form-control @error('keperluan_id') is-invalid @enderror"
                                     onchange="enableBrand2(this)" id="selectDefault" name="keperluan_id" required>
-                                    <option selected>{{ $edit->keperluan->name}}</option>
+                                    <option value="">Open this select</option>
                                     @foreach ($keperluan as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    <option value="{{ $item->id }}" {{ old('keperluan_id', $edit->keperluan_id) ==
+                                        $item->id ? 'selected' : null }}>
+                                        {{ $item->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('keperluan_id')
@@ -679,11 +73,13 @@
                         <div class="col-xl-4 col-md-6 col-12">
                             <div class="mb-1">
                                 <label class="form-label" for="helpInputTop">Ditujukan Untuk</label>
-                                <select class="form-select @error('rujukan_id') is-invalid @enderror" id="selectDefault"
-                                    name="rujukan_id" required>
-                                    <option selected>Open this select</option>
+                                <select class="form-control @error('rujukan_id') is-invalid @enderror"
+                                    id="selectDefault" name="rujukan_id" required>
+                                    <option value="">Open this select</option>
                                     @foreach ($rujukan as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    <option value="{{ $item->id }}" {{ old('rujukan_id', $edit->rujukan_id)==$item->id ?
+                                        'selected' : null
+                                        }}>{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('rujukan_id')
@@ -696,11 +92,13 @@
                         <div class="col-xl-4 col-md-6 col-12">
                             <div class="mb-1">
                                 <label class="form-label" for="helpInputTop">Payment</label>
-                                <select class="form-select @error('payment') is-invalid @enderror" id="selectDefault"
+                                <select class="form-control @error('payment') is-invalid @enderror" id="selectDefault"
                                     name="payment" id="car" onchange="enableBrand(this)" required>
-                                    <option selected>Open this select</option>
-                                    <option value="Cash">Cash</option>
-                                    <option value="Transfer">Transfer</option>
+                                    <option value="">Open this select</option>
+
+                                    <option value="Cash" {{($edit->payment === 'Cash') ? 'Selected' : ''}}>Cash</option>
+                                    <option value="Transfer" {{($edit->payment === 'Transfer') ? 'Selected' :
+                                        ''}}>Transfer</option>
                                 </select>
                                 @error('payment')
                                 <div class="invalid-feedback">
@@ -714,10 +112,11 @@
                                 <label class="form-label" for="select2-basic">
                                     Nama Rekening Penerima
                                 </label>
-                                <select class="select2 form-select" id="select2-basic" name="norek_id">
+                                <select class="select2 form-control" id="select2-basic" name="norek_id">
                                     <option></option>
                                     @foreach ($norek as $item)
-                                    <option value="{{ $item->id }}">
+                                    <option value="{{ $item->id }}" {{ old('norek_id', $edit->norek_id) ==
+                                        $item->id ? 'selected' : null }}>
                                         {{ $item->no_rekening }} &nbsp; A/N &nbsp; {{ $item->nama_penerima }} &nbsp;
                                         ( {{ $item->bank->nama_bank }} ) </option>
                                     @endforeach
@@ -731,7 +130,7 @@
                                     No. Project
                                 </label>
                                 <input type="text" class="form-control" name="no_project" placeholder="Enter" autofocus
-                                    value="{{ $edit->no_project }}" />
+                                    value="{{ old('no_project', $edit->no_project) }}" />
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-6 col-12 d-none" id="t2">
@@ -740,7 +139,7 @@
                                     Jumlah Peserta
                                 </label>
                                 <input type="number" class="form-control" name="j_peserta" placeholder="Enter" autofocus
-                                    value="{{ $edit->j_peserta }}" />
+                                    value="{{ old('j_peserta',$edit->j_peserta) }}" />
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-6 col-12 d-none" id="t3">
@@ -749,7 +148,7 @@
                                     Jumlah Trainer / Asesor
                                 </label>
                                 <input type="number" class="form-control" name="j_traine_asesor" placeholder="Enter"
-                                    autofocus value="{{ $edit->j_traine_asesor }}" />
+                                    autofocus value="{{ old('j_traine_asesor',$edit->j_traine_asesor) }}" />
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-6 col-12 d-none" id="t4">
@@ -758,7 +157,7 @@
                                     Jumlah Assist
                                 </label>
                                 <input type="number" class="form-control" name="j_assist" placeholder="Enter" autofocus
-                                    value="{{ $edit->j_assist }}" />
+                                    value="{{ old('j_assist',$edit->j_assist) }}" />
                             </div>
                         </div>
 
@@ -812,7 +211,9 @@
                                                             Lampirkan File
                                                         </label>
                                                         <input type="file" class="form-control" name="image1"
-                                                            placeholder="Enter" autofocus value="{{$edit->image1}}" />
+                                                            placeholder="Enter"
+                                                            value="{{ old('image1',$edit->image1) }}" />
+
                                                         <div id="defaultFormControlHelp" class="form-text">
                                                             * Max. file 15MB
                                                         </div>
@@ -854,7 +255,8 @@
                                                     <div class="mb-1">
                                                         <label class="form-label" for="helpInputTop">Price Rp.</label>
                                                         <input type="text" class="form-control" name="price2"
-                                                            placeholder="Enter" value="{{ $edit->price2}}" />
+                                                            placeholder="Enter" value="{{ $edit->price2}}"
+                                                            id="tanpa-rupiah2" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -912,7 +314,8 @@
                                                     <div class="mb-1">
                                                         <label class="form-label" for="helpInputTop">Price Rp.</label>
                                                         <input type="text" class="form-control" name="price3"
-                                                            placeholder="Enter" value="{{ $edit->price3}}" />
+                                                            placeholder="Enter" value="{{ $edit->price3}}"
+                                                            id="tanpa-rupiah3" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -970,7 +373,8 @@
                                                     <div class="mb-1">
                                                         <label class="form-label" for="helpInputTop">Price Rp.</label>
                                                         <input type="text" class="form-control" name="price4"
-                                                            placeholder="Enter" value="{{ $edit->price4}}" />
+                                                            placeholder="Enter" value="{{ $edit->price4}}"
+                                                            id="tanpa-rupiah4" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -1299,7 +703,7 @@
 <script type="text/javascript">
     function enableBrand2(answer) {
         console.log(answer.value);
-        if (answer.value == 1 ) {
+        if (answer.value == 1) {
             document.getElementById('t1').classList.remove('d-none');
             document.getElementById('t2').classList.remove('d-none');
             document.getElementById('t3').classList.remove('d-none');
@@ -1341,139 +745,140 @@
 
 <script>
     var tanpa_rupiah2 = document.getElementById('tanpa-rupiah2');
-        tanpa_rupiah2.addEventListener('keyup', function (e) {
-            tanpa_rupiah2.value = formatRupiah2(this.value);
-        });
+    tanpa_rupiah2.addEventListener('keyup', function (e) {
+        tanpa_rupiah2.value = formatRupiah2(this.value);
+    });
 
-        /* Fungsi */
-        function formatRupiah2(angka, prefix) {
-            var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                split = number_string.split(','),
-                sisa = split[0].length % 3,
-                rupiah = split[0].substr(0, sisa),
-                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+    /* Fungsi */
+    function formatRupiah2(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
 
-            if (ribuan) {
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
-
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
         }
 
-        var tanpa_rupiah4 = document.getElementById('tanpa-rupiah4');
-        tanpa_rupiah4.addEventListener('keyup', function (e) {
-            tanpa_rupiah4.value = formatRupiah4(this.value);
-        });
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
 
-        /* Fungsi */
-        function formatRupiah4(angka, prefix) {
-            var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                split = number_string.split(','),
-                sisa = split[0].length % 3,
-                rupiah = split[0].substr(0, sisa),
-                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+    var tanpa_rupiah4 = document.getElementById('tanpa-rupiah4');
+    tanpa_rupiah4.addEventListener('keyup', function (e) {
+        tanpa_rupiah4.value = formatRupiah4(this.value);
+    });
 
-            if (ribuan) {
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
+    /* Fungsi */
+    function formatRupiah4(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
 
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
         }
 
-        var tanpa_rupiah5 = document.getElementById('tanpa-rupiah5');
-        tanpa_rupiah5.addEventListener('keyup', function (e) {
-            tanpa_rupiah5.value = formatRupiah5(this.value);
-        });
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
 
-        /* Fungsi */
-        function formatRupiah5(angka, prefix) {
-            var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                split = number_string.split(','),
-                sisa = split[0].length % 3,
-                rupiah = split[0].substr(0, sisa),
-                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+    var tanpa_rupiah5 = document.getElementById('tanpa-rupiah5');
+    tanpa_rupiah5.addEventListener('keyup', function (e) {
+        tanpa_rupiah5.value = formatRupiah5(this.value);
+    });
 
-            if (ribuan) {
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
+    /* Fungsi */
+    function formatRupiah5(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
 
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-        }
-        var tanpa_rupiah6 = document.getElementById('tanpa-rupiah6');
-        tanpa_rupiah6.addEventListener('keyup', function (e) {
-            tanpa_rupiah6.value = formatRupiah6(this.value);
-        });
-
-        /* Fungsi */
-        function formatRupiah6(angka, prefix) {
-            var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                split = number_string.split(','),
-                sisa = split[0].length % 3,
-                rupiah = split[0].substr(0, sisa),
-                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-            if (ribuan) {
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
-
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-        }
-        var tanpa_rupiah7 = document.getElementById('tanpa-rupiah7');
-        tanpa_rupiah7.addEventListener('keyup', function (e) {
-            tanpa_rupiah7.value = formatRupiah7(this.value);
-        });
-
-        /* Fungsi */
-        function formatRupiah7(angka, prefix) {
-            var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                split = number_string.split(','),
-                sisa = split[0].length % 3,
-                rupiah = split[0].substr(0, sisa),
-                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-            if (ribuan) {
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
-
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-        }
-        var tanpa_rupiah8 = document.getElementById('tanpa-rupiah8');
-        tanpa_rupiah8.addEventListener('keyup', function (e) {
-            tanpa_rupiah8.value = formatRupiah8(this.value);
-        });
-
-        /* Fungsi */
-        function formatRupiah8(angka, prefix) {
-            var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                split = number_string.split(','),
-                sisa = split[0].length % 3,
-                rupiah = split[0].substr(0, sisa),
-                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-            if (ribuan) {
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
-
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
         }
 
-        $(document).ready(function(){
-            // Format mata uang.
-            $( '#uang' ).mask('000.000.000', {reverse: true});
-        })
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+    var tanpa_rupiah6 = document.getElementById('tanpa-rupiah6');
+    tanpa_rupiah6.addEventListener('keyup', function (e) {
+        tanpa_rupiah6.value = formatRupiah6(this.value);
+    });
 
+    /* Fungsi */
+    function formatRupiah6(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+    var tanpa_rupiah7 = document.getElementById('tanpa-rupiah7');
+    tanpa_rupiah7.addEventListener('keyup', function (e) {
+        tanpa_rupiah7.value = formatRupiah7(this.value);
+    });
+
+    /* Fungsi */
+    function formatRupiah7(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+    var tanpa_rupiah8 = document.getElementById('tanpa-rupiah8');
+    tanpa_rupiah8.addEventListener('keyup', function (e) {
+        tanpa_rupiah8.value = formatRupiah8(this.value);
+    });
+
+    /* Fungsi */
+    function formatRupiah8(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+
+    $(document).ready(function () {
+        // Format mata uang.
+        $('#uang').mask('000.000.000', {
+            reverse: true
+        });
+    })
 </script>
 
 <script>

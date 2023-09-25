@@ -60,7 +60,7 @@
                             <label class="form-label" for="basicInput">Tanggal
                                 Kebutuhan</label>
                             <input type="date" class="form-control" id="basicInput" placeholder="Enter"
-                                name="tanggal_kebutuhan" required value="{{ $edit->tanggal_kebutuhan }}" />
+                                name="tanggal_kebutuhan" required value="{{ $edit->tanggal_kebutuhan }}" readonly />
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-6 col-12">
@@ -124,8 +124,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image1"
-                                                    placeholder="Enter" autofocus value="{{$edit->image1}}" />
+                                                <input type="text" class="form-control" name="image1"
+                                                    placeholder="Enter" value="{{$edit->image1}}" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -179,8 +179,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image2"
-                                                    placeholder="Enter" autofocus value="{{$edit->image2}}" />
+                                                <input type="text" class="form-control" name="image2"
+                                                    placeholder="Enter" value="{{$edit->image2}}" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -234,8 +234,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image3"
-                                                    placeholder="Enter" autofocus value="{{$edit->image3}}" />
+                                                <input type="text" class="form-control" name="image3"
+                                                    placeholder="Enter" value="{{$edit->image3}}" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -288,8 +288,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image4"
-                                                    placeholder="Enter" autofocus value="{{$edit->image4}}" />
+                                                <input type="text" class="form-control" name="image4"
+                                                    placeholder="Enter" value="{{$edit->image4}}" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -314,7 +314,7 @@
                                                     Description
                                                 </label>
                                                 <input type="text" class="form-control" name="description5"
-                                                    placeholder="Enter" autofocus value="{{ $edit->description5 }}" />
+                                                    placeholder="Enter" value="{{ $edit->description5 }}" />
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-md-6 col-12">
@@ -323,7 +323,7 @@
                                                     Unit
                                                 </label>
                                                 <input type="text" class="form-control" name="unit5" placeholder="Enter"
-                                                    autofocus value="{{ $edit->unit5 }}" />
+                                                    value="{{ $edit->unit5 }}" />
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-md-6 col-12">
@@ -331,8 +331,8 @@
                                                 <label class="form-label" for="helpInputTop">
                                                     Price
                                                 </label>
-                                                <input type="number" class="form-control" name="price5"
-                                                    placeholder="Enter" id="tanpa-rupiah5" autofocus
+                                                <input type="text" class="form-control" name="price5"
+                                                    placeholder="Enter" id="tanpa-rupiah5"
                                                     value="{{ $edit->price5 }}" />
                                             </div>
                                         </div>
@@ -342,7 +342,7 @@
                                                     Qty
                                                 </label>
                                                 <input type="number" class="form-control" name="qty5"
-                                                    placeholder="Enter" autofocus value="{{ $edit->qty5 }}" />
+                                                    placeholder="Enter" value="{{ $edit->qty5 }}" />
                                             </div>
                                         </div>
                                         <div class="col-xl-12 col-md-12 col-12">
@@ -350,8 +350,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image5"
-                                                    placeholder="Enter" autofocus value="{{$edit->image5}}" />
+                                                <input type="text" class="form-control" name="image5"
+                                                    placeholder="Enter" value="{{$edit->image5}}" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -376,7 +376,7 @@
                                                     Description
                                                 </label>
                                                 <input type="text" class="form-control" name="description6"
-                                                    placeholder="Enter" autofocus value="{{ $edit->description6 }}" />
+                                                    placeholder="Enter" value="{{ $edit->description6 }}" />
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-md-6 col-12">
@@ -385,7 +385,7 @@
                                                     Unit
                                                 </label>
                                                 <input type="text" class="form-control" name="unit6" placeholder="Enter"
-                                                    autofocus value="{{ $edit->unit6 }}" />
+                                                    value="{{ $edit->unit6 }}" />
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-md-6 col-12">
@@ -393,8 +393,8 @@
                                                 <label class="form-label" for="helpInputTop">
                                                     Price
                                                 </label>
-                                                <input type="number" class="form-control" name="price6"
-                                                    placeholder="Enter" id="tanpa-rupiah6" autofocus
+                                                <input type="text" class="form-control" name="price6"
+                                                    placeholder="Enter" id="tanpa-rupiah6"
                                                     value="{{ $edit->price6 }}" />
                                             </div>
                                         </div>
@@ -404,7 +404,7 @@
                                                     Qty
                                                 </label>
                                                 <input type="number" class="form-control" name="qty6"
-                                                    placeholder="Enter" autofocus value="{{ $edit->qty6 }}" />
+                                                    placeholder="Enter" value="{{ $edit->qty6 }}" />
                                             </div>
                                         </div>
                                         <div class="col-xl-12 col-md-12 col-12">
@@ -412,8 +412,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image6"
-                                                    placeholder="Enter" autofocus value="{{$edit->image6}}" />
+                                                <input type="text" class="form-control" name="image6"
+                                                    placeholder="Enter" value="{{$edit->image6}}" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -439,7 +439,7 @@
                                                     Description
                                                 </label>
                                                 <input type="text" class="form-control" name="description7"
-                                                    placeholder="Enter" autofocus value="{{ $edit->description7 }}" />
+                                                    placeholder="Enter" value="{{ $edit->description7 }}" />
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-md-6 col-12">
@@ -448,7 +448,7 @@
                                                     Unit
                                                 </label>
                                                 <input type="text" class="form-control" name="unit7" placeholder="Enter"
-                                                    autofocus value="{{ $edit->unit7 }}" />
+                                                    value="{{ $edit->unit7 }}" />
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-md-6 col-12">
@@ -456,8 +456,8 @@
                                                 <label class="form-label" for="helpInputTop">
                                                     Price
                                                 </label>
-                                                <input type="number" class="form-control" name="price7"
-                                                    placeholder="Enter" autofocus id="tanpa-rupiah7"
+                                                <input type="text" class="form-control" name="price7"
+                                                    placeholder="Enter" id="tanpa-rupiah7"
                                                     value="{{ $edit->price7 }}" />
                                             </div>
                                         </div>
@@ -467,7 +467,7 @@
                                                     Qty
                                                 </label>
                                                 <input type="number" class="form-control" name="qty7"
-                                                    placeholder="Enter" autofocus value="{{ $edit->qty7 }}" />
+                                                    placeholder="Enter" value="{{ $edit->qty7 }}" />
                                             </div>
                                         </div>
                                         <div class="col-xl-12 col-md-12 col-12">
@@ -475,8 +475,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image7"
-                                                    placeholder="Enter" autofocus value="{{$edit->image7}}" />
+                                                <input type="text" class="form-control" name="image7"
+                                                    placeholder="Enter" value="{{$edit->image7}}" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -502,7 +502,7 @@
                                                     Description
                                                 </label>
                                                 <input type="text" class="form-control" name="description8"
-                                                    placeholder="Enter" autofocus value="{{ $edit->description8 }}" />
+                                                    placeholder="Enter" value="{{ $edit->description8 }}" />
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-md-6 col-12">
@@ -511,7 +511,7 @@
                                                     Unit
                                                 </label>
                                                 <input type="text" class="form-control" name="unit8" placeholder="Enter"
-                                                    autofocus value="{{ $edit->unit8 }}" />
+                                                    value="{{ $edit->unit8 }}" />
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-md-6 col-12">
@@ -519,8 +519,8 @@
                                                 <label class="form-label" for="helpInputTop">
                                                     Price
                                                 </label>
-                                                <input type="number" class="form-control" name="price8"
-                                                    placeholder="Enter" autofocus id="tanpa-rupiah8"
+                                                <input type="text" class="form-control" name="price8"
+                                                    placeholder="Enter" id="tanpa-rupiah8"
                                                     value="{{ $edit->price8 }}" />
                                             </div>
                                         </div>
@@ -530,7 +530,7 @@
                                                     Qty
                                                 </label>
                                                 <input type="number" class="form-control" name="qty8"
-                                                    placeholder="Enter" autofocus value="{{ $edit->qty8 }}" />
+                                                    placeholder="Enter" value="{{ $edit->qty8 }}" />
                                             </div>
                                         </div>
                                         <div class="col-xl-12 col-md-12 col-12">
@@ -538,8 +538,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image8"
-                                                    placeholder="Enter" autofocus value="{{$edit->image8}}" />
+                                                <input type="text" class="form-control" name="image8"
+                                                    placeholder="Enter" value="{{$edit->image8}}" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -615,139 +615,140 @@
 
 <script>
     var tanpa_rupiah2 = document.getElementById('tanpa-rupiah2');
-        tanpa_rupiah2.addEventListener('keyup', function (e) {
-            tanpa_rupiah2.value = formatRupiah2(this.value);
-        });
+    tanpa_rupiah2.addEventListener('keyup', function (e) {
+        tanpa_rupiah2.value = formatRupiah2(this.value);
+    });
 
-        /* Fungsi */
-        function formatRupiah2(angka, prefix) {
-            var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                split = number_string.split(','),
-                sisa = split[0].length % 3,
-                rupiah = split[0].substr(0, sisa),
-                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+    /* Fungsi */
+    function formatRupiah2(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
 
-            if (ribuan) {
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
-
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
         }
 
-        var tanpa_rupiah4 = document.getElementById('tanpa-rupiah4');
-        tanpa_rupiah4.addEventListener('keyup', function (e) {
-            tanpa_rupiah4.value = formatRupiah4(this.value);
-        });
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
 
-        /* Fungsi */
-        function formatRupiah4(angka, prefix) {
-            var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                split = number_string.split(','),
-                sisa = split[0].length % 3,
-                rupiah = split[0].substr(0, sisa),
-                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+    var tanpa_rupiah4 = document.getElementById('tanpa-rupiah4');
+    tanpa_rupiah4.addEventListener('keyup', function (e) {
+        tanpa_rupiah4.value = formatRupiah4(this.value);
+    });
 
-            if (ribuan) {
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
+    /* Fungsi */
+    function formatRupiah4(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
 
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
         }
 
-        var tanpa_rupiah5 = document.getElementById('tanpa-rupiah5');
-        tanpa_rupiah5.addEventListener('keyup', function (e) {
-            tanpa_rupiah5.value = formatRupiah5(this.value);
-        });
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
 
-        /* Fungsi */
-        function formatRupiah5(angka, prefix) {
-            var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                split = number_string.split(','),
-                sisa = split[0].length % 3,
-                rupiah = split[0].substr(0, sisa),
-                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+    var tanpa_rupiah5 = document.getElementById('tanpa-rupiah5');
+    tanpa_rupiah5.addEventListener('keyup', function (e) {
+        tanpa_rupiah5.value = formatRupiah5(this.value);
+    });
 
-            if (ribuan) {
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
+    /* Fungsi */
+    function formatRupiah5(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
 
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-        }
-        var tanpa_rupiah6 = document.getElementById('tanpa-rupiah6');
-        tanpa_rupiah6.addEventListener('keyup', function (e) {
-            tanpa_rupiah6.value = formatRupiah6(this.value);
-        });
-
-        /* Fungsi */
-        function formatRupiah6(angka, prefix) {
-            var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                split = number_string.split(','),
-                sisa = split[0].length % 3,
-                rupiah = split[0].substr(0, sisa),
-                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-            if (ribuan) {
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
-
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-        }
-        var tanpa_rupiah7 = document.getElementById('tanpa-rupiah7');
-        tanpa_rupiah7.addEventListener('keyup', function (e) {
-            tanpa_rupiah7.value = formatRupiah7(this.value);
-        });
-
-        /* Fungsi */
-        function formatRupiah7(angka, prefix) {
-            var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                split = number_string.split(','),
-                sisa = split[0].length % 3,
-                rupiah = split[0].substr(0, sisa),
-                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-            if (ribuan) {
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
-
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-        }
-        var tanpa_rupiah8 = document.getElementById('tanpa-rupiah8');
-        tanpa_rupiah8.addEventListener('keyup', function (e) {
-            tanpa_rupiah8.value = formatRupiah8(this.value);
-        });
-
-        /* Fungsi */
-        function formatRupiah8(angka, prefix) {
-            var number_string = angka.replace(/[^,\d]/g, '').toString(),
-                split = number_string.split(','),
-                sisa = split[0].length % 3,
-                rupiah = split[0].substr(0, sisa),
-                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-            if (ribuan) {
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
-
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
         }
 
-        $(document).ready(function(){
-            // Format mata uang.
-            $( '#uang' ).mask('000.000.000', {reverse: true});
-        })
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+    var tanpa_rupiah6 = document.getElementById('tanpa-rupiah6');
+    tanpa_rupiah6.addEventListener('keyup', function (e) {
+        tanpa_rupiah6.value = formatRupiah6(this.value);
+    });
 
+    /* Fungsi */
+    function formatRupiah6(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+    var tanpa_rupiah7 = document.getElementById('tanpa-rupiah7');
+    tanpa_rupiah7.addEventListener('keyup', function (e) {
+        tanpa_rupiah7.value = formatRupiah7(this.value);
+    });
+
+    /* Fungsi */
+    function formatRupiah7(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+    var tanpa_rupiah8 = document.getElementById('tanpa-rupiah8');
+    tanpa_rupiah8.addEventListener('keyup', function (e) {
+        tanpa_rupiah8.value = formatRupiah8(this.value);
+    });
+
+    /* Fungsi */
+    function formatRupiah8(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+
+    $(document).ready(function () {
+        // Format mata uang.
+        $('#uang').mask('000.000.000', {
+            reverse: true
+        });
+    })
 </script>
 
 <script>
@@ -773,5 +774,6 @@
         return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
     }
 </script>
+
 
 @endsection

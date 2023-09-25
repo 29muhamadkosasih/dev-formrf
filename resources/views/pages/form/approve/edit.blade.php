@@ -16,7 +16,6 @@
                             <input type="hidden" name="departement_id" value="{{ $edit->departement_id }}" />
 
                             <input type="hidden" name="kpengajuan_id" value="{{ $edit->kpengajuan_id }}" />
-                            <input type="hidden" name="keperluan_id" value="{{ $edit->keperluan_id }}" />
                             <input type="hidden" name="payment" value="{{ $edit->payment }}" />
                             <input type="hidden" name="rujukan_id" value="{{ $edit->rujukan_id }}" />
                             <input type="hidden" name="norek_id" value="{{ $edit->norek_id }}" />
@@ -52,8 +51,20 @@
                             <label class="form-label" for="basicInput">
                                 Keperluan
                             </label>
-                            <input type="text" class="form-control" id="basicInput" placeholder="Enter" required
-                                value="{{ $edit->keperluan->name }}" readonly />
+                            <select class="form-control @error('keperluan_id') is-invalid @enderror"
+                                onchange="enableBrand2(this)" id="selectDefault" name="keperluan_id" required>
+                                <option value="">Open this select</option>
+                                @foreach ($keperluan as $item)
+                                <option value="{{ $item->id }}" {{ old('keperluan_id', $edit->keperluan_id) ==
+                                    $item->id ? 'selected' : null }}>
+                                    {{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('keperluan_id')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-6 col-12">
@@ -195,8 +206,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image1"
-                                                    placeholder="Enter" autofocus value="{{$edit->image1}}" />
+                                                <input type="text" class="form-control" name="image1"
+                                                    placeholder="Enter" autofocus value="{{$edit->image1}}" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -250,8 +261,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image2"
-                                                    placeholder="Enter" autofocus value="{{$edit->image2}}" />
+                                                <input type="text" class="form-control" name="image2"
+                                                    placeholder="Enter" autofocus value="{{$edit->image2}}" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -305,8 +316,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image3"
-                                                    placeholder="Enter" autofocus value="{{$edit->image3}}" />
+                                                <input type="text" class="form-control" name="image3"
+                                                    placeholder="Enter" autofocus value="{{$edit->image3}}" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -359,8 +370,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image4"
-                                                    placeholder="Enter" autofocus value="{{$edit->image4}}" />
+                                                <input type="text" class="form-control" name="image4"
+                                                    placeholder="Enter" autofocus value="{{$edit->image4}}" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -421,8 +432,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image5"
-                                                    placeholder="Enter" autofocus value="{{$edit->image5}}" />
+                                                <input type="text" class="form-control" name="image5"
+                                                    placeholder="Enter" autofocus value="{{$edit->image5}}" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -483,8 +494,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image6"
-                                                    placeholder="Enter" autofocus value="{{$edit->image6}}" />
+                                                <input type="text" class="form-control" name="image6"
+                                                    placeholder="Enter" autofocus value="{{$edit->image6}}" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -546,8 +557,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image7"
-                                                    placeholder="Enter" autofocus value="{{$edit->image7}}" />
+                                                <input type="text" class="form-control" name="image7"
+                                                    placeholder="Enter" autofocus value="{{$edit->image7}}" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -609,8 +620,8 @@
                                                 <label class="form-label" for="basicInput">
                                                     Lampirkan File
                                                 </label>
-                                                <input type="file" class="form-control" name="image8"
-                                                    placeholder="Enter" autofocus value="{{$edit->image8}}" />
+                                                <input type="text" class="form-control" name="image8"
+                                                    placeholder="Enter" autofocus value="{{$edit->image8}}" readonly />
                                             </div>
                                         </div>
                                     </div>

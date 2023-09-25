@@ -81,10 +81,9 @@
                             </td>
                             <td style="text-align: center">
 
-                                <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                    action="{{ route('form-checked.destroy', $data->id) }}" method="POST">
+                                <form method="POST" action="{{ route('form-checked.destroy', $data->id) }}">
                                     @csrf
-                                    @method('DELETE')
+                                    <input name="_method" type="hidden" value="DELETE">
                                     {{-- @can('form-checked.detail') --}}
                                     <a href="{{ route('form-checked.detail', $data->id) }}"
                                         class="btn btn-icon btn-secondary btn-sm" data-bs-toggle="tooltip"
@@ -121,11 +120,10 @@
                                     </a>
                                     {{-- @endcan --}}
                                     {{-- @can('form-checked.delete') --}}
-                                    <button type="submit" class="btn btn-icon btn-danger btn-sm"
-                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                        data-bs-custom-class="tooltip-danger" data-bs-original-title="Hapus">
+                                    <button type="submit" class="btn btn-icon btn-danger btn-sm show_confirm"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete"
+                                        aria-describedby="tooltip358783">
                                         <span class="ti ti-trash"></span>
-
                                     </button>
                                     {{-- @endcan --}}
                                 </form>

@@ -18,7 +18,7 @@
                             <th>No RF</th>
                             <th>Dari</th>
                             <th>Tanggal Kebutuhan</th>
-                            <th>Untuk</th>
+                            <th>Keperluan</th>
                             <th>Departement</th>
                             <th>Kategori
                                 Pengajuan</th>
@@ -40,7 +40,7 @@
                                 {{ \Carbon\Carbon::parse($data->tanggal_kebutuhan)->format('d-m-Y')}}
                             </td>
                             <td>
-                                {{ $data->rujukan->name }} </td>
+                                {{ $data->keperluan->name }} </td>
                             <td>
                                 {{ $data->departement->nama_departement }}
                             </td>

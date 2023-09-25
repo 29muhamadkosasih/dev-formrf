@@ -26,11 +26,12 @@
                                     Kategori
                                     Pengajuan
                                 </label>
-                                <select class="form-select @error('kpengajuan_id') is-invalid @enderror"
-                                    id="selectDefault" name="kpengajuan_id" required readonly>
-                                    <option selected>{{ $edit->kpengajuan->name}}</option>
+                                <select class="form-control @error('kpengajuan_id') is-invalid @enderror"
+                                    id="selectDefault" name="kpengajuan_id" required>
+                                    <option value="">Open this select</option>
                                     @foreach ($kpengajuan as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    <option value="{{ $item->id }}" {{ old('kpengajuan_id', $edit->kpengajuan_id) ==
+                                        $item->id ? 'selected' : null }}>{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('kpengajuan_id')
@@ -45,11 +46,13 @@
                                 <label class="form-label" for="basicInput">
                                     Keperluan
                                 </label>
-                                <select class="form-select @error('keperluan_id') is-invalid @enderror"
+                                <select class="form-control @error('keperluan_id') is-invalid @enderror"
                                     onchange="enableBrand2(this)" id="selectDefault" name="keperluan_id" required>
-                                    <option selected>{{ $edit->keperluan->name}}</option>
+                                    <option value="">Open this select</option>
                                     @foreach ($keperluan as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    <option value="{{ $item->id }}" {{ old('keperluan_id', $edit->keperluan_id) ==
+                                        $item->id ? 'selected' : null }}>
+                                        {{ $item->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('keperluan_id')
@@ -71,10 +74,13 @@
                         <div class="col-xl-4 col-md-6 col-12">
                             <div class="mb-1">
                                 <label class="form-label" for="helpInputTop">Ditujukan Untuk</label>
-                                <select class="form-select @error('rujukan_id') is-invalid @enderror" id="selectDefault"
-                                    name="rujukan_id" required>
-                                    <option selected>Open this select</option> @foreach ($rujukan as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                <select class="form-control @error('rujukan_id') is-invalid @enderror"
+                                    id="selectDefault" name="rujukan_id" required>
+                                    <option value="">Open this select</option>
+                                    @foreach ($rujukan as $item)
+                                    <option value="{{ $item->id }}" {{ old('rujukan_id', $edit->rujukan_id)==$item->id ?
+                                        'selected' : null
+                                        }}>{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('rujukan_id')
@@ -87,11 +93,13 @@
                         <div class="col-xl-4 col-md-6 col-12">
                             <div class="mb-1">
                                 <label class="form-label" for="helpInputTop">Payment</label>
-                                <select class="form-select @error('payment') is-invalid @enderror" id="selectDefault"
+                                <select class="form-control @error('payment') is-invalid @enderror" id="selectDefault"
                                     name="payment" id="car" onchange="enableBrand(this)" required>
-                                    <option selected>Open this select</option>
-                                    <option value="Cash">Cash</option>
-                                    <option value="Transfer">Transfer</option>
+                                    <option value="">Open this select</option>
+
+                                    <option value="Cash" {{($edit->payment === 'Cash') ? 'Selected' : ''}}>Cash</option>
+                                    <option value="Transfer" {{($edit->payment === 'Transfer') ? 'Selected' :
+                                        ''}}>Transfer</option>
                                 </select>
                                 @error('payment')
                                 <div class="invalid-feedback">
@@ -105,10 +113,11 @@
                                 <label class="form-label" for="select2-basic">
                                     Nama Rekening Penerima
                                 </label>
-                                <select class="select2 form-select" id="select2-basic" name="norek_id">
+                                <select class="select2 form-control" id="select2-basic" name="norek_id">
                                     <option></option>
                                     @foreach ($norek as $item)
-                                    <option value="{{ $item->id }}">
+                                    <option value="{{ $item->id }}" {{ old('norek_id', $edit->norek_id) ==
+                                        $item->id ? 'selected' : null }}>
                                         {{ $item->no_rekening }} &nbsp; A/N &nbsp; {{ $item->nama_penerima }} &nbsp;
                                         ( {{ $item->bank->nama_bank }} ) </option>
                                     @endforeach
@@ -121,8 +130,8 @@
                                 <label class="form-label" for="basicInput">
                                     No. Project
                                 </label>
-                                <input type="text" class="form-control" id="basicInput" name="no_project"
-                                    placeholder="Enter" autofocus value="{{ $edit->no_project }}" />
+                                <input type="text" class="form-control" name="no_project" placeholder="Enter"
+                                    value="{{ old('no_project', $edit->no_project) }}" />
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-6 col-12 d-none" id="t2">
@@ -130,8 +139,8 @@
                                 <label class="form-label" for="basicInput">
                                     Jumlah Peserta
                                 </label>
-                                <input type="number" class="form-control" id="basicInput" name="j_peserta"
-                                    placeholder="Enter" autofocus value="{{ $edit->j_peserta }}" />
+                                <input type="number" class="form-control" name="j_peserta" placeholder="Enter"
+                                    value="{{ old('j_peserta',$edit->j_peserta) }}" />
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-6 col-12 d-none" id="t3">
@@ -139,8 +148,8 @@
                                 <label class="form-label" for="helpInputTop">
                                     Jumlah Trainer / Asesor
                                 </label>
-                                <input type="number" class="form-control" id="basicInput" name="j_traine_asesor"
-                                    placeholder="Enter" autofocus value="{{ $edit->j_traine_asesor }}" />
+                                <input type="number" class="form-control" name="j_traine_asesor" placeholder="Enter"
+                                    value="{{ old('j_traine_asesor',$edit->j_traine_asesor) }}" />
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-6 col-12 d-none" id="t4">
@@ -148,8 +157,8 @@
                                 <label class="form-label" for="basicInput">
                                     Jumlah Assist
                                 </label>
-                                <input type="number" class="form-control" id="basicInput" name="j_assist"
-                                    placeholder="Enter" autofocus value="{{ $edit->j_assist }}" />
+                                <input type="number" class="form-control" name="j_assist" placeholder="Enter"
+                                    value="{{ old('j_assist',$edit->j_assist) }}" />
                             </div>
                         </div>
 
@@ -203,7 +212,7 @@
                                                             Lampirkan File
                                                         </label>
                                                         <input type="file" class="form-control" name="image1"
-                                                            placeholder="Enter" autofocus value="{{$edit->image1}}" />
+                                                            placeholder="Enter" value="{{$edit->image1}}" />
                                                         <div id="defaultFormControlHelp" class="form-text">
                                                             * Max. file 15MB
                                                         </div>
@@ -245,7 +254,8 @@
                                                     <div class="mb-1">
                                                         <label class="form-label" for="helpInputTop">Price Rp.</label>
                                                         <input type="text" class="form-control" name="price2"
-                                                            placeholder="Enter" value="{{ $edit->price2 }}" />
+                                                            placeholder="Enter" value="{{ $edit->price2 }}"
+                                                            id="tanpa-rupiah2" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -262,7 +272,7 @@
                                                             Lampirkan File
                                                         </label>
                                                         <input type="file" class="form-control" name="image2"
-                                                            placeholder="Enter" autofocus value="{{$edit->image2}}" />
+                                                            placeholder="Enter" value="{{$edit->image2}}" />
                                                         <div id="defaultFormControlHelp" class="form-text">
                                                             * Max. file 15MB
                                                         </div>
@@ -303,7 +313,8 @@
                                                     <div class="mb-1">
                                                         <label class="form-label" for="helpInputTop">Price Rp.</label>
                                                         <input type="text" class="form-control" name="price3"
-                                                            placeholder="Enter" value="{{ $edit->price3 }}" />
+                                                            placeholder="Enter" value="{{ $edit->price3 }}"
+                                                            id="tanpa-rupiah3" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -320,7 +331,7 @@
                                                             Lampirkan File
                                                         </label>
                                                         <input type="file" class="form-control" name="image3"
-                                                            placeholder="Enter" autofocus value="{{$edit->image3}}" />
+                                                            placeholder="Enter" value="{{$edit->image3}}" />
                                                         <div id="defaultFormControlHelp" class="form-text">
                                                             * Max. file 15MB
                                                         </div>
@@ -361,7 +372,8 @@
                                                     <div class="mb-1">
                                                         <label class="form-label" for="helpInputTop">Price Rp.</label>
                                                         <input type="text" class="form-control" name="price4"
-                                                            placeholder="Enter" value="{{ $edit->price4 }}" />
+                                                            placeholder="Enter" value="{{ $edit->price4 }}"
+                                                            id="tanpa-rupiah4" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -378,7 +390,7 @@
                                                             Lampirkan File
                                                         </label>
                                                         <input type="file" class="form-control" name="image4"
-                                                            placeholder="Enter" autofocus value="{{$edit->image4}}" />
+                                                            placeholder="Enter" value="{{$edit->image4}}" />
                                                         <div id="defaultFormControlHelp" class="form-text">
                                                             * Max. file 15MB
                                                         </div>
@@ -407,8 +419,7 @@
                                                             Description
                                                         </label>
                                                         <input type="text" class="form-control" name="description5"
-                                                            placeholder="Enter" autofocus
-                                                            value="{{ $edit->description5 }}" />
+                                                            placeholder="Enter" value="{{ $edit->description5 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -417,7 +428,7 @@
                                                             Unit
                                                         </label>
                                                         <input type="text" class="form-control" name="unit5"
-                                                            placeholder="Enter" autofocus value="{{ $edit->unit5 }}" />
+                                                            placeholder="Enter" value="{{ $edit->unit5 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -426,7 +437,7 @@
                                                             Price Rp.
                                                         </label>
                                                         <input type="text" class="form-control" name="price5"
-                                                            placeholder="Enter" autofocus value="{{ $edit->price5 }}"
+                                                            placeholder="Enter" value="{{ $edit->price5 }}"
                                                             id="tanpa-rupiah5" />
                                                     </div>
                                                 </div>
@@ -436,7 +447,7 @@
                                                             Qty
                                                         </label>
                                                         <input type="number" class="form-control" name="qty5"
-                                                            placeholder="Enter" autofocus value="{{ $edit->qty5 }}" />
+                                                            placeholder="Enter" value="{{ $edit->qty5 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-12 col-md-12 col-12">
@@ -445,7 +456,7 @@
                                                             Lampirkan File
                                                         </label>
                                                         <input type="file" class="form-control" name="image5"
-                                                            placeholder="Enter" autofocus value="{{$edit->image5}}" />
+                                                            placeholder="Enter" value="{{$edit->image5}}" />
                                                         <div id="defaultFormControlHelp" class="form-text">
                                                             * Max. file 15MB
                                                         </div>
@@ -474,8 +485,7 @@
                                                             Description
                                                         </label>
                                                         <input type="text" class="form-control" name="description6"
-                                                            placeholder="Enter" autofocus
-                                                            value="{{ $edit->description6 }}" />
+                                                            placeholder="Enter" value="{{ $edit->description6 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -484,7 +494,7 @@
                                                             Unit
                                                         </label>
                                                         <input type="text" class="form-control" name="unit6"
-                                                            placeholder="Enter" autofocus value="{{ $edit->unit6 }}" />
+                                                            placeholder="Enter" value="{{ $edit->unit6 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -493,7 +503,7 @@
                                                             Price Rp.
                                                         </label>
                                                         <input type="text" class="form-control" name="price6"
-                                                            placeholder="Enter" autofocus value="{{ $edit->price6 }}"
+                                                            placeholder="Enter" value="{{ $edit->price6 }}"
                                                             id="tanpa-rupiah6" />
                                                     </div>
                                                 </div>
@@ -503,7 +513,7 @@
                                                             Qty
                                                         </label>
                                                         <input type="number" class="form-control" name="qty6"
-                                                            placeholder="Enter" autofocus value="{{ $edit->qty6 }}" />
+                                                            placeholder="Enter" value="{{ $edit->qty6 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-12 col-md-12 col-12">
@@ -512,7 +522,7 @@
                                                             Lampirkan File
                                                         </label>
                                                         <input type="file" class="form-control" name="image6"
-                                                            placeholder="Enter" autofocus value="{{$edit->image6}}" />
+                                                            placeholder="Enter" value="{{$edit->image6}}" />
                                                         <div id="defaultFormControlHelp" class="form-text">
                                                             * Max. file 15MB
                                                         </div>
@@ -541,8 +551,7 @@
                                                             Description
                                                         </label>
                                                         <input type="text" class="form-control" name="description7"
-                                                            placeholder="Enter" autofocus
-                                                            value="{{ $edit->description7 }}" />
+                                                            placeholder="Enter" value="{{ $edit->description7 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -551,7 +560,7 @@
                                                             Unit
                                                         </label>
                                                         <input type="text" class="form-control" name="unit7"
-                                                            placeholder="Enter" autofocus value="{{ $edit->unit7 }}" />
+                                                            placeholder="Enter" value="{{ $edit->unit7 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -560,7 +569,7 @@
                                                             Price Rp.
                                                         </label>
                                                         <input type="text" class="form-control" name="price7"
-                                                            placeholder="Enter" autofocus value="{{ $edit->price7 }}"
+                                                            placeholder="Enter" value="{{ $edit->price7 }}"
                                                             id="tanpa-rupiah7" />
                                                     </div>
                                                 </div>
@@ -570,7 +579,7 @@
                                                             Qty
                                                         </label>
                                                         <input type="number" class="form-control" name="qty7"
-                                                            placeholder="Enter" autofocus value="{{ $edit->qty7 }}" />
+                                                            placeholder="Enter" value="{{ $edit->qty7 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-12 col-md-12 col-12">
@@ -579,7 +588,7 @@
                                                             Lampirkan File
                                                         </label>
                                                         <input type="file" class="form-control" name="image7"
-                                                            placeholder="Enter" autofocus value="{{$edit->image7}}" />
+                                                            placeholder="Enter" value="{{$edit->image7}}" />
                                                         <div id="defaultFormControlHelp" class="form-text">
                                                             * Max. file 15MB
                                                         </div>
@@ -608,8 +617,7 @@
                                                             Description
                                                         </label>
                                                         <input type="text" class="form-control" name="description8"
-                                                            placeholder="Enter" autofocus
-                                                            value="{{ $edit->description8 }}" />
+                                                            placeholder="Enter" value="{{ $edit->description8 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -618,7 +626,7 @@
                                                             Unit
                                                         </label>
                                                         <input type="text" class="form-control" name="unit8"
-                                                            placeholder="Enter" autofocus value="{{ $edit->unit8 }}" />
+                                                            placeholder="Enter" value="{{ $edit->unit8 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-md-6 col-12">
@@ -627,7 +635,7 @@
                                                             Price Rp.
                                                         </label>
                                                         <input type="text" class="form-control" name="price8"
-                                                            placeholder="Enter" autofocus value="{{ $edit->price8 }}"
+                                                            placeholder="Enter" value="{{ $edit->price8 }}"
                                                             id="tanpa-rupiah8" />
                                                     </div>
                                                 </div>
@@ -637,7 +645,7 @@
                                                             Qty
                                                         </label>
                                                         <input type="number" class="form-control" name="qty8"
-                                                            placeholder="Enter" autofocus value="{{ $edit->qty8 }}" />
+                                                            placeholder="Enter" value="{{ $edit->qty8 }}" />
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-12 col-md-12 col-12">
@@ -646,7 +654,7 @@
                                                             Lampirkan File
                                                         </label>
                                                         <input type="file" class="form-control" name="image8"
-                                                            placeholder="Enter" autofocus value="{{$edit->image8}}" />
+                                                            placeholder="Enter" value="{{$edit->image8}}" />
                                                         <div id="defaultFormControlHelp" class="form-text">
                                                             * Max. file 15MB
                                                         </div>

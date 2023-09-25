@@ -117,28 +117,28 @@ class FormsController extends Controller
         $currentDay = date('d');
         $form = Form::where('status', '4')
             ->where('payment', 'Cash')
-            ->whereDay('created_at', $currentDay)
+            ->whereDay('approve_date', $currentDay)
             ->get();
         $currentDate = Carbon::now()->format('d-m-Y');
         $jumlah_total = DB::table('form')
             ->where('status', '4')
-            ->whereDay('created_at', $currentDay)
+            ->whereDay('approve_date', $currentDay)
             ->where('payment', 'Cash')
             ->sum('jumlah_total');
 
         $form2 = Form::where('status', '4')
             ->where('payment', 'Transfer')
-            ->whereDay('created_at', $currentDay)
+            ->whereDay('approve_date', $currentDay)
             ->get();
         $currentDate = Carbon::now()->format('d-m-Y');
         $jumlah_total2 = DB::table('form')
-            ->whereDay('created_at', $currentDay)
+            ->whereDay('approve_date', $currentDay)
             ->where('status', '4')
             ->where('payment', 'Transfer')
             ->sum('jumlah_total');
         $jumlah_total3 = DB::table('form')
             ->where('status', '4')
-            ->whereDay('created_at', $currentDay)->sum('jumlah_total');
+            ->whereDay('approve_date', $currentDay)->sum('jumlah_total');
 
         $jumlah_saldo = Reportpb::whereDay(
             'created_at',
@@ -147,7 +147,7 @@ class FormsController extends Controller
 
         $jumlah_admin = Form::where('status', '4')
             ->where('payment', 'Transfer')
-            ->whereDay('created_at', $currentDay)
+            ->whereDay('approve_date', $currentDay)
             ->sum('b_admin');
 
         $jumlah_akhir = $jumlah_total3 + $jumlah_admin;
@@ -181,31 +181,31 @@ class FormsController extends Controller
 
         $form = Form::where('status', '4')
             ->where('payment', 'Cash')
-            ->whereDay('created_at', $currentDay)
+            ->whereDay('approve_date', $currentDay)
             ->get();
         $form2 = Form::where('status', '4')
             ->where('payment', 'Transfer')
-            ->whereDay('created_at', $currentDay)
+            ->whereDay('approve_date', $currentDay)
             ->get();
         $jumlah_total = DB::table('form')
-            ->whereDay('created_at', $currentDay)
+            ->whereDay('approve_date', $currentDay)
             ->where('status', '4')
             ->where('payment', 'Cash')
             ->sum('jumlah_total');
         // ->get();
         // dd($jumlah_total);
         $jumlah_total2 = DB::table('form')
-            ->whereDay('created_at', $currentDay)
+            ->whereDay('approve_date', $currentDay)
             ->where('status', '4')
             ->where('payment', 'Transfer')
             ->sum('jumlah_total');
         $jumlah_admin = Form::where('status', '4')
-            ->whereDay('created_at', $currentDay)
+            ->whereDay('approve_date', $currentDay)
             ->where('payment', 'Transfer')
             ->sum('b_admin');
 
         $jumlah_total3 = DB::table('form')
-            ->whereDay('created_at', $currentDay)
+            ->whereDay('approve_date', $currentDay)
             ->where('status', '4')
             ->sum('jumlah_total');
         $jumlah_akhir = $jumlah_total3 + $jumlah_admin;

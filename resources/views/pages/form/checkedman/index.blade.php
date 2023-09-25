@@ -66,10 +66,9 @@
                             </td>
                             <td style="text-align: center">
 
-                                <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                    action="{{ route('form-checkedman.destroy', $data->id) }}" method="POST">
+                                <form method="POST" action="{{ route('form-checkedman.destroy', $data->id) }}">
                                     @csrf
-                                    @method('DELETE')
+                                    <input name="_method" type="hidden" value="DELETE">
                                     {{-- @can('form-checkedman.detail') --}}
                                     <a href="{{ route('form-checkedman.detail', $data->id) }}"
                                         class="btn btn-icon btn-secondary btn-sm" data-bs-toggle="tooltip"
@@ -106,11 +105,10 @@
                                     </a>
                                     {{-- @endcan --}}
                                     {{-- @can('form-checkedman.delete') --}}
-                                    <button type="submit" class="btn btn-icon btn-danger btn-sm"
-                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                        data-bs-custom-class="tooltip-danger" data-bs-original-title="Hapus">
+                                    <button type="submit" class="btn btn-icon btn-danger btn-sm show_confirm"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete"
+                                        aria-describedby="tooltip358783">
                                         <span class="ti ti-trash"></span>
-
                                     </button>
                                     {{-- @endcan --}}
                                 </form>
@@ -187,10 +185,9 @@
                             </td>
                             <td style="text-align: center">
 
-                                <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                    action="{{ route('form-checkedman.destroy', $data->id) }}" method="POST">
+                                <form method="POST" action="{{ route('form-checkedman.destroy', $data->id) }}">
                                     @csrf
-                                    @method('DELETE')
+                                    <input name="_method" type="hidden" value="DELETE">
                                     {{-- @can('form-checkedman.detail') --}}
                                     <a href="{{ route('form-checkedman.detail', $data->id) }}"
                                         class="btn btn-icon btn-secondary btn-sm" data-bs-toggle="tooltip"
@@ -227,11 +224,10 @@
                                     </a>
                                     {{-- @endcan --}}
                                     {{-- @can('form-checkedman.delete') --}}
-                                    <button type="submit" class="btn btn-icon btn-danger btn-sm"
-                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                        data-bs-custom-class="tooltip-danger" data-bs-original-title="Hapus">
+                                    <button type="submit" class="btn btn-icon btn-danger btn-sm show_confirm"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete"
+                                        aria-describedby="tooltip358783">
                                         <span class="ti ti-trash"></span>
-
                                     </button>
                                     {{-- @endcan --}}
                                 </form>
@@ -308,10 +304,9 @@
                             </td>
                             <td style="text-align: center">
 
-                                <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                    action="{{ route('form-checkedman.destroy', $data->id) }}" method="POST">
+                                <form method="POST" action="{{ route('form-checkedman.destroy', $data->id) }}">
                                     @csrf
-                                    @method('DELETE')
+                                    <input name="_method" type="hidden" value="DELETE">
                                     {{-- @can('form-checkedman.detail') --}}
                                     <a href="{{ route('form-checkedman.detail', $data->id) }}"
                                         class="btn btn-icon btn-secondary btn-sm" data-bs-toggle="tooltip"
@@ -348,11 +343,10 @@
                                     </a>
                                     {{-- @endcan --}}
                                     {{-- @can('form-checkedman.delete') --}}
-                                    <button type="submit" class="btn btn-icon btn-danger btn-sm"
-                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                        data-bs-custom-class="tooltip-danger" data-bs-original-title="Hapus">
+                                    <button type="submit" class="btn btn-icon btn-danger btn-sm show_confirm"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete"
+                                        aria-describedby="tooltip358783">
                                         <span class="ti ti-trash"></span>
-
                                     </button>
                                     {{-- @endcan --}}
                                 </form>
@@ -429,10 +423,9 @@
                             </td>
                             <td style="text-align: center">
 
-                                <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                    action="{{ route('form-checkedman.destroy', $data->id) }}" method="POST">
+                                <form method="POST" action="{{ route('form-checkedman.destroy', $data->id) }}">
                                     @csrf
-                                    @method('DELETE')
+                                    <input name="_method" type="hidden" value="DELETE">
                                     {{-- @can('form-checkedman.detail') --}}
                                     <a href="{{ route('form-checkedman.detail', $data->id) }}"
                                         class="btn btn-icon btn-secondary btn-sm" data-bs-toggle="tooltip"
@@ -469,11 +462,10 @@
                                     </a>
                                     {{-- @endcan --}}
                                     {{-- @can('form-checkedman.delete') --}}
-                                    <button type="submit" class="btn btn-icon btn-danger btn-sm"
-                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                        data-bs-custom-class="tooltip-danger" data-bs-original-title="Hapus">
+                                    <button type="submit" class="btn btn-icon btn-danger btn-sm show_confirm"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete"
+                                        aria-describedby="tooltip358783">
                                         <span class="ti ti-trash"></span>
-
                                     </button>
                                     {{-- @endcan --}}
                                 </form>
@@ -567,10 +559,9 @@
                             </td>
                             <td style="text-align: center">
 
-                                <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                    action="{{ route('form-checkedman.destroy', $data->id) }}" method="POST">
+                                <form method="POST" action="{{ route('form-checkedman.destroy', $data->id) }}">
                                     @csrf
-                                    @method('DELETE')
+                                    <input name="_method" type="hidden" value="DELETE">
                                     {{-- @can('form-checkedman.detail') --}}
                                     <a href="{{ route('form-checkedman.detail', $data->id) }}"
                                         class="btn btn-icon btn-secondary btn-sm" data-bs-toggle="tooltip"
@@ -607,11 +598,10 @@
                                     </a>
                                     {{-- @endcan --}}
                                     {{-- @can('form-checkedman.delete') --}}
-                                    <button type="submit" class="btn btn-icon btn-danger btn-sm"
-                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                        data-bs-custom-class="tooltip-danger" data-bs-original-title="Hapus">
+                                    <button type="submit" class="btn btn-icon btn-danger btn-sm show_confirm"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete"
+                                        aria-describedby="tooltip358783">
                                         <span class="ti ti-trash"></span>
-
                                     </button>
                                     {{-- @endcan --}}
                                 </form>
@@ -688,10 +678,9 @@
                             </td>
                             <td style="text-align: center">
 
-                                <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                    action="{{ route('form-checkedman.destroy', $data->id) }}" method="POST">
+                                <form method="POST" action="{{ route('form-checkedman.destroy', $data->id) }}">
                                     @csrf
-                                    @method('DELETE')
+                                    <input name="_method" type="hidden" value="DELETE">
                                     {{-- @can('form-checkedman.detail') --}}
                                     <a href="{{ route('form-checkedman.detail', $data->id) }}"
                                         class="btn btn-icon btn-secondary btn-sm" data-bs-toggle="tooltip"
@@ -728,11 +717,10 @@
                                     </a>
                                     {{-- @endcan --}}
                                     {{-- @can('form-checkedman.delete') --}}
-                                    <button type="submit" class="btn btn-icon btn-danger btn-sm"
-                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                        data-bs-custom-class="tooltip-danger" data-bs-original-title="Hapus">
+                                    <button type="submit" class="btn btn-icon btn-danger btn-sm show_confirm"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete"
+                                        aria-describedby="tooltip358783">
                                         <span class="ti ti-trash"></span>
-
                                     </button>
                                     {{-- @endcan --}}
                                 </form>
@@ -748,5 +736,26 @@
 </div>
 @endif
 
-<!-- /Invoice table -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+    $('.show_confirm').click(function(event) {
+          var form =  $(this).closest("form");
+          var name = $(this).data("name");
+          event.preventDefault();
+          swal({
+              title: `Are you sure you want to delete this record?`,
+              text: "If you delete this, it will be gone forever.",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              form.submit();
+            }
+          });
+      });
+
+</script>
+
 @endsection
