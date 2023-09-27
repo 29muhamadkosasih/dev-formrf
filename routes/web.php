@@ -34,6 +34,7 @@ use App\Http\Controllers\ReportPPH23Controller;
 
 Route::get('/', function () {
     return view('auth.login');
+    // return view('layouts.maintenance');
 });
 
 Auth::routes();
@@ -91,6 +92,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('export_excel', [UserController::class, 'export_excel'])->name('export_excel');
     Route::get('export_excel/formrf', [FormsController::class, 'export_excelFormrf'])->name('export_excel.formrf');
     Route::post('form-list/today', [ReportpbController::class, 'saldoStore'])->name('saldoStore');
+    Route::post('invpayment/Store', [InvPaymentController::class, 'OStore'])->name('OStore');
     Route::get('form/download/{file}', [FormController::class, 'download'])->name('form.download');
     Route::get('form/download-spv/{file}', [FspvController::class, 'download'])->name('form-spv.download');
     Route::get('form/download-man/{file}', [FmanController::class, 'download'])->name('form-man.download');
@@ -102,6 +104,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('export_pdf/reportpph', [ReportPPH23Controller::class, 'export_pdf'])->name('export_pdf');
     Route::post('getLaporan/reportpph', [ReportPPH23Controller::class, 'getLaporan'])->name('laporan.getLaporan.reportpph');
     Route::post('getLaporan/InvPayment', [InvPaymentController::class, 'getLaporan'])->name('laporan.getLaporan.InvPayment');
+    Route::post('getLaporan/InvPayment/getYears', [InvPaymentController::class, 'getYears'])->name('laporan.getLaporan.getYears');
     Route::get('/pegawai/cetak_pdf', [FormsController::class, 'cetak_pdf'])->name('cetak_pdf');
     Route::get('/pegawai/cetak_pdf2/{from}/{to}', [FormsController::class, 'cetak_pdf2'])->name('cetak_pdf2');
     Route::get('/pegawai/cetak_pdfDay/{date}', [FormsController::class, 'cetak_pdfDay'])->name('cetak_pdfDay');

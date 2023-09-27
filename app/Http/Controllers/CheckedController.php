@@ -29,13 +29,28 @@ class CheckedController extends Controller
         $tdpmarketing = Form::where('status', 0)
             ->orderBy('created_at', 'desc')
             ->where('departement_id', '1')
+            ->where('from_id', '!=', $userId)
             ->get();
         // dd($form);
+
+        $tdpadmin = Form::where('status', 0)
+            ->orderBy('created_at', 'desc')
+            ->where('departement_id', '2')
+            ->where('from_id', '!=', $userId)
+            ->get();
+
+        $tdp_op = Form::where('status', 0)
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [3, 4, 9, 10, 11])
+            ->where('from_id', '!=', $userId)
+            ->get();
 
         return view('pages.form.checked.index', [
             'form'   => $form,
             'departement'  => $departement,
             'tdpmarketing'  => $tdpmarketing,
+            'tdpadmin'  => $tdpadmin,
+            'tdp_op'  => $tdp_op,
         ]);
     }
 
@@ -155,7 +170,7 @@ class CheckedController extends Controller
         if ($data2 == NULL) {
             $jumlah_total_akhir = $jumlah_akhir + 0;
         } else {
-            $jumlah_total_akhir = $jumlah_akhir + 6500;
+            $jumlah_total_akhir = $jumlah_akhir + 0;
         };
         // dd($jumlah_total_akhir);
 

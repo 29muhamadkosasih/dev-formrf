@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="{{ asset('assets/vendor/css/rtl/theme-default.css')}}" />
 <link rel="stylesheet" href="{{ asset('assets/css/demo.css')}}" />
 
+<link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/cards-advance.css') }}" />
 <!-- Vendors CSS -->
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/node-waves/node-waves.css')}}" />
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
@@ -26,6 +27,11 @@
 <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/page-auth.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/page-faq.css') }}" />
 <!-- Page CSS -->
+
+
+<link rel="stylesheet" href="{{ asset('assets/vendor/libs/swiper/swiper.css') }}" />
+
+<link rel="stylesheet" href="{{asset('assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css')}}" />
 
 <!-- Helpers -->
 <script src="{{ asset('assets/vendor/js/helpers.js')}}"></script>

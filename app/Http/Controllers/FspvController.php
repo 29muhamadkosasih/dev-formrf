@@ -171,7 +171,7 @@ class FspvController extends Controller
         } else {
             if ($request->hasFile('image2')) {
                 $this->validate($request, [
-                    'image2'          => 'image|mimes:jpeg,png,jpg,gif|max:15048',
+                    'image2'          => 'mimes:jpeg,png,jpg,gif,pdf|max:15048',
                 ]);
                 $file               = $request->file('image2');
                 $temp               = str_replace('/', '_', $documentNumber);
@@ -186,7 +186,7 @@ class FspvController extends Controller
         } else {
             if ($request->hasFile('image3')) {
                 $this->validate($request, [
-                    'image3'          => 'image|mimes:jpeg,png,jpg,gif|max:15048',
+                    'image3'          => 'mimes:jpeg,png,jpg,gif,pdf|max:15048',
                 ]);
                 $file               = $request->file('image3');
                 $temp               = str_replace('/', '_', $documentNumber);
@@ -201,7 +201,7 @@ class FspvController extends Controller
         } else {
             if ($request->hasFile('image4')) {
                 $this->validate($request, [
-                    'image4'          => 'image|mimes:jpeg,png,jpg,gif|max:15048',
+                    'image4'          => 'mimes:jpeg,png,jpg,gif,pdf|max:15048',
                 ]);
                 $file               = $request->file('image4');
                 $temp               = str_replace('/', '_', $documentNumber);
@@ -216,7 +216,7 @@ class FspvController extends Controller
         } else {
             if ($request->hasFile('image5')) {
                 $this->validate($request, [
-                    'image5'          => 'image|mimes:jpeg,png,jpg,gif|max:15048',
+                    'image5'          => 'mimes:jpeg,png,jpg,gif,pdf|max:15048',
                 ]);
                 $file               = $request->file('image5');
                 $temp               = str_replace('/', '_', $documentNumber);
@@ -231,7 +231,7 @@ class FspvController extends Controller
         } else {
             if ($request->hasFile('image6')) {
                 $this->validate($request, [
-                    'image6'          => 'image|mimes:jpeg,png,jpg,gif|max:15048',
+                    'image6'          => 'mimes:jpeg,png,jpg,gif,pdf|max:15048',
                 ]);
                 $file               = $request->file('image6');
                 $temp               = str_replace('/', '_', $documentNumber);
@@ -246,7 +246,7 @@ class FspvController extends Controller
         } else {
             if ($request->hasFile('image7')) {
                 $this->validate($request, [
-                    'image7'          => 'image|mimes:jpeg,png,jpg,gif|max:15048',
+                    'image7'          => 'mimes:jpeg,png,jpg,gif,pdf|max:15048',
                 ]);
                 $file               = $request->file('image7');
                 $temp               = str_replace('/', '_', $documentNumber);
@@ -261,7 +261,7 @@ class FspvController extends Controller
         } else {
             if ($request->hasFile('image8')) {
                 $this->validate($request, [
-                    'image8'          => 'image|mimes:jpeg,png,jpg,gif|max:15048',
+                    'image8'          => 'mimes:jpeg,png,jpg,gif,pdf|max:15048',
                 ]);
                 $file               = $request->file('image8');
                 $temp               = str_replace('/', '_', $documentNumber);

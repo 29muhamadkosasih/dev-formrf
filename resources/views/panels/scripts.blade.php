@@ -24,7 +24,6 @@
 <script src="{{ asset('assets/vendor/js/menu.js')}}"></script>
 
 <!-- endbuild -->
-
 <!-- Vendors JS -->
 <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js')}}"></script>
 <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js')}}"></script>
@@ -36,6 +35,10 @@
 
 <!-- Main JS -->
 <script src="{{ asset('assets/js/main.js')}}"></script>
+
+<script src="{{ asset('assets/vendor/libs/swiper/swiper.js') }}"></script>
+
+<script src="{{asset('assets/js/dashboards-analytics.js')}}"></script>
 
 <!-- Page JS -->
 <script src="{{ asset('assets/js/dashboards-ecommerce.js')}}"></script>

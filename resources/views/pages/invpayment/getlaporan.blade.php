@@ -8,7 +8,33 @@
         <div class="card-body">
             <div class="row ">
                 <div class="col-auto me-auto ">
-                    <h5 class="mb-0">List Data Invoice & Payment In Tanggal &nbsp;
+                    <h5 class="mb-0">List Data Invoice & Pembayaran
+
+                        Dengan Kategori
+
+                        @switch($kat)
+                        @case($kat == 'due_date')
+                        <b>TGL JATUH TEMPO</b>
+                        @break
+                        @default
+                        @endswitch
+
+                        @switch($kat)
+                        @case($kat == 'paid_date')
+                        <b>TGL PENERIMAAN</b>
+                        @break
+                        @default
+                        @endswitch
+
+                        @switch($kat)
+                        @case($kat == 'date_invoice')
+                        <b>TGL INV</b>
+                        @break
+                        @default
+                        @endswitch
+
+
+                        Tanggal &nbsp;
 
 
                         <b>
@@ -29,18 +55,19 @@
                 <table class="table table-hover table-bordered zero-configuration">
                     <thead>
                         <tr style="background-color: skyblue">
-                            <th width='10px' style="text-align: center">No</th>
-                            <th class="text-center">No Project</th>
-                            <th class="text-center">PIC Client</th>
-                            <th class="text-center">No Invoice</th>
-                            <th class="text-center">No PO</th>
-                            <th class="text-center">Date Invoice</th>
-                            <th class="text-center">Amount (Rp.)</th>
-                            <th class="text-center">Due Date</th>
-                            <th class="text-center">Amount Payment In (Rp.)</th>
-                            <th class="text-center">Paid Date</th>
-                            <th class="text-center">Pot. PPH 23</th>
-                            <th width='150px' class="text-center">Action</th>
+                            <th width='5' style="text-align: center">No</th>
+                            <th width='50px' class="text-center">No <br> Project</th>
+                            <th width='50px' class="text-center">Nama Client</th>
+                            <th width='50px' class="text-center">No Inv</th>
+                            {{-- <th class="text-center">No PO</th> --}}
+                            <th width='50px' class="text-center">Tanggal <br> Inv</th>
+                            <th width='50px' class="text-center">Nominal <br> Inv (Rp.)</th>
+                            <th width='50px' class="text-center">Jatuh <br> Tempo </th>
+                            <th width='50px' class="text-center">Nominal <br> Penerimaan <br> (Rp.)</th>
+                            <th width='50px' class="text-center">Tanggal <br> Penerimaan</th>
+                            <th width='50px' class="text-center">Pot. <br> PPH 23</th>
+                            <th width='50px' class="text-center">Keterangan</th>
+                            <th width='50px' class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
@@ -74,7 +101,7 @@
                                 {{$user->no_invoice}}
                                 @endswitch
                             </td>
-                            <td>
+                            {{-- <td>
 
                                 @switch($user)
                                 @case($user->no_po == null)
@@ -83,7 +110,7 @@
                                 {{$user->no_po}}
                                 @endswitch
 
-                            </td>
+                            </td> --}}
                             <td>
                                 @switch($user)
                                 @case($user->date_invoice == null)
@@ -142,21 +169,27 @@
                                 {{ number_format($user->deduction, 0, ',', '.') }}
                                 @endswitch
                             </td>
+                            <td>
+                                @switch($user)
+                                @case($user->ket == null)
+                                @break
+                                @default
+                                {{ $user->ket }}
+                                @endswitch
+                            </td>
                             <td class="text-center">
-                                <a href="{{ route('invpayment.edit', $user->id) }}"
-                                    class="btn btn-icon btn-warning btn-sm" data-bs-toggle="tooltip"
-                                    data-bs-placement="top" data-bs-custom-class="tooltip-warning"
-                                    data-bs-original-title="Edit">
-                                    <span class="ti ti-edit"></span>
-                                </a>
-                                <form action="{{ route('invpayment.destroy', $user->id) }}" class="d-inline-block"
-                                    method="post">
+                                <form method="POST" action="{{ route('invpayment.destroy', $user->id) }}">
                                     @csrf
-                                    @method('DELETE')
-                                    <button type="submit" onclick="return confirm('Are you sure?')"
-                                        class="btn btn-icon btn-danger btn-sm" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="tooltip-danger"
-                                        data-bs-original-title="Hapus">
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    <a href="{{ route('invpayment.edit', $user->id) }}"
+                                        class="btn btn-icon btn-warning btn-sm" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" data-bs-custom-class="tooltip-warning"
+                                        data-bs-original-title="Edit">
+                                        <span class="ti ti-edit"></span>
+                                    </a>
+                                    <button type="submit" class="btn btn-icon btn-danger btn-sm show_confirm"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete"
+                                        aria-describedby="tooltip358783">
                                         <span class="ti ti-trash"></span>
                                     </button>
                                 </form>
@@ -171,7 +204,7 @@
                     <tr></tr>
                     <tr></tr>
                     <tr style="color:black; background-color: lightgreen">
-                        <th colspan="6" style="text-align: right"><b>TOTAL</b></th>
+                        <th colspan="5" style="text-align: right"><b>TOTAL</b></th>
                         <td colspan="" style="text-align: right">
 
                             {{ number_format($jumlah_a, 0, ',', '.') }}
@@ -185,6 +218,7 @@
 
                             {{ number_format($jumlah_c, 0, ',', '.') }}
                         </td>
+                        <td colspan="" style="text-align: right"></td>
                         <td colspan="" style="text-align: right"></td>
                     </tr>
                 </table>

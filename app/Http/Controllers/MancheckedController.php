@@ -52,12 +52,9 @@ class MancheckedController extends Controller
 
         $tdp_hr = Form::where('status', 0)
             ->orderBy('created_at', 'desc')
-            ->whereIn('departement_id', [7, 8, 5])
+            ->whereIn('departement_id', [7, 8, 5, 32])
             ->get();
-        // dd($tdp_hr);
 
-
-        // dd($form);
         return view('pages.form.checkedman.index', [
             'form'   => $form,
             'departement'  => $departement,
@@ -186,7 +183,7 @@ class MancheckedController extends Controller
         if ($data2 == NULL) {
             $jumlah_total_akhir = $jumlah_akhir + 0;
         } else {
-            $jumlah_total_akhir = $jumlah_akhir + 6500;
+            $jumlah_total_akhir = $jumlah_akhir + 0;
         };
         // dd($jumlah_total_akhir);
 

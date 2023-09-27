@@ -21,18 +21,17 @@ class InvPaymentImport implements ToModel, WithStartRow
             'no_project' => $row[1],
             'pic_client' => $row[2],
             'no_invoice' => $row[3],
-            'no_po' => $row[4],
-            'date_invoice' => $row[5],
-            'amount_invoice' => $row[6],
-            'payment_in' => $row[8],
-            'due_date' => $row[7],
-            'paid_date' => $row[9],
-            'deduction' => $row[10],
+            'date_invoice' => $row[4],
+            'amount_invoice' => $row[5],
+            'due_date' => $row[6],
+            'payment_in' => $row[7],
+            'paid_date' => $row[8],
+            'deduction' => $row[9],
         ]);
     }
 
     public function startRow(): int
     {
-        return 2;
+        return 3;
     }
 }

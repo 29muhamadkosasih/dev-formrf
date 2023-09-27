@@ -138,6 +138,11 @@
                                                 id="defaultRadio2" checked="">
                                             <label class="form-check-label" for="defaultRadio2"> Rp. 6.500 </label>
                                         </div>
+                                        <div class="form-check">
+                                            <input name="b_admin" class="form-check-input" type="radio" value="2500"
+                                                id="defaultRadio2" checked="">
+                                            <label class="form-check-label" for="defaultRadio3"> Rp. 2.500 </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
