@@ -31,6 +31,7 @@ use App\Http\Controllers\MancheckedController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\ReportPPH23Controller;
+use App\Http\Controllers\InvPaymentResumeController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -104,7 +105,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('export_pdf/reportpph', [ReportPPH23Controller::class, 'export_pdf'])->name('export_pdf');
     Route::post('getLaporan/reportpph', [ReportPPH23Controller::class, 'getLaporan'])->name('laporan.getLaporan.reportpph');
     Route::post('getLaporan/InvPayment', [InvPaymentController::class, 'getLaporan'])->name('laporan.getLaporan.InvPayment');
-    Route::post('getLaporan/InvPayment/getYears', [InvPaymentController::class, 'getYears'])->name('laporan.getLaporan.getYears');
+    Route::post('getLaporan/InvPayment/getYears', [InvPaymentResumeController::class, 'getYears'])->name('laporan.getLaporan.getYears');
     Route::get('/pegawai/cetak_pdf', [FormsController::class, 'cetak_pdf'])->name('cetak_pdf');
     Route::get('/pegawai/cetak_pdf2/{from}/{to}', [FormsController::class, 'cetak_pdf2'])->name('cetak_pdf2');
     Route::get('/pegawai/cetak_pdfDay/{date}', [FormsController::class, 'cetak_pdfDay'])->name('cetak_pdfDay');
@@ -132,6 +133,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('departement', DepartementController::class);
     Route::resource('reportpph', ReportPPH23Controller::class);
     Route::resource('invpayment', InvPaymentController::class);
+    Route::resource('invpayment-resume', InvPaymentResumeController::class);
     Route::resource('form-spv', FspvController::class);
     Route::resource('form-man', FmanController::class);
     Route::resource('form-app', FapproveController::class);

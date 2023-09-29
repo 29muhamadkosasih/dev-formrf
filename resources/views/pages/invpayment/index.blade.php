@@ -1,244 +1,8 @@
 @extends('layouts/master')
 @section('title', 'Invoice & Pembayaran')
 @section('content')
-<div class="col-lg-12">
-
+{{-- <div class="col-lg-12">
     <div class="row">
-        <!-- Website Analytics -->
-        <div class="col-lg-6 mb-4">
-            <div class="swiper-container swiper-container-horizontal swiper swiper-card-advance-bg swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden"
-                id="swiper-with-pagination-cards">
-                <div class="swiper-wrapper" id="swiper-wrapper-3470b9c10854e10ea5" aria-live="off"
-                    style="transform: translate3d(-656px, 0px, 0px); transition-duration: 0ms;" style="height: 800px">
-                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next"
-                        data-swiper-slide-index="2" role="group" aria-label="3 / 3" style="width: 328px;">
-                        <div class="row" style="height: 290px">
-                            <div class="col-12">
-                                <h5 class="text-white mb-0 mt-2">Website Analytics</h5>
-                                <small>Total 28.5% Conversion Rate</small>
-                            </div>
-                            <div class="col-lg-7 col-md-9 col-12 order-2 order-md-1">
-                                <h6 class="text-white mt-0 mt-md-3 mb-3">Revenue Sources</h6>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <ul class="list-unstyled mb-0">
-                                            <li class="d-flex mb-4 align-items-center">
-                                                <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">268</p>
-                                                <p class="mb-0">Direct</p>
-                                            </li>
-                                            <li class="d-flex align-items-center mb-2">
-                                                <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">62</p>
-                                                <p class="mb-0">Referral</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-6">
-                                        <ul class="list-unstyled mb-0">
-                                            <li class="d-flex mb-4 align-items-center">
-                                                <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">890</p>
-                                                <p class="mb-0">Organic</p>
-                                            </li>
-                                            <li class="d-flex align-items-center mb-2">
-                                                <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">1.2k</p>
-                                                <p class="mb-0">Campaign</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 col-md-3 col-12 order-1 order-md-2 my-4 my-md-0 text-center">
-                                <img src="{{ asset('assets/img/illustrations/card-website-analytics-3.png') }}"
-                                    alt="Website Analytics" width="170" class="card-website-analytics-img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0" role="group"
-                        aria-label="1 / 3" style="width: 328px;">
-                        <div class="row">
-                            <div class="col-12">
-                                <h5 class="text-white mb-0 mt-2">Website Analytics</h5>
-                                <small>Total 28.5% Conversion Rate</small>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-7 col-md-9 col-12 order-2 order-md-1">
-                                    <h6 class="text-white mt-0 mt-md-3 mb-3">Traffic</h6>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <ul class="list-unstyled mb-0">
-                                                <li class="d-flex mb-4 align-items-center">
-                                                    <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">28%</p>
-                                                    <p class="mb-0">Sessions</p>
-                                                </li>
-                                                <li class="d-flex align-items-center mb-2">
-                                                    <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">1.2k</p>
-                                                    <p class="mb-0">Leads</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-6">
-                                            <ul class="list-unstyled mb-0">
-                                                <li class="d-flex mb-4 align-items-center">
-                                                    <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">3.1k</p>
-                                                    <p class="mb-0">Page Views</p>
-                                                </li>
-                                                <li class="d-flex align-items-center mb-2">
-                                                    <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">12%</p>
-                                                    <p class="mb-0">Conversions</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 col-md-3 col-12 order-1 order-md-2 my-4 my-md-0 text-center">
-                                    <img src="{{ asset('assets/img/illustrations/card-website-analytics-1.png') }}"
-                                        alt="Website Analytics" width="170" class="card-website-analytics-img">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1" role="group"
-                        aria-label="2 / 3" style="width: 328px;">
-                        <div class="row">
-                            <div class="col-12">
-                                <h5 class="text-white mb-0 mt-2">Website Analytics</h5>
-                                <small>Total 28.5% Conversion Rate</small>
-                            </div>
-                            <div class="col-lg-7 col-md-9 col-12 order-2 order-md-1">
-                                <h6 class="text-white mt-0 mt-md-3 mb-3">Spending</h6>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <ul class="list-unstyled mb-0">
-                                            <li class="d-flex mb-4 align-items-center">
-                                                <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">12h</p>
-                                                <p class="mb-0">Spend</p>
-                                            </li>
-                                            <li class="d-flex align-items-center mb-2">
-                                                <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">127</p>
-                                                <p class="mb-0">Order</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-6">
-                                        <ul class="list-unstyled mb-0">
-                                            <li class="d-flex mb-4 align-items-center">
-                                                <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">18</p>
-                                                <p class="mb-0">Order Size</p>
-                                            </li>
-                                            <li class="d-flex align-items-center mb-2">
-                                                <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">2.3k</p>
-                                                <p class="mb-0">Items</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 col-md-3 col-12 order-1 order-md-2 my-4 my-md-0 text-center">
-                                <img src="{{ asset('assets/img/illustrations/card-website-analytics-2.png') }}"
-                                    alt="Website Analytics" width="170" class="card-website-analytics-img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="2" role="group"
-                        aria-label="3 / 3" style="width: 328px;">
-                        <div class="row">
-                            <div class="col-12">
-                                <h5 class="text-white mb-0 mt-2">Website Analytics</h5>
-                                <small>Total 28.5% Conversion Rate</small>
-                            </div>
-                            <div class="col-lg-7 col-md-9 col-12 order-2 order-md-1">
-                                <h6 class="text-white mt-0 mt-md-3 mb-3">Revenue Sources</h6>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <ul class="list-unstyled mb-0">
-                                            <li class="d-flex mb-4 align-items-center">
-                                                <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">268</p>
-                                                <p class="mb-0">Direct</p>
-                                            </li>
-                                            <li class="d-flex align-items-center mb-2">
-                                                <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">62</p>
-                                                <p class="mb-0">Referral</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-6">
-                                        <ul class="list-unstyled mb-0">
-                                            <li class="d-flex mb-4 align-items-center">
-                                                <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">890</p>
-                                                <p class="mb-0">Organic</p>
-                                            </li>
-                                            <li class="d-flex align-items-center mb-2">
-                                                <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">1.2k</p>
-                                                <p class="mb-0">Campaign</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 col-md-3 col-12 order-1 order-md-2 my-4 my-md-0 text-center">
-                                <img src="../../assets/img/illustrations/card-website-analytics-3.png"
-                                    alt="Website Analytics" width="170" class="card-website-analytics-img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev"
-                        data-swiper-slide-index="0" role="group" aria-label="1 / 3" style="width: 328px;">
-                        <div class="row">
-                            <div class="col-12">
-                                <h5 class="text-white mb-0 mt-2">Website Analytics</h5>
-                                <small>Total 28.5% Conversion Rate</small>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-7 col-md-9 col-12 order-2 order-md-1">
-                                    <h6 class="text-white mt-0 mt-md-3 mb-3">Traffic</h6>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <ul class="list-unstyled mb-0">
-                                                <li class="d-flex mb-4 align-items-center">
-                                                    <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">28%</p>
-                                                    <p class="mb-0">Sessions</p>
-                                                </li>
-                                                <li class="d-flex align-items-center mb-2">
-                                                    <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">1.2k</p>
-                                                    <p class="mb-0">Leads</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-6">
-                                            <ul class="list-unstyled mb-0">
-                                                <li class="d-flex mb-4 align-items-center">
-                                                    <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">3.1k</p>
-                                                    <p class="mb-0">Page Views</p>
-                                                </li>
-                                                <li class="d-flex align-items-center mb-2">
-                                                    <p class="mb-0 fw-semibold me-2 website-analytics-text-bg">12%</p>
-                                                    <p class="mb-0">Conversions</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 col-md-3 col-12 order-1 order-md-2 my-4 my-md-0 text-center">
-                                    <img src="../../assets/img/illustrations/card-website-analytics-1.png"
-                                        alt="Website Analytics" width="170" class="card-website-analytics-img">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
-                    <span class="swiper-pagination-bullet" tabindex="0" role="button"
-                        aria-label="Go to slide 1"></span><span
-                        class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button"
-                        aria-label="Go to slide 2" aria-current="true"></span><span class="swiper-pagination-bullet"
-                        tabindex="0" role="button" aria-label="Go to slide 3"></span>
-                </div>
-                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-            </div>
-        </div>
-        <!--/ Website Analytics -->
-
-        <!-- Sales Overview -->
         <div class="col-lg-6 col-sm-12 mb-4">
             <div class="card">
                 <h5 class="card-header">Basic </h5>
@@ -279,8 +43,8 @@
 
                                     </div>
                                     <div class="col-sm-6 mt-4 ">
-                                        <label for="from" class="mb-2"></label> <button
-                                            type="submit" class="btn btn-primary float-end mt-4">Submit</button>
+                                        <label for="from" class="mb-2"></label> <button type="submit"
+                                            class="btn btn-primary float-end mt-4">Submit</button>
                                     </div>
                                 </div>
                             </form>
@@ -290,330 +54,98 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+<div class="col-lg-12">
+    <div class="row">
+        <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="card">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div class="card-title mb-0">
+                        <h5 class="mb-0 me-2">{{ $total_inv }}</h5>
+                        <small>Total Jumlah INV</small>
+                    </div>
+                    <a href="{{ route('invpayment-resume.index') }}">
 
-
-<div class="col-lg-12 mb-3">
-    <div class="card h-100">
-        <div class="card-header pb-0 d-flex justify-content-between mb-lg-n4">
-            <div class="card-title mb-0">
-                <h5 class="mb-0">Resume <b>Tahun {{ $currentYears }}</b> </h5>
-                <small class="text-muted"></small>
-            </div>
-            <div class="dropdown">
-                <button class="btn p-0" type="button" id="earningReportsId" data-bs-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="ti ti-dots-vertical ti-sm text-muted"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="earningReportsId">
-                    <a class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser"
-                        href="#">Filter</a>
-                </div>
-            </div>
-            <!-- </div> -->
-        </div>
-        <div class="card-body mt-4">
-            <div class="card-title mb-0">
-                <h5 class="mb-0">
-                </h5>
-            </div>
-            <div class=" p-3 mt-2">
-                <div class="row gap-4 gap-sm-0">
-                    <div class="col-12 col-sm-4">
-                        <div class="d-flex gap-2 align-items-center">
-                            <div class="badge rounded bg-label-primary p-1">
+                        <div class="card-icon">
+                            <span class="badge bg-label-primary rounded-pill p-2">
                                 <i class="ti ti-receipt ti-sm"></i>
-                            </div>
-                            <h6 class="mb-0">Total Jumlah INV </h6>
+                            </span>
                         </div>
-                        <h4 class="my-2 pt-1">{{ $total_inv }}</h4>
-
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="card">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div class="card-title mb-0">
+                        <h5 class="mb-0 me-2">Rp. {{ number_format($amount_inv, 0, ',', '.',)
+                            }}</h5>
+                        <small>Total Amount INV</small>
                     </div>
-                    <div class="col-12 col-sm-4">
-                        <div class="d-flex gap-2 align-items-center">
-                            <div class="badge rounded bg-label-info p-1"><i class="ti ti-report-money ti-sm"></i>
-                            </div>
-                            <h6 class="mb-0">Total Amount INV</h6>
+                    <a href="{{ route('invpayment-resume.index') }}">
+                        <div class="card-icon">
+                            <span class="badge bg-label-success rounded-pill p-2">
+                                <i class="ti ti-report-money ti-sm"></i>
+                            </span>
                         </div>
-                        <h4 class="my-2 pt-1"> Rp. {{ number_format($amount_inv, 0, ',', '.',)
-                            }}</h4>
-
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="card">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div class="card-title mb-0">
+                        <h5 class="mb-0 me-2">Rp. {{ number_format($penerimaan, 0, ',', '.',)
+                            }}</h5>
+                        <small>Nominal Penerimaan</small>
                     </div>
-                    <div class="col-12 col-sm-4">
-                        <div class="d-flex gap-2 align-items-center">
-                            <div class="badge rounded bg-label-primary p-1">
+                    <a href="{{ route('invpayment-resume.index') }}">
+                        <div class="card-icon">
+                            <span class="badge bg-label-danger rounded-pill p-2">
                                 <i class="ti ti-align-box-bottom-center ti-sm"></i>
-                            </div>
-                            <h6 class="mb-0">Nominal Penerimaan</h6>
+                            </span>
                         </div>
-                        <h4 class="my-2 pt-1">Rp. {{ number_format($penerimaan, 0, ',', '.',)
-                            }}</h4>
+                    </a>
 
-                    </div>
                 </div>
             </div>
-            <div class=" p-3 mt-2">
-                <div class="row gap-4 gap-sm-0">
-                    <div class="col-12 col-sm-4">
-                        <div class="d-flex gap-2 align-items-center">
-                            <div class="badge rounded bg-label-primary p-1">
+        </div>
+
+        <div class="col-lg-6 col-sm-6 mb-4">
+            <div class="card">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div class="card-title mb-0">
+                        <h5 class="mb-0 me-2">Rp. {{ number_format($pph, 0, ',', '.',)
+                            }}</h5>
+                        <small>Total POT. PPH 23</small>
+                    </div>
+                    <a href="{{ route('invpayment-resume.index') }}">
+                        <div class="card-icon">
+                            <span class="badge bg-label-info rounded-pill p-2">
                                 <i class="ti ti-currency-dollar ti-sm"></i>
-                            </div>
-                            <h6 class="mb-0">Total POT. PPH 23</h6>
+                            </span>
                         </div>
-                        <h4 class="my-2 pt-1">Rp. {{ number_format($pph, 0, ',', '.',)
-                            }} </h4>
-
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-sm-6 mb-4">
+            <div class="card">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div class="card-title mb-0">
+                        <h5 class="mb-0 me-2">Rp. {{ number_format($os, 0, ',', '.',)
+                            }}</h5>
+                        <small>Out Standing</small>
                     </div>
-                    <div class="col-12 col-sm-4">
-                        <div class="d-flex gap-2 align-items-center">
-                            <div class="badge rounded bg-label-info p-1"><i class="ti ti-chart-pie-2 ti-sm"></i>
-                            </div>
-                            <h6 class="mb-0">Out Standing</h6>
+                    <a href="{{ route('invpayment-resume.index') }}">
+                        <div class="card-icon">
+                            <span class="badge bg-label-warning rounded-pill p-2">
+                                <i class="ti ti-chart-pie-2 ti-sm"></i>
+                            </span>
                         </div>
-                        <h4 class="my-2 pt-1">Rp. {{ number_format($os, 0, ',', '.',)
-                            }}</h4>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="col-xl-12 mb-3 ">
-    <div class="card">
-        <div class="card-body">
-            <div class="row ">
-                <div class="col-auto me-auto ">
-                    <h5 class="mb-0">Statistic Invoice & Pembayaran <b>Tahun {{ $currentYears }}</b> </h5>
-                </div>
-            </div>
-            <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
-                    <thead>
-                        <tr style="background-color: skyblue">
-                            <th width='5' style="text-align: center">No</th>
-                            <th class="text-center">Bulan</th>
-                            <th class="text-center">Total INV </th>
-                            <th class="text-center">Total Amount INV Rp.</th>
-                            <th class="text-center">Nominal Penerimaan Rp.</th>
-                            <th class="text-center">Pot PPH 23 Rp.</th>
-                            <th class="text-center">Out Standing Rp.</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                        <tr>
-                            <td> 1</td>
-                            <td>Januari</td>
-                            <td>{{ $januari }}</td>
-                            <td style="text-align: right">{{ number_format($januariCount, 0, ',', '.',)
-                                }}</td>
-                            <td style="text-align: right">{{ number_format($januariTot, 0, ',', '.',)
-                                }}</td>
-                            <td style="text-align: right">{{ number_format($januariDeduc, 0, ',', '.',)
-                                }}</td>
-                            <td style="text-align: right">{{ number_format($JanOS, 0, ',', '.',)
-                                }}</td>
-
-                        </tr>
-                        <tr>
-                            <td> 2</td>
-                            <td>Februari</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td> 3</td>
-                            <td>Maret</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td> 4</td>
-                            <td>April</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td> 5</td>
-                            <td>Mei</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td> 6</td>
-                            <td>Juni</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td> 7</td>
-                            <td>Juli</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td> 8</td>
-                            <td>Agustus</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td> 9</td>
-                            <td>September</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td> 10</td>
-                            <td>Oktober</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td> 11</td>
-                            <td>November</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td> 12</td>
-                            <td>Desember </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="col-xl-8 mb-3">
-    <div class="card">
-        <h5 class="card-header">Basic </h5>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md">
-                    <form action="{{ route('OStore') }}" method="POST">
-                        @csrf
-                        <div class="row g-3">
-                            <div class="col-sm-6">
-                                <label for="from" class="mb-2">OS Sampai Kemaren (Rp.)</label>
-                                <input type="text" id="tanpa-rupiah2" name="os_sampai_kemarin" class="form-control"
-                                    placeholder="Enter" required />
-
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="from" class="mb-2">Penyesuaian Invoice (Rp.)</label>
-                                <input type="text" id="tanpa-rupiah4" name="pe_invoice" class="form-control"
-                                    placeholder="Enter" required />
-
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="from" class="mb-2">OS Hari Ini (Rp.)</label>
-                                <input type="text" id="tanpa-rupiah5" name="os_hari_ini" class="form-control"
-                                    placeholder="Enter" required />
-
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="from" class="mb-2">Potongan (Rp.)</label>
-                                <input type="text" id="tanpa-rupiah6" name="pot" class="form-control"
-                                    placeholder="Enter" required />
-
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="from" class="mb-2">Pembayaran Hari Ini (Rp.)</label>
-                                <input type="text" id="tanpa-rupiah8" name="pem_hari_ini" class="form-control"
-                                    placeholder="Enter" required />
-
-                            </div>
-                            <div class="col-xl-12 ">
-                                <label for="to" class="mb-2"></label>
-                                <button type="submit" class="btn btn-primary float-end mt-2">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /Basic Custom Radios -->
-
-<!-- Basic Custom Checkboxes -->
-<div class="col-xl-4 mb-3">
-    <div class="card">
-        <h5 class="card-header">Report Data Invoice & Pembayaran</h5>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md">
-                    <form action="{{ route('laporan.getLaporan.InvPayment') }}" method="POST">
-                        @csrf
-                        <div class="row g-3">
-                            <div class="col-sm-12">
-                                <label for="from" class="mb-2">Start Date</label>
-                                <input type="text" name="from" class="form-control" placeholder="Start Date"
-                                    onfocusin="(this.type='date')" onfocusout="(this.type='text')">
-
-                            </div>
-                            <div class="col-sm-12">
-                                <label for="from" class="mb-2">End Date</label>
-                                <input type="text" name="to" class="form-control" placeholder="End Date"
-                                    onfocusin="(this.type='date')" onfocusout="(this.type='text')">
-
-                            </div>
-
-                            <div class="col-sm-12">
-                                <label for="from" class="mb-2">Kategori</label>
-                                <select class="form-select" id="selectDefault" name="kat" required>
-                                    <option selected>Open this select</option>
-                                    <option value="date_invoice">TGL INV</option>
-                                    <option value="due_date">TGL JATUH TEMPO</option>
-                                    <option value="paid_date">TGL PENERIMAAN</option>
-                                </select>
-
-                            </div>
-                            <div class="col-xl-12 ">
-                                <label for="to" class="mb-2"></label>
-                                <button type="submit" class="btn btn-primary float-end mt-2">Cari Data</button>
-                            </div>
-                        </div>
-                    </form>
+                    </a>
                 </div>
             </div>
         </div>
@@ -628,11 +160,6 @@
                     <h5 class="mb-0">List Data Invoice & Pembayaran</h5>
                 </div>
                 <div class="col-auto mt-1">
-                    {{-- <button class="btn btn-secondary add-new btn-success" tabindex="0"
-                        aria-controls="DataTables_Table_0" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasAddUser"><span><span class="d-none d-sm-inline-block ">Import
-                                Excel</span></span></button> --}}
-
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
                         Filter
                     </button>
@@ -935,36 +462,46 @@
 <!-- Modal -->
 <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalCenterTitle">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col mb-3">
-                        <label for="nameWithTitle" class="form-label">Name</label>
-                        <input type="text" id="nameWithTitle" class="form-control" placeholder="Enter Name" />
+        <form action="{{ route('laporan.getLaporan.InvPayment') }}" method="POST">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCenterTitle">Report Data Invoice & Pembayaran</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-2">
+                        <div class="col mb-2">
+                            <label for="emailWithTitle" class="form-label">Start Date</label>
+                            <input type="text" name="from" class="form-control" placeholder="Start Date"
+                                onfocusin="(this.type='date')" onfocusout="(this.type='text')">
+                        </div>
+                        <div class="col mb-2">
+                            <label for="dobWithTitle" class="form-label">End Date</label>
+                            <input type="text" name="to" class="form-control" placeholder="End Date"
+                                onfocusin="(this.type='date')" onfocusout="(this.type='text')">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mb-2">
+                            <label for="nameWithTitle" class="form-label">Kategori</label>
+                            <select class="form-select" id="selectDefault" name="kat" required>
+                                <option selected>Open this select</option>
+                                <option value="date_invoice">TGL INV</option>
+                                <option value="due_date">TGL JATUH TEMPO</option>
+                                <option value="paid_date">TGL PENERIMAAN</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <div class="row g-2">
-                    <div class="col mb-0">
-                        <label for="emailWithTitle" class="form-label">Email</label>
-                        <input type="email" id="emailWithTitle" class="form-control" placeholder="xxxx@xxx.xx" />
-                    </div>
-                    <div class="col mb-0">
-                        <label for="dobWithTitle" class="form-label">DOB</label>
-                        <input type="date" id="dobWithTitle" class="form-control" />
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">Cari Data</button>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">
-                    Close
-                </button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 
