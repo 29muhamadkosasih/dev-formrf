@@ -78,17 +78,17 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-fixh-responsive">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
-                            <th class="text-center">Tanggal Pengajuan</th>
+                            <th class="text-center">Tanggal <br> Pengajuan</th>
                             <th class="text-center">Dari</th>
                             <th class="text-center">Departement</th>
                             <th class="text-center">Untuk</th>
                             <th class="text-center">Pengajuan</th>
                             <th class="text-center">Payment</th>
-                            <th class="text-center">Tanggal Kebutuhan</th>
+                            <th class="text-center">Tanggal <br> Kebutuhan</th>
                             <th class="text-center">Status</th>
                         </tr>
                     </thead>

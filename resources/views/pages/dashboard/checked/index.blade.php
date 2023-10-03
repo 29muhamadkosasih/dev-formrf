@@ -2,24 +2,6 @@
 
 @section('content')
 @section('title', 'Dashboard')
-{{-- <div class="col-xl-12 mb-3">
-    <div class="card">
-        <div class="card-body">
-            <form action="{{ route('laporan.getLaporan.InvPayment') }}" method="POST">
-                @csrf
-                <div class="row g-5">
-                    <div class="col-md-8 mb-2">
-                        <input type="text" name="from" class="form-control mb-0" placeholder="Masukkan Keyword ">
-                    </div>
-                    <div class="col-md-2 mb-2">
-                        <button type="submit" class="btn btn-primary float-end">Search</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div> --}}
-
 @if (auth()->user()->departement_id == 1)
 
 <div class="col-xl-4 col-12">
@@ -110,17 +92,17 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-fixh-responsive">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
-                            <th class="text-center">Tanggal Pengajuan</th>
+                            <th class="text-center">Tanggal <br> Pengajuan</th>
                             <th class="text-center">Dari</th>
                             <th class="text-center">Departement</th>
                             <th class="text-center">Untuk</th>
                             <th class="text-center">Pengajuan</th>
                             <th class="text-center">Payment</th>
-                            <th class="text-center">Tanggal Kebutuhan</th>
+                            <th class="text-center">Tanggal <br> Kebutuhan</th>
                             <th class="text-center">Status</th>
                         </tr>
                     </thead>
@@ -282,17 +264,17 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-fixh-responsive">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
-                            <th class="text-center">Tanggal Pengajuan</th>
+                            <th class="text-center">Tanggal <br> Pengajuan</th>
                             <th class="text-center">Dari</th>
                             <th class="text-center">Departement</th>
                             <th class="text-center">Untuk</th>
                             <th class="text-center">Pengajuan</th>
                             <th class="text-center">Payment</th>
-                            <th class="text-center">Tanggal Kebutuhan</th>
+                            <th class="text-center">Tanggal <br> Kebutuhan</th>
                             <th class="text-center">Status</th>
                         </tr>
                     </thead>
@@ -449,17 +431,17 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-fixh-responsive">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
-                            <th class="text-center">Tanggal Pengajuan</th>
+                            <th class="text-center">Tanggal <br> Pengajuan</th>
                             <th class="text-center">Dari</th>
                             <th class="text-center">Departement</th>
                             <th class="text-center">Untuk</th>
                             <th class="text-center">Pengajuan</th>
                             <th class="text-center">Payment</th>
-                            <th class="text-center">Tanggal Kebutuhan</th>
+                            <th class="text-center">Tanggal <br> Kebutuhan</th>
                             <th class="text-center">Status</th>
                         </tr>
                     </thead>
@@ -616,17 +598,17 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-fixh-responsive">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
-                            <th class="text-center">Tanggal Pengajuan</th>
+                            <th class="text-center">Tanggal <br> Pengajuan</th>
                             <th class="text-center">Dari</th>
                             <th class="text-center">Departement</th>
                             <th class="text-center">Untuk</th>
                             <th class="text-center">Pengajuan</th>
                             <th class="text-center">Payment</th>
-                            <th class="text-center">Tanggal Kebutuhan</th>
+                            <th class="text-center">Tanggal <br> Kebutuhan</th>
                             <th class="text-center">Status</th>
                         </tr>
                     </thead>
@@ -783,17 +765,17 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-fixh-responsive">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
-                            <th class="text-center">Tanggal Pengajuan</th>
+                            <th class="text-center">Tanggal <br> Pengajuan</th>
                             <th class="text-center">Dari</th>
                             <th class="text-center">Departement</th>
                             <th class="text-center">Untuk</th>
                             <th class="text-center">Pengajuan</th>
                             <th class="text-center">Payment</th>
-                            <th class="text-center">Tanggal Kebutuhan</th>
+                            <th class="text-center">Tanggal <br> Kebutuhan</th>
                             <th class="text-center">Status</th>
                         </tr>
                     </thead>
@@ -970,17 +952,17 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-fixh-responsive">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
-                            <th class="text-center">Tanggal Pengajuan</th>
+                            <th class="text-center">Tanggal <br> Pengajuan</th>
                             <th class="text-center">Dari</th>
                             <th class="text-center">Departement</th>
                             <th class="text-center">Untuk</th>
                             <th class="text-center">Pengajuan</th>
                             <th class="text-center">Payment</th>
-                            <th class="text-center">Tanggal Kebutuhan</th>
+                            <th class="text-center">Tanggal <br> Kebutuhan</th>
                             <th class="text-center">Status</th>
                         </tr>
                     </thead>

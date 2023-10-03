@@ -110,6 +110,17 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/pegawai/cetak_pdf2/{from}/{to}', [FormsController::class, 'cetak_pdf2'])->name('cetak_pdf2');
     Route::get('/pegawai/cetak_pdfDay/{date}', [FormsController::class, 'cetak_pdfDay'])->name('cetak_pdfDay');
     Route::get('/pegawai/cetak_pdfpb', [FormsController::class, 'cetak_pdfpb'])->name('cetak_pdfpb');
+
+    Route::get('form-checked/edit/delete/{id}', [MancheckedController::class, 'del1'])->name('delete.image1');
+    Route::get('form-checked/edit/delete/{id}', [MancheckedController::class, 'del2'])->name('delete.image2');
+    Route::get('form-checked/edit/delete/{id}', [MancheckedController::class, 'del3'])->name('delete.image3');
+    Route::get('form-checked/edit/delete/{id}', [MancheckedController::class, 'del4'])->name('delete.image4');
+    Route::get('form-checked/edit/delete/{id}', [MancheckedController::class, 'del5'])->name('delete.image5');
+    Route::get('form-checked/edit/delete/{id}', [MancheckedController::class, 'del6'])->name('delete.image6');
+    Route::get('form-checked/edit/delete/{id}', [MancheckedController::class, 'del7'])->name('delete.image7');
+    Route::get('form-checked/edit/delete/{id}', [MancheckedController::class, 'del8'])->name('delete.image8');
+
+
     Route::resource('/users', UserController::class);
     Route::resource('/roles', RoleController::class);
     Route::resource('/permissions', PermissionController::class)->except(['show']);

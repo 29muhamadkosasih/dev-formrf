@@ -10,6 +10,7 @@ use App\Models\Departement;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
 
 class MancheckedController extends Controller
@@ -55,6 +56,11 @@ class MancheckedController extends Controller
             ->whereIn('departement_id', [7, 8, 5, 32])
             ->get();
 
+        $tti = Form::where('status', 0)
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [12, 13, 14, 15])
+            ->get();
+
         return view('pages.form.checkedman.index', [
             'form'   => $form,
             'departement'  => $departement,
@@ -63,6 +69,7 @@ class MancheckedController extends Controller
             'tkki'  => $tkki,
             'tdp_op'  => $tdp_op,
             'tdp_hr'  => $tdp_hr,
+            'tti'  => $tti,
         ]);
     }
 
@@ -288,6 +295,18 @@ class MancheckedController extends Controller
             ->with('success', 'Congratulation ! Konfirmasi Pengembalian Berhasil');
     }
 
+    public function del1($id)
+    {
+        $data = Form::find($id);
+        $data->update(
+            [
+                "image1"  => 0,
+            ]
+        );
+        return back()
+            ->with('success',  'Berhasil');
+    }
+
     public function reject($id)
     {
         $userId = auth()->id();
@@ -307,6 +326,53 @@ class MancheckedController extends Controller
     public function destroy($id)
     {
         $delete = Form::find($id);
+
+        $destination = 'storage/MD/' . $delete->image1;
+        File::delete($destination);
+
+        if ($delete->image2 == NULL) {
+        } else {
+            $destination = 'storage/MD/' . $delete->image2;
+            File::delete($destination);
+        }
+
+        if ($delete->image3 == NULL) {
+        } else {
+            $destination = 'storage/MD/' . $delete->image3;
+            File::delete($destination);
+        }
+
+        if ($delete->image4 == NULL) {
+        } else {
+            $destination = 'storage/MD/' . $delete->image4;
+            File::delete($destination);
+        }
+
+        if ($delete->image5 == NULL) {
+        } else {
+            $destination = 'storage/MD/' . $delete->image5;
+            File::delete($destination);
+        }
+
+        if ($delete->image6 == NULL) {
+        } else {
+            $destination = 'storage/MD/' . $delete->image6;
+            File::delete($destination);
+        }
+
+        if ($delete->image7 == NULL) {
+        } else {
+            $destination = 'storage/MD/' . $delete->image7;
+            File::delete($destination);
+        }
+
+        if ($delete->image8 == NULL) {
+        } else {
+            $destination = 'storage/MD/' . $delete->image8;
+            File::delete($destination);
+        }
+
+
         $delete->delete();
         return redirect()->route('form-checkedman.index')
             ->with(

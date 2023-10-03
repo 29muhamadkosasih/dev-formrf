@@ -1,55 +1,6 @@
 @extends('layouts.master')
-
 @section('content')
 @section('title', 'Dashboard')
-
-{{-- <div class="col-xl-3 mb-4">
-    <div class="card">
-        <div class="card-body">
-            <div class="badge p-2 bg-label-info mb-2 rounded">
-                <i class="ti ti-file-plus ti-md"></i>
-            </div>
-            <h5 class="card-title mb-1 pt-2">Total RF</h5>
-            <h5 class="card-title mb-1 pt-2">{{ $total }}</h5>
-
-        </div>
-    </div>
-</div>
-
-<!-- Total Profit -->
-<div class="col-xl-3 mb-4">
-    <div class="card">
-        <div class="card-body">
-            <div class="badge p-2 bg-label-success mb-2 rounded">
-                <i class="ti ti-check ti-md"></i>
-            </div>
-            <h5 class="card-title mb-1 pt-2">Paid RF</h5>
-            <h5 class="card-title mb-1 pt-2">{{$paid}}</h5>
-        </div>
-    </div>
-</div>
-
-<!-- Total Sales -->
-<div class="col-xl-3 mb-4">
-    <div class="card">
-        <div class="card-body">
-            <div class="badge p-2 bg-label-primary mb-2 rounded"><i class="ti ti-loader ti-md"></i></div>
-            <h5 class="card-title mb-1 pt-2">Process RF</h5>
-            <h5 class="card-title mb-1 pt-2">{{ $process }}</h5>
-        </div>
-    </div>
-</div>
-
-<div class="col-xl-3 mb-4">
-    <div class="card">
-        <div class="card-body">
-            <div class="badge p-2 bg-label-danger mb-2 rounded"><i class="ti ti-x ti-md"></i></div>
-            <h5 class="card-title mb-1 pt-2">Cancel RF</h5>
-            <h5 class="card-title mb-1 pt-2">{{ $cancel }}</h5>
-        </div>
-    </div>
-</div> --}}
-
 
 <div class="col-sm-6 col-xl-3 mb-3">
     <div class="card">
@@ -137,17 +88,17 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-fixh-responsive">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
-                            <th class="text-center">Tanggal Pengajuan</th>
+                            <th class="text-center">Tanggal <br> Pengajuan</th>
                             <th class="text-center">Dari</th>
                             <th class="text-center">Departement</th>
                             <th class="text-center">Untuk</th>
                             <th class="text-center">Pengajuan</th>
                             <th class="text-center">Payment</th>
-                            <th class="text-center">Tanggal Kebutuhan</th>
+                            <th class="text-center">Tanggal <br> Kebutuhan</th>
                             <th class="text-center">Status</th>
                         </tr>
                     </thead>

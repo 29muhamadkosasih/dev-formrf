@@ -99,6 +99,16 @@
                 </div>
                 <div class="row g-3">
                     <div class="col-md-6 mb-2">
+                        <label class="form-label" for="basicInput">Pot PPH 23 (Rp.)</label>
+                        <input type="text" class="form-control" id="tanpa-rupiah3" placeholder="Enter" name="deduction"
+                            value="{{ $user->deduction }}" />
+                        @error('deduction')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="col-md-6 mb-2">
                         <label class="form-label" for="basicInput">Keterangan</label>
                         <input type="text" class="form-control" id="basic-default-fullname" placeholder="Enter"
                             name="ket" value="{{ $user->ket }}" />
@@ -162,6 +172,29 @@
         rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
         return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
     }
+
+    var tanpa_rupiah3 = document.getElementById('tanpa-rupiah3');
+        tanpa_rupiah3.addEventListener('keyup', function (e) {
+        tanpa_rupiah3.value = formatRupiah3(this.value);
+        });
+
+        /* Fungsi */
+        function formatRupiah3(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        split = number_string.split(','),
+        sisa = split[0].length % 3,
+        rupiah = split[0].substr(0, sisa),
+        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        if (ribuan) {
+        separator = sisa ? '.' : '';
+        rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+
 </script>
 <!-- /Invoice table -->
 @endsection

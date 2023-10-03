@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-fixh-responsive">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
@@ -28,10 +28,10 @@
                             <th>No. RF</th>
                             <th>Dari</th>
                             <th>Departement</th>
-                            <th>Payment Method</th>
-                            <th>Kategori
+                            <th>Payment <br> Method</th>
+                            <th>Kategori <br>
                                 Pengajuan</th>
-                            <th>Jumlah (Rp)</th>
+                            <th>Jumlah <br> (Rp)</th>
                             <th>Nama Bank </th>
                             <th>No Rekening </th>
                             <th>Penerima </th>

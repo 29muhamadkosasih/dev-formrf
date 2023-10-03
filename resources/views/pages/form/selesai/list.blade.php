@@ -18,7 +18,7 @@
                     <div class="col-md-10 mb-2">
                         <label for="from" class="mb-2">Date</label><br> <input type="text" name="date"
                             class="form-control mb-0" placeholder="Date" onfocusin="(this.type='date')"
-                            onfocusout="(this.type='text')">
+                            onfocusout="(this.type='text')" required>
                     </div>
                     <div class="col-md-2 mb-2">
                         <label for="to" class="mb-2"></label><br>
@@ -32,12 +32,12 @@
                     <div class="col-md-5 mb-2">
                         <label for="from" class="mb-2">Start Date</label><br> <input type="text" name="from"
                             class="form-control mb-0" placeholder="Start Date" onfocusin="(this.type='date')"
-                            onfocusout="(this.type='text')">
+                            onfocusout="(this.type='text')" required>
                     </div>
                     <div class="col-md-5 mb-2">
                         <label for="to" class="mb-2">End Date</label><br>
                         <input type="text" name="to" class="form-control mb-0" placeholder="End Date"
-                            onfocusin="(this.type='date')" onfocusout="(this.type='text')">
+                            onfocusin="(this.type='date')" onfocusout="(this.type='text')" required>
                     </div>
                     <div class="col-md-2 mb-2">
                         <label for="to" class="mb-2"></label><br>
@@ -70,10 +70,10 @@
                             <th>No. RF</th>
                             <th>Dari</th>
                             <th>Departement</th>
-                            <th>Payment Method</th>
-                            <th>Kategori
+                            <th>Payment <br> Method</th>
+                            <th>Kategori <br>
                                 Pengajuan</th>
-                            <th>Jumlah (Rp)</th>
+                            <th>Jumlah <br> (Rp)</th>
                             <th>Nama Bank </th>
                             <th>No Rekening </th>
                             <th>Penerima </th>

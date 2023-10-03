@@ -270,6 +270,13 @@ class InvPaymentController extends Controller
             $data2 = str_replace('.', '', $amount2);
         }
 
+        $amount3 = $request->deduction;
+        if ($amount3 == NULL) {
+            $data3 = NULL;
+        } else {
+            $data3 = str_replace('.', '', $amount3);
+        }
+
 
         // $data = $request->amount_invoice;
         // $data2 = $request->payment_in;
@@ -289,7 +296,8 @@ class InvPaymentController extends Controller
         $order->paid_date = $request->paid_date;
         // $order->deduction = $request->deduction;
         $order->ket = $request->ket;
-        $order->deduction = $t_deduction;
+        $order->deduction = $data3;
+        // dd($order);
         // $order->no_urut = InvPayment::generateNextSequenceNumber();
 
 
@@ -339,9 +347,6 @@ class InvPaymentController extends Controller
 
         // dd($request->all());
         $payment   = InvPayment::find($id);
-        $request->validate([
-            'no_project' => 'required',
-        ]);
 
         // $data = 2;
         // $data = $request->amount_invoice;
@@ -363,6 +368,19 @@ class InvPaymentController extends Controller
                 $amount2
             );
         }
+
+        $amount3 = $request->deduction;
+        if ($amount3 == NULL) {
+            $data3 = NULL;
+        } else {
+            $data3 = str_replace(
+                '.',
+                '',
+                $amount3
+            );
+        }
+
+
         // dd($data);
         $t_deduction = $data - $data2;
         $payment->update([
@@ -375,8 +393,10 @@ class InvPaymentController extends Controller
             'payment_in' => $data2,
             'due_date' => $request->due_date,
             'paid_date' => $request->paid_date,
-            'deduction' => $t_deduction,
+            'deduction' => $data3,
         ]);
+
+        // dd($payment);
 
         return redirect()->route('invpayment.index')->with('success', 'Success ! Data Invoice Payment In Berhasil di Update');
     }

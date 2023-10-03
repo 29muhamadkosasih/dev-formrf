@@ -11,6 +11,7 @@ use App\Models\Departement;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 
@@ -392,6 +393,54 @@ class ApproveController extends Controller
     public function destroy($id)
     {
         $delete = Form::find($id);
+        
+        $destination = 'storage/MD/' . $delete->image1;
+        File::delete($destination);
+
+        if ($delete->image2 == NULL) {
+        } else {
+            $destination = 'storage/MD/' . $delete->image2;
+            File::delete($destination);
+        }
+
+        if ($delete->image3 == NULL) {
+        } else {
+            $destination = 'storage/MD/' . $delete->image3;
+            File::delete($destination);
+        }
+
+        if ($delete->image4 == NULL) {
+        } else {
+            $destination = 'storage/MD/' . $delete->image4;
+            File::delete($destination);
+        }
+
+        if ($delete->image5 == NULL) {
+        } else {
+            $destination = 'storage/MD/' . $delete->image5;
+            File::delete($destination);
+        }
+
+        if ($delete->image6 == NULL) {
+        } else {
+            $destination = 'storage/MD/' . $delete->image6;
+            File::delete($destination);
+        }
+
+        if ($delete->image7 == NULL) {
+        } else {
+            $destination = 'storage/MD/' . $delete->image7;
+            File::delete($destination);
+        }
+
+        if ($delete->image8 == NULL) {
+        } else {
+            $destination = 'storage/MD/' . $delete->image8;
+            File::delete($destination);
+        }
+
+
+
         $delete->delete();
         return redirect()->route('form-approve.index')
             ->with('success', 'Congratulation !  Data Berhasil dihapus');

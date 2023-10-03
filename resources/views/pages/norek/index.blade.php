@@ -26,7 +26,7 @@
     </div>
 </div>
 
-@if ( auth()->user()->role_id == 2)
+{{-- @if ( auth()->user()->role_id == 2)
 
 <div class="col-xs-8 col-sm-8 col-md-8">
     <div class="card">
@@ -81,7 +81,7 @@
         </div>
     </div>
 </div>
-@else
+@else --}}
 
 <div class="col-xs-8 col-sm-8 col-md-8">
     <div class="card">
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-fixh-responsive">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th class="text-center" width='10px'>No</th>
@@ -111,25 +111,25 @@
                             <td>{{ $data->nama_penerima }}</td>
                             <td style="text-align: center">
 
-                                @can('norek.delete')
+                                {{-- @can('norek.delete') --}}
                                 <form method="POST" action="{{ route('norek.destroy', $data->id) }}">
                                     @csrf
                                     <input name="_method" type="hidden" value="DELETE">
-                                    @can('norek.edit')
+                                    {{-- @can('norek.edit') --}}
                                     <a href="{{ route('norek.edit', $data->id) }}"
                                         class="btn btn-icon btn-warning btn-sm" data-bs-toggle="tooltip"
                                         data-bs-placement="top" data-bs-custom-class="tooltip-warning"
                                         data-bs-original-title="Edit">
                                         <span class="ti ti-edit"></span>
                                     </a>
-                                    @endcan
+                                    {{-- @endcan --}}
                                     <button type="submit" class="btn btn-icon btn-danger btn-sm show_confirm"
                                         data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Delete"
                                         aria-describedby="tooltip358783">
                                         <span class="ti ti-trash"></span>
                                     </button>
                                 </form>
-                                @endcan
+                                {{-- @endcan --}}
                             </td>
                         </tr>
                         @endforeach
@@ -139,7 +139,7 @@
         </div>
     </div>
 </div>
-@endif
+{{-- @endif --}}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">

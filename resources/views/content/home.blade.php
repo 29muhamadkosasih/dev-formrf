@@ -87,17 +87,51 @@
                             </h4>
                         </div>
                     </div>
-                    <div id="accordionPayment" class="accordion">
+
+                    <div id="accordionCancellation" class="accordion">
                         <div class="card accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    aria-expanded="true" data-bs-target="#accordionPayment-1"
-                                    aria-controls="accordionPayment-1">
-                                    Flow Form Electronic (E-RF)
+                                    aria-expanded="true" data-bs-target="#accordionCancellation-1"
+                                    aria-controls="accordionCancellation-1">
+                                    Ketentuan Kategori Pengajuan
                                 </button>
                             </h2>
 
                             <div id="accordionCancellation-1" class="accordion-collapse collapse show">
+                                <div class="accordion-body">
+                                    <p>1. Advance</p>
+                                    <ul class="ps-1 g-1 ms-3">
+                                        <li class="mb-2">Kategori pengajuan yang belum ada lampiran invoice, kwitansi /
+                                            nota. Setelah uang diterima wajib dilaporkan pemakaian dananya.</li>
+                                        <p>Contoh : RF training, RF meeting, RF Atk</p>
+                                    </ul>
+
+                                    <p>2. Reimburse</p>
+                                    <ul class="ps-1 g-1 ms-3">
+                                        <li class="mb-2">Kategori pengajuan yang menggunakan uang karyawan terlebih
+                                            dahulu dan saat pengajuan harus disertai kwitansi / nota.</li>
+                                    </ul>
+
+                                    <p>3. Payment</p>
+                                    <ul class="ps-1 g-1 ms-3">
+                                        <li class="mb-2">Kategori pengajuan yang sudah ada lampiran invoice, kwitansi /
+                                            notanya.</li>
+
+                                        <p>Contoh : RF pembayaran sertifikat / lisensi</p>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#accordionCancellation-2" aria-controls="accordionCancellation-2">
+                                    Flow Form Electronic (E-RF)
+                                </button>
+                            </h2>
+                            <div id="accordionCancellation-2" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     <ul class="ps-1 g-1 ms-3">
                                         <li class="mb-2">Pengajuan dilakukan oleh staf masing-masing departemen</li>
@@ -115,7 +149,9 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
+
                 </div>
                 <div class="tab-pane fade" id="delivery" role="tabpanel">
                     <div class="d-flex mb-3 gap-3">

@@ -1,60 +1,6 @@
 @extends('layouts/master')
 @section('title', 'Invoice & Pembayaran')
 @section('content')
-{{-- <div class="col-lg-12">
-    <div class="row">
-        <div class="col-lg-6 col-sm-12 mb-4">
-            <div class="card">
-                <h5 class="card-header">Basic </h5>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md">
-                            <form action="{{ route('OStore') }}" method="POST">
-                                @csrf
-                                <div class="row g-3">
-                                    <div class="col-sm-6">
-                                        <label for="from" class="mb-2">OS Sampai Kemaren (Rp.)</label>
-                                        <input type="text" id="tanpa-rupiah2" name="os_sampai_kemarin"
-                                            class="form-control" placeholder="Enter" required />
-
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label for="from" class="mb-2">Penyesuaian Invoice (Rp.)</label>
-                                        <input type="text" id="tanpa-rupiah4" name="pe_invoice" class="form-control"
-                                            placeholder="Enter" required />
-
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label for="from" class="mb-2">OS Hari Ini (Rp.)</label>
-                                        <input type="text" id="tanpa-rupiah5" name="os_hari_ini" class="form-control"
-                                            placeholder="Enter" required />
-
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label for="from" class="mb-2">Potongan (Rp.)</label>
-                                        <input type="text" id="tanpa-rupiah6" name="pot" class="form-control"
-                                            placeholder="Enter" required />
-
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <label for="from" class="mb-2">Pembayaran Hari Ini (Rp.)</label>
-                                        <input type="text" id="tanpa-rupiah8" name="pem_hari_ini" class="form-control"
-                                            placeholder="Enter" required />
-
-                                    </div>
-                                    <div class="col-sm-6 mt-4 ">
-                                        <label for="from" class="mb-2"></label> <button type="submit"
-                                            class="btn btn-primary float-end mt-4">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
 <div class="col-lg-12">
     <div class="row">
         <div class="col-lg-4 col-sm-6 mb-4">
@@ -168,7 +114,7 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered zero-configuration-spes">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='5' style="text-align: center">No</th>
@@ -438,27 +384,6 @@
         </div>
     </div>
 </div>
-
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAddUser" aria-labelledby="offcanvasAddUserLabel">
-    <div class="offcanvas-header">
-        <h5 id="offcanvasAddUserLabel" class="offcanvas-title">Filter Data Tahun</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body mx-0 flex-grow-0 pt-0 h-100">
-        <form class="add-new-user pt-0" id="addNewUserForm" action="{{ route('laporan.getLaporan.getYears') }}"
-            method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="mb-3">
-                <label class="form-label" for="add-user-fullname">Tahun</label>
-                <input type="text" class="form-control" id="add-user-fullname" name="from" placeholder="Ex. 2023" />
-            </div>
-            <button type="reset" class="btn btn-label-secondary me-sm-3 me-1"
-                data-bs-dismiss="offcanvas">Cancel</button>
-            <button type="submit" class="btn btn-primary data-submit">Submit</button>
-        </form>
-    </div>
-</div>
-
 <!-- Modal -->
 <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -524,6 +449,7 @@
                 }
             });
     });
+
 </script>
 
 <script>
@@ -662,5 +588,56 @@
             reverse: true
         });
     })
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    $(".zero-configuration").DataTable({
+            scrollX: !0
+        }),
+        $(".zero-configuration-spes").DataTable({
+            scrollX: !0,
+            pageLength: 100
+        }),
+        $(".default-ordering").DataTable({
+            order: [
+                [3, "desc"]
+            ]
+        }), $(".multi-ordering").DataTable({
+            columnDefs: [{
+                targets: [0],
+                orderData: [0, 1]
+            }, {
+                targets: [1],
+                orderData: [1, 0]
+            }, {
+                targets: [4],
+                orderData: [4, 0]
+            }]
+        }), $(".complex-headers").DataTable(), $(".dom-positioning").DataTable({
+            dom: '<"top"i>rt<"bottom"flp> <
+                "clear" > '
+        }), $(".alt-pagination").DataTable({
+            pagingType: "full_numbers"
+        }), $(".scroll-vertical").DataTable({
+            scrollY: "200px",
+            scrollCollapse: !0,
+            paging: !1
+        }), $(".dynamic-height").DataTable({
+            scrollY: "50vh",
+            scrollCollapse: !0,
+            paging: !1
+        }), $(".scroll-horizontal").DataTable({
+            scrollX: !0
+        }), $(".scroll-horizontal-vertical").DataTable({
+            scrollY: 200,
+            scrollX: !0
+        }), $(".comma-decimal-place").DataTable({
+            language: {
+                decimal: ",",
+                thousands: "."
+            }
+        })
+});
 </script>
 @endsection

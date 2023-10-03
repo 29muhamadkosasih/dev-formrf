@@ -13,19 +13,19 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered dataex-complex-headers">
+                <table class="table table-hover table-bordered dataex-fixh-responsive">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
                             <th class="text-center">No. RF</th>
                             <th class="text-center">Dari</th>
                             <th class="text-center">Departement</th>
-                            <th class="text-center">Payment Method</th>
-                            <th class="text-center">Kategori
+                            <th class="text-center">Payment <br> Method</th>
+                            <th class="text-center">Kategori <br>
                                 Pengajuan</th>
-                            <th class="text-center">Jumlah (Rp)</th>
+                            <th class="text-center">Jumlah <br> (Rp)</th>
                             <th class="text-center">Nama Bank </th>
-                            <th class="text-center">No Rekening </th>
+                            <th class="text-center">No <br> Rekening </th>
                             <th class="text-center">Penerima </th>
                             <th class="text-center">Status</th>
                         </tr>

@@ -47,7 +47,7 @@
                                     Keperluan
                                 </label>
                                 <select class="form-control @error('keperluan_id') is-invalid @enderror"
-                                    onchange="enableBrand2(this)" id="selectDefault" name="keperluan_id" required>
+                                    onchange="enableBrand2(this)" id="satu" name="keperluan_id" required>
                                     <option value="">Open this select</option>
                                     @foreach ($keperluan as $item)
                                     <option value="{{ $item->id }}" {{ old('keperluan_id', $edit->keperluan_id) ==
@@ -93,8 +93,8 @@
                         <div class="col-xl-4 col-md-6 col-12">
                             <div class="mb-1">
                                 <label class="form-label" for="helpInputTop">Payment</label>
-                                <select class="form-control @error('payment') is-invalid @enderror" id="selectDefault"
-                                    name="payment" id="car" onchange="enableBrand(this)" required>
+                                <select class="form-control @error('payment') is-invalid @enderror" name="payment"
+                                    id="car" onchange="enableBrand(this)" required>
                                     <option value="">Open this select</option>
 
                                     <option value="Cash" {{($edit->payment === 'Cash') ? 'Selected' : ''}}>Cash</option>
@@ -695,6 +695,15 @@
             document.getElementById('carbrand').classList.add('d-none');
         }
     }
+
+        var inputValue = document.getElementById("car").value;
+
+        if (inputValue === 'Transfer') {
+            console.log("Transfer");
+            document.getElementById('carbrand').classList.remove('d-none');
+        } else {
+            document.getElementById('carbrand').classList.add('d-none');
+        }
 </script>
 <script type="text/javascript">
     function enableBrand2(answer) {
@@ -874,6 +883,8 @@
             $( '#uang' ).mask('000.000.000', {reverse: true});
         })
 
+
+
 </script>
 
 <script>
@@ -898,6 +909,22 @@
         rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
         return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
     }
+
+    var inputValue = document.getElementById("satu").value;
+
+        if (inputValue === "1") {
+        console.log("Nilai input teks kosong.");
+        document.getElementById('t1').classList.remove('d-none');
+        document.getElementById('t2').classList.remove('d-none');
+        document.getElementById('t3').classList.remove('d-none');
+        document.getElementById('t4').classList.remove('d-none');
+        } else {
+        console.log("Nilai input teks: " + inputValue);
+        document.getElementById('t1').classList.add('d-none');
+        document.getElementById('t2').classList.add('d-none');
+        document.getElementById('t3').classList.add('d-none');
+        document.getElementById('t4').classList.add('d-none');
+        }
 </script>
 
 @endsection

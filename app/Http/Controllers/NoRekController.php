@@ -46,7 +46,7 @@ class NoRekController extends Controller
         NoRek::create($validateData);
         return redirect()->route('norek.index')->with(
             'success',
-            'Success ! Data Bank Berhasil di Tambahkan'
+            'Success ! Data Rekening Berhasil di Tambahkan'
         );
     }
 
@@ -78,7 +78,7 @@ class NoRekController extends Controller
         $norek   = NoRek::find($id);
         $this->validate($request, [
             'nama_penerima' => 'required|max:255|min:4',
-            'no_rekening' => 'required|max:17|min:10|unique:norek,no_rekening',
+            'no_rekening' => 'required|max:17|min:10',
             'bank_id' => 'required|numeric',
             'user_id' => 'required',
         ]);
@@ -93,7 +93,7 @@ class NoRekController extends Controller
         return redirect()->route('norek.index')
             ->with(
                 'success',
-                'Success ! Data Bank Berhasil di Update'
+                'Success ! Data Rekening Berhasil di Update'
             );
     }
 
@@ -105,7 +105,7 @@ class NoRekController extends Controller
         return redirect()->route('norek.index')
             ->with(
                 'success',
-                'Success ! Data Bank Berhasil di Hapus'
+                'Success ! Data Rekening Berhasil di Hapus'
             );
     }
 

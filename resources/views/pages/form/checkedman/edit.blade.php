@@ -125,7 +125,16 @@
                                                     Lampirkan File
                                                 </label>
                                                 <input type="text" class="form-control" name="image1"
-                                                    placeholder="Enter" value="{{$edit->image1}}" readonly />
+                                                    placeholder="Enter" value="{{$edit->image1}}" readonly id="ping" />
+                                                <select class="form-select @error('payment') is-invalid @enderror"
+                                                    id="selectDefault" name="payment" onchange="enableBrand11(this)"
+                                                    required>
+                                                    <option selected>Readonly</option>
+                                                    <option value="on">Off</option>
+                                                    <option value="OFF">On</option>
+                                                </select>
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -567,6 +576,16 @@
             document.getElementById('carbrand').classList.remove('d-none');
         } else {
             document.getElementById('carbrand').classList.add('d-none');
+        }
+    }
+
+
+    function enableBrand11(answer) {
+        console.log(answer.value);
+        if (answer.value == 'on') {
+            document.getElementById('ping').removeAttribute("readonly");
+        } else {
+            document.getElementById('ping').setAttribute("readonly", "readonly");
         }
     }
 </script>

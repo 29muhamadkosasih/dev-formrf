@@ -12,16 +12,16 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-fixh-responsive   ">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
                             <th>Dari</th>
-                            <th>Tanggal Kebutuhan</th>
+                            <th>Tanggal <br> Kebutuhan</th>
                             <th>Departement</th>
                             <th>Keperluan</th>
                             <th>Untuk</th>
-                            <th>Kategori
+                            <th>Kategori <br>
                                 Pengajuan</th>
                             <th>Status</th>
                             <th width='230px' style="text-align: center">Action</th>
@@ -148,16 +148,16 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-fixh-responsive   ">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
                             <th>Dari</th>
-                            <th>Tanggal Kebutuhan</th>
+                            <th>Tanggal <br> Kebutuhan</th>
                             <th>Departement</th>
                             <th>Keperluan</th>
                             <th>Untuk</th>
-                            <th>Kategori
+                            <th>Kategori <br>
                                 Pengajuan</th>
                             <th>Status</th>
                             <th width='230px' style="text-align: center">Action</th>
@@ -267,16 +267,16 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-fixh-responsive   ">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
                             <th>Dari</th>
-                            <th>Tanggal Kebutuhan</th>
+                            <th>Tanggal <br> Kebutuhan</th>
                             <th>Departement</th>
                             <th>Keperluan</th>
                             <th>Untuk</th>
-                            <th>Kategori
+                            <th>Kategori <br>
                                 Pengajuan</th>
                             <th>Status</th>
                             <th width='230px' style="text-align: center">Action</th>
@@ -386,16 +386,16 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-fixh-responsive   ">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
                             <th>Dari</th>
-                            <th>Tanggal Kebutuhan</th>
+                            <th>Tanggal <br> Kebutuhan</th>
                             <th>Departement</th>
                             <th>Keperluan</th>
                             <th>Untuk</th>
-                            <th>Kategori
+                            <th>Kategori <br>
                                 Pengajuan</th>
                             <th>Status</th>
                             <th width='230px' style="text-align: center">Action</th>

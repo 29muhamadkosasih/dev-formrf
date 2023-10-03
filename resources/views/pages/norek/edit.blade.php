@@ -4,12 +4,19 @@
     <div class="mb-3">
         <label class="form-label" for="basicInput">Nama Bank</label>
         <select class="form-select @error('bank_id') is-invalid @enderror" id="selectDefault" name="bank_id">
-            <option selected>{{ $edit->bank->nama_bank }}</option>
+            {{-- <option selected>{{ $edit->bank->nama_bank }}</option>
             @foreach ($bank as $key => $value)
             <option value="{{ $value->id }}">
                 {{ $value->nama_bank }}
             </option>
+            @endforeach --}}
+
+            @foreach ($bank as $item)
+            <option value="{{ $item->id }}" {{ old('bank_id', $edit->bank_id) ==
+                $item->id ? 'selected' : null }}>
+                {{ $item->nama_bank }}</option>
             @endforeach
+
         </select>
         @error('bank_id')
         <div class="invalid-feedback">
