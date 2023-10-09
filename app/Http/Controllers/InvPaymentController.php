@@ -27,7 +27,7 @@ class InvPaymentController extends Controller
 
         $currentDay = date('d');
 
-        $invpayment = InvPayment::orderBy('created_at', 'asc')->get();
+        $invpayment = InvPayment::orderBy('id', 'asc')->get();
         $jumlah_a = InvPayment::sum('amount_invoice');
         $jumlah_b = InvPayment::sum('payment_in');
         $jumlah_c = InvPayment::sum('deduction');
@@ -38,11 +38,15 @@ class InvPaymentController extends Controller
 
         $currentMonth = date('m');
         $currentYears = date('Y');
-        // dd($currentYears)
+        // dd($currentYears);
         $total_inv = DB::table('invpayment')
             ->whereYear('date_invoice', $currentYears)
             ->get()
             ->count();
+
+        // $total_inv = InvPayment::whereYear('date_invoice', $currentYears)->get();
+
+        // dd($total_inv);
 
         $amount_inv = DB::table('invpayment')
             ->whereYear('date_invoice', $currentYears)

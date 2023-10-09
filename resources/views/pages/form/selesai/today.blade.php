@@ -144,8 +144,10 @@
                     <input type="text" class="form-control @error('jumlah_saldo') is-invalid @enderror"
                         placeholder="Masukkan Jumlah Saldo" id="tanpa-rupiah" name="jumlah_saldo" required />
                 </div>
-                <div class="mb-2">
-                    <button type="submit" class="btn btn-primary float-end ms-2 mb-2 d-none"></button>
+                <div class="mb-3">
+                    <label class="form-label"></label>
+                    <button type="submit" class="btn btn-primary float-end ms-2 mb-2 ">Submit</button>
+                </div>
             </form>
             <form action="{{ route('reportPB.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -160,7 +162,8 @@
                         placeholder="Masukkan Jumlah Saldo" id="tanpa-rupiah3" name="b_a" />
                 </div>
                 <div class="mb-2">
-                    <button type="submit" class="btn btn-primary float-end ms-2 mb-2 d-none">Submit</button>
+                    <button type="submit" class="btn btn-primary float-end ms-2 mb-2 ">Submit</button>
+                </div>
             </form>
         </div>
     </div>

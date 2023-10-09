@@ -334,6 +334,39 @@ class DashboardController extends Controller
             ->whereIn('departement_id', [7, 8, 5])
             ->get();
 
+        //view dashboard tti
+        $report_tti = DB::table('form')
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [12, 13, 14, 15])
+            ->get()
+            ->count();
+
+        $reports_tti = DB::table('form')
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', 2023)
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [12, 13, 14, 15])
+
+            ->get()
+            ->count();
+        $jumlah_total_tti = DB::table('form')
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [12, 13, 14, 15])
+            ->get()
+            ->sum('jumlah_total');
+
+        $jumlah_total_bulan_tti = DB::table('form')
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', 2023)
+            ->orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [12, 13, 14, 15])
+            ->get()
+            ->sum('jumlah_total');
+
+        $form_tti = Form::orderBy('created_at', 'desc')
+            ->whereIn('departement_id', [12, 13, 14, 15])
+            ->get();
+
 
         $bulann = date('m');
         $namaBulan = '';
@@ -414,6 +447,12 @@ class DashboardController extends Controller
             'jumlah_total_tdp_hr'   => $jumlah_total_tdp_hr,
             'jumlah_total_bulan_tdp_hr'   => $jumlah_total_bulan_tdp_hr,
             'form_tdp_hr'   => $form_tdp_hr,
+
+            'report_tti'   => $report_tti,
+            'reports_tti'   => $reports_tti,
+            'jumlah_total_tti'   => $jumlah_total_tti,
+            'jumlah_total_bulan_tti'   => $jumlah_total_bulan_tti,
+            'form_tti'   => $form_tti,
         ]);
     }
 

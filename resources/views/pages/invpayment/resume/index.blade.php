@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+                <table class="table table-hover table-bordered dataex-fixh-responsive">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='5' style="text-align: center">No</th>

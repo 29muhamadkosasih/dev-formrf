@@ -9,6 +9,7 @@
 <script src="{{ asset('plugins/tables/js/datatable-init/datatable-basic-spes.min.js') }}"></script>
 <script src="{{ asset('plugins/tables/js/datatables-extensions-init/datatable-fixed-column.min.js') }}"></script>
 <script src="{{ asset('plugins/tables/js/datatables-extensions-init/datatable-fixed-header.min.js') }}"></script>
+<script src="{{ asset('plugins/tables/js/datatables-extensions-init/dataex-fixh-responsive.min.js') }}"></script>
 <script src="{{ asset('plugins/tables/js/datatables-extensions-init/datatables-colreorder.min.js') }}"></script>
 <script src="{{ asset('plugins/tables/js/datatables-extensions-init/datatable-rowreorder.min.js') }}"></script>
 
@@ -107,3 +108,5 @@
             toastr.warning("{{ session('warning') }}");
             @endif
 </script>
+
+@livewireScripts

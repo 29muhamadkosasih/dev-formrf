@@ -8,7 +8,7 @@
                 <div class="card-body d-flex justify-content-between align-items-center">
                     <div class="card-title mb-0">
                         <h5 class="mb-0 me-2">{{ $total_inv }}</h5>
-                        <small>Total Jumlah INV</small>
+                        <small>Total Jumlah INV</small> <b>Tahun {{ $currentYears }}</b>
                     </div>
                     <a href="{{ route('invpayment-resume.index') }}">
 
@@ -27,7 +27,7 @@
                     <div class="card-title mb-0">
                         <h5 class="mb-0 me-2">Rp. {{ number_format($amount_inv, 0, ',', '.',)
                             }}</h5>
-                        <small>Total Amount INV</small>
+                        <small>Total Amount INV</small> <b>Tahun {{ $currentYears }}</b>
                     </div>
                     <a href="{{ route('invpayment-resume.index') }}">
                         <div class="card-icon">
@@ -45,7 +45,7 @@
                     <div class="card-title mb-0">
                         <h5 class="mb-0 me-2">Rp. {{ number_format($penerimaan, 0, ',', '.',)
                             }}</h5>
-                        <small>Nominal Penerimaan</small>
+                        <small>Nominal Penerimaan</small> <b>Tahun {{ $currentYears }}</b>
                     </div>
                     <a href="{{ route('invpayment-resume.index') }}">
                         <div class="card-icon">
@@ -65,7 +65,7 @@
                     <div class="card-title mb-0">
                         <h5 class="mb-0 me-2">Rp. {{ number_format($pph, 0, ',', '.',)
                             }}</h5>
-                        <small>Total POT. PPH 23</small>
+                        <small>Total POT. PPH 23</small> <b>Tahun {{ $currentYears }}</b>
                     </div>
                     <a href="{{ route('invpayment-resume.index') }}">
                         <div class="card-icon">
@@ -83,7 +83,7 @@
                     <div class="card-title mb-0">
                         <h5 class="mb-0 me-2">Rp. {{ number_format($os, 0, ',', '.',)
                             }}</h5>
-                        <small>Out Standing</small>
+                        <small>Out Standing</small> <b>Tahun {{ $currentYears }}</b>
                     </div>
                     <a href="{{ route('invpayment-resume.index') }}">
                         <div class="card-icon">
@@ -113,7 +113,7 @@
                     <a href="{{ route('invpayment.create') }}" class="btn btn-primary me-2">Create</a>
                 </div>
             </div>
-            <div class="table-responsive text-nowrap">
+            <div class="table-responsive">
                 <table class="table table-hover table-bordered zero-configuration-spes">
                     <thead>
                         <tr style="background-color: skyblue">
@@ -128,7 +128,7 @@
                             <th width='50px' class="text-center">Nominal <br> Penerimaan <br> (Rp.)</th>
                             <th width='50px' class="text-center">Tanggal <br> Penerimaan</th>
                             <th width='50px' class="text-center">Pot. <br> PPH 23</th>
-                            <th width='50px' class="text-center">Keterangan</th>
+                            <th width='50px' class="text-center">Ket</th>
                             <th width='50px' class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -588,56 +588,5 @@
             reverse: true
         });
     })
-</script>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-    $(".zero-configuration").DataTable({
-            scrollX: !0
-        }),
-        $(".zero-configuration-spes").DataTable({
-            scrollX: !0,
-            pageLength: 100
-        }),
-        $(".default-ordering").DataTable({
-            order: [
-                [3, "desc"]
-            ]
-        }), $(".multi-ordering").DataTable({
-            columnDefs: [{
-                targets: [0],
-                orderData: [0, 1]
-            }, {
-                targets: [1],
-                orderData: [1, 0]
-            }, {
-                targets: [4],
-                orderData: [4, 0]
-            }]
-        }), $(".complex-headers").DataTable(), $(".dom-positioning").DataTable({
-            dom: '<"top"i>rt<"bottom"flp> <
-                "clear" > '
-        }), $(".alt-pagination").DataTable({
-            pagingType: "full_numbers"
-        }), $(".scroll-vertical").DataTable({
-            scrollY: "200px",
-            scrollCollapse: !0,
-            paging: !1
-        }), $(".dynamic-height").DataTable({
-            scrollY: "50vh",
-            scrollCollapse: !0,
-            paging: !1
-        }), $(".scroll-horizontal").DataTable({
-            scrollX: !0
-        }), $(".scroll-horizontal-vertical").DataTable({
-            scrollY: 200,
-            scrollX: !0
-        }), $(".comma-decimal-place").DataTable({
-            language: {
-                decimal: ",",
-                thousands: "."
-            }
-        })
-});
 </script>
 @endsection

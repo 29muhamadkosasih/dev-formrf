@@ -80,6 +80,10 @@
                             </td>
                         </tr>
                         @endforeach
+
+                        {{-- @foreach ($students as $student)
+                        {{ $student->name }} <br>
+                        @endforeach --}}
                     </tbody>
                 </table>
             </div>

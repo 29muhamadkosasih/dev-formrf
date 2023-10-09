@@ -74,11 +74,12 @@
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
+                            <th class="text-center">No RF</th>
                             <th class="text-center">Tanggal <br> Pengajuan</th>
-                            <th class="text-center">Untuk</th>
+                            <th class="text-center">Keperluan</th>
                             <th class="text-center">Pengajuan</th>
                             <th class="text-center">Payment</th>
-                            <th class="text-center">Tanggal <br> Kebutuhan</th>
+                            <th class="text-center">Tanggal <br> Transaksi</th>
                             <th class="text-center">Status</th>
                         </tr>
                     </thead>
@@ -87,10 +88,13 @@
                         <tr>
                             <td style="text-align: center">{{ $loop->iteration }}</td>
                             <td>
+                                {{ $data->no_rf}}
+                            </td>
+                            <td>
                                 {{ $data->created_at->format('d-m-Y')}}
                             </td>
                             <td>
-                                {{ $data->rujukan->name }}
+                                {{ $data->keperluan->name }}
                             </td>
                             <td>
                                 {{ $data->kpengajuan->name }}
@@ -99,7 +103,7 @@
                                 {{ $data->payment }}
                             </td>
                             <td>
-                                {{ \Carbon\Carbon::parse($data->tanggal_kebutuhan)->format('d-m-Y')}}
+                                {{ \Carbon\Carbon::parse($data->tgl_terima_dana)->format('d-m-Y')}}
 
                             </td>
                             <td>
