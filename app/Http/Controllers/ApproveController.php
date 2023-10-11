@@ -282,10 +282,10 @@ class ApproveController extends Controller
         $total2 = $request->qty2 * $request->price2;
         $total3 = $request->qty3 * $request->price3;
         $total4 = $request->qty4 * $request->price4;
-        $total5 = $request->qty * $request->price5;
-        $total6 = $request->qty * $request->price6;
-        $total7 = $request->qty * $request->price7;
-        $total8 = $request->qty * $request->price8;
+        $total5 = $request->qty5 * $request->price5;
+        $total6 = $request->qty6 * $request->price6;
+        $total7 = $request->qty7 * $request->price7;
+        $total8 = $request->qty8 * $request->price8;
         $jumlah = $total + $total2;
         $jumlah2 = $total3 + $total4;
         $jumlah3 = $total5 + $total6;
@@ -393,7 +393,7 @@ class ApproveController extends Controller
     public function destroy($id)
     {
         $delete = Form::find($id);
-        
+
         $destination = 'storage/MD/' . $delete->image1;
         File::delete($destination);
 

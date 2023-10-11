@@ -114,7 +114,7 @@
                 </div>
             </div>
             <div class="table-responsive">
-                <table class="table table-hover table-bordered zero-configuration-spes">
+                <table class="table table-hover table-bordered dataex-fixh-responsive">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='5' style="text-align: center">No</th>
