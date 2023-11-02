@@ -27,9 +27,19 @@ class ReportpbController extends Controller
         } else {
             $amountWithoutDots3 = str_replace('.', '', $amount3);
         }
+
+
+        $amount4 = $request->p_uang_kas;
+        if ($amount4 == NULL) {
+            $amountWithoutDots4 = NULL;
+        } else {
+            $amountWithoutDots4 = str_replace('.', '', $amount4);
+        }
+
         Reportpb::create([
             'a_b' => $amountWithoutDots2,
             'b_a' => $amountWithoutDots3,
+            'p_uang_kas' => $amountWithoutDots4,
         ]);
         return back()
             ->with('success', 'Congratulation ! Pemindahan Buku Berhasil');
@@ -84,17 +94,33 @@ class ReportpbController extends Controller
     public function saldoStore(Request $request)
     {
 
-        $amount2 = $request->jumlah_saldo;
+        $amount2 = $request->jumlah_saldo_899;
         if ($amount2 == NULL) {
             $amountWithoutDots2 = NULL;
         } else {
             $amountWithoutDots2 = str_replace('.', '', $amount2);
         }
+
+        $amount3 = $request->p_cash;
+        if ($amount3 == NULL) {
+            $amountWithoutDots3 = NULL;
+        } else {
+            $amountWithoutDots3 = str_replace('.', '', $amount3);
+        }
+
+        $amount4 = $request->jumlah_saldo_893;
+        if ($amount4 == NULL) {
+            $amountWithoutDots4 = NULL;
+        } else {
+            $amountWithoutDots4 = str_replace('.', '', $amount4);
+        }
         Saldo::create([
-            'jumlah_saldo'   => $amountWithoutDots2,
+            'jumlah_saldo_899'   => $amountWithoutDots2,
+            'p_cash'   => $amountWithoutDots3,
+            'jumlah_saldo_893'   => $amountWithoutDots4,
         ]);
 
-        return redirect()->route('today')->with('success', 'Congratulation ! Saldo Berhasil');
+        return redirect()->route('today')->with('success', 'Congratulation ! Saldo Berhasil Tambahkan');
     }
 
     public function showPrintView()
@@ -140,6 +166,37 @@ class ReportpbController extends Controller
             'jumlah_saldo' => $jumlah_saldo,
             'latestData' => $latestData,
 
+        ]);
+    }
+
+    public function getLaporan(Request $request)
+    {
+        // dd($request);
+        $from = $request->from . ' ';
+        $to = $request->to . ' ';
+        // dd($to);
+        $data = Reportpb::whereBetween('created_at', [$from, $to])
+            ->get();
+
+        $jumlah_a = DB::table('reportpb')
+            ->whereBetween('created_at', [$from, $to])
+            ->get()
+            ->sum('a_b');
+        $jumlah_b = DB::table('reportpb')
+            ->whereBetween('created_at', [$from, $to])
+            ->get()
+            ->sum('b_a');
+
+        $p_uang_kas = DB::table('reportpb')
+            ->whereBetween('created_at', [$from, $to])
+            ->sum('p_uang_kas');
+        return view('pages.reportPB.getlaporan', [
+            'data' => $data,
+            'from' => $from,
+            'to' => $to,
+            'jumlah_a' => $jumlah_a,
+            'jumlah_b' => $jumlah_b,
+            'p_uang_kas' => $p_uang_kas,
         ]);
     }
 }

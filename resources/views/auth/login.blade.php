@@ -10,8 +10,7 @@
                 <div class="card-body">
                     <!-- Logo -->
                     <div class="app-brand justify-content-center mb-4 mt-2">
-                        <img src="{{ asset('assets/img/favicon/lgo.png') }}" width="120" height="90" alt
-                            class="h-auto" />
+                        <img src="{{ asset('assets/img/favicon/tti.png') }}" width="170" alt class="h-auto" />
                     </div>
                     <!-- /Logo -->
                     <h4 class="mb-1 pt-2">Welcome to REQUEST FUND </h4>

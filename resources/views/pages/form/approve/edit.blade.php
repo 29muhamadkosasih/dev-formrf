@@ -94,8 +94,21 @@
                         <div class="mb-1">
                             <label class="form-label" for="basicInput">No. RF</label>
                             <input type="text" class="form-control @error('no_rf') is-invalid @enderror " name="no_rf"
-                                id="basicInput" placeholder="Masukkan No. RF" required autofocus />
+                                id="basicInput" placeholder="Masukkan No. RF" required autofocus
+                                value="{{ $edit->no_rf }}" />
                             @error('no_rf')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-md-12 col-12">
+                        <div class="mb-1">
+                            <label class="form-label" for="basicInput">Catatan</label>
+                            <textarea name="catatan" id="" class="form-control" cols="20" rows="10"></textarea>
+                            @error('catatan')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>

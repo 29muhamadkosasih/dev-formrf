@@ -36,22 +36,35 @@
                         @enderror
                     </div>
                 </div>
-                <div class="mb-3" id="permissions-select">
-                    <label class="form-label" for="multicol-country">Permissions</label>
-                    <select id="multicol-language"
-                        class="select2 form-select @error('permissions') is-invalid @enderror" multiple id="permissions"
-                        name="permissions[]">
-                        @foreach ($permissions as $id => $permission)
-                        <option value="{{ $id }}" {{ (in_array($id, old('permissions', [])) || $role->
-                            permissions->contains($id)) ? 'selected' :
-                            '' }}>{{ $permission }}</option>
-                        @endforeach
-                    </select>
-                    @error('permissions')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                <div class="row g-4">
+                    @php
+                    $groupedPermissions = [];
+                    foreach ($permissions as $id => $permission) {
+                    $firstLetter = strtoupper(substr($permission, 0, 1));
+                    $groupedPermissions[$firstLetter][$id] = $permission;
+                    }
+                    ksort($groupedPermissions);
+                    @endphp
+
+                    @foreach ($groupedPermissions as $letter => $permissionGroup)
+                    <div class="col-xl-4 col-lg-6 col-md-6">
+                        <div class="d-flex align-items-center mb-2">
+                            <a href="javascript:;" class="d-flex align-items-center">
+                                <div class="me-2 text-body h5 mb-0">{{ $letter }}</div>
+                            </a>
+                            <p class="mb-1">
+                                @foreach ($permissionGroup as $id => $permission)
+                                <label class="form-check">
+                                    <input type="checkbox" class="form-check-input" name="permissions[]"
+                                        value="{{ $id }}" {{ (in_array($id, $role->permissions->pluck('id')->toArray()))
+                                    ? 'checked' : '' }}>
+                                    {{ $permission }}
+                                </label>
+                                @endforeach
+                            </p>
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-primary float-end ms-2">Submit</button>

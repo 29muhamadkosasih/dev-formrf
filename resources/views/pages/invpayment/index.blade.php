@@ -103,7 +103,7 @@
         <div class="card-body">
             <div class="row ">
                 <div class="col-auto me-auto ">
-                    <h5 class="mb-0">List Data Invoice & Pembayaran</h5>
+                    <h5 class="mb-0">List Data Invoice & Pembayaran <b>Tahun {{ $currentYears }}</b></h5>
                 </div>
                 <div class="col-auto mt-1">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter">
@@ -163,25 +163,12 @@
                                 {{$user->no_invoice}}
                                 @endswitch
                             </td>
-                            {{-- <td>
-
-                                @switch($user)
-                                @case($user->no_po == null)
-                                @break
-                                @default
-                                {{$user->no_po}}
-                                @endswitch
-
-                            </td> --}}
                             <td width='50px'>
                                 @switch($user)
                                 @case($user->date_invoice == null)
                                 @break
                                 @default
-                                {{-- {{$user->date_invoice}} --}}
-
                                 {{ \Carbon\Carbon::parse($user->date_invoice)->format('d-m-Y') }}
-
                                 @endswitch
 
                             </td>
@@ -216,7 +203,7 @@
                             </td>
                             <td width='50px'>
                                 @switch($user)
-                                @case($user->paid_date == null)
+                                @case($user->paid_date == 0)
                                 @break
                                 @default
                                 {{ \Carbon\Carbon::parse($user->paid_date)->format('d-m-Y') }}

@@ -59,11 +59,19 @@ class PermissionController extends Controller
      * @param  \App\Models\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function edit(Permission $permission)
+    public function edit($id)
     {
         abort_if(Gate::denies('permissions.edit'), Response::HTTP_FORBIDDEN, 'Forbidden');
+        $edit = Permission::find($id);
+        $permissions  = Permission::all();
 
-        return view('pages.permissions.edit', compact('permission'));
+        return view(
+            'pages.permissions.index',
+            [
+                'edit'  => $edit,
+                'permissions'  => $permissions,
+            ]
+        );
     }
 
     /**

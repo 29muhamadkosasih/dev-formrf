@@ -18,13 +18,13 @@
 
                 </div>
             </div>
-            <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered zero-configuration">
+            <div class="table-responsive">
+                <table class="table  table-bordered zero-configuration">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
-                            <th class="text-center">Title</th>
-                            <th class="text-center">Short Code</th>
+                            <th width='300px' class="text-center">Name</th>
+                            <th class="text-center">Permission</th>
                             <th width='150px' class="text-center">Actions</th>
                         </tr>
                     </thead>
@@ -33,21 +33,28 @@
                         <tr>
                             <td class="text-center">{{$loop->iteration}}</td>
                             <td>{{$data->title}}</td>
-                            <td>{{$data->short_code ?? '--'}}</td>
+                            <td>
+                                @forelse ($data->permissions as $permission)
+                                <span class="badge bg-label-primary mb-1"> {{ $permission->name }}</span>
+                                @empty
+                                No Permissions
+                                @endforelse
+                            </td>
+
                             <td class="text-center">
                                 @can('roles.delete')
 
                                 <form method="POST" action="{{ route('roles.destroy', $data->id) }}">
                                     @csrf
                                     <input name="_method" type="hidden" value="DELETE">
-                                    @can('roles.show')
+                                    {{-- @can('roles.show')
                                     <a href="{{ route('roles.show', $data->id) }}"
                                         class="btn btn-icon btn-secondary btn-sm" data-bs-toggle="tooltip"
                                         data-bs-placement="top" data-bs-custom-class="tooltip-secondary"
                                         data-bs-original-title="Show">
                                         <span class="ti ti-eye"></span>
                                     </a>
-                                    @endcan
+                                    @endcan --}}
                                     @can('roles.edit')
                                     <a href="{{ route('roles.edit', $data->id) }}"
                                         class="btn btn-icon btn-warning btn-sm" data-bs-toggle="tooltip"

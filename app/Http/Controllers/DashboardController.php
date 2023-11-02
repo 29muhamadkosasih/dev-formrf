@@ -639,25 +639,47 @@ class DashboardController extends Controller
                 break;
         }
 
-        return view('pages.dashboard.general', [
-            'form' => $form,
-            'forms' => $forms,
-            'data' => $data,
-            'months' => $months,
-            'monthCount' => $monthCount,
-            'bulan'  => $bulan,
-            'total'   => $total,
-            'namaBulan' => $namaBulan,
-            'paid'     => $paid,
-            'process'   => $process,
-            'cancel'    => $cancel,
-            'reports'   => $reports,
-            'jumlah_total' => $jumlah_total,
-            'reportss' => $reportss,
-            'jumlah_total2' => $jumlah_total2,
-            'jumlah_total_all' => $jumlah_total_all
 
-        ]);
+        $bulanIni = Carbon::now()->month;
+        $tahunIni = Carbon::now()->year;
+        $result = Form::selectRaw('COUNT(*) as total_payment, payment')
+            ->groupBy('payment')
+            ->whereYear('created_at', $tahunIni)
+            ->whereMonth('created_at', $bulanIni)
+            ->get();
+        $chartData = "";
+        foreach ($result as $list) {
+            $chartData .= "['" . $list->payment . "', " .
+                $list->total_payment . "],";
+        }
+        $arr['chartData'] = rtrim($chartData, ",");
+        $salesData = Form::selectRaw('MONTH(created_at) as bulan, SUM(jumlah_total) as total_penjualan')
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->get();
+        return view(
+            'pages.dashboard.general',
+            $arr,
+            [
+                'form' => $form,
+                'forms' => $forms,
+                'data' => $data,
+                'months' => $months,
+                'monthCount' => $monthCount,
+                'bulan'  => $bulan,
+                'total'   => $total,
+                'namaBulan' => $namaBulan,
+                'paid'     => $paid,
+                'process'   => $process,
+                'cancel'    => $cancel,
+                'reports'   => $reports,
+                'jumlah_total' => $jumlah_total,
+                'reportss' => $reportss,
+                'jumlah_total2' => $jumlah_total2,
+                'jumlah_total_all' => $jumlah_total_all,
+                'salesData' => $salesData,
+
+            ]
+        );
     }
 
     public function showDetailGen($id)
@@ -668,5 +690,19 @@ class DashboardController extends Controller
         return view('pages.form.showDetailGen', [
             'show'   => $show
         ]);
+    }
+
+    public function pieChart()
+    {
+        $result = Form::selectRaw('COUNT(*) as total_payment, payment')
+            ->groupBy('payment')
+            ->get();
+        $chartData = "";
+        foreach ($result as $list) {
+            $chartData .= "['" . $list->payment . "', " .
+                $list->total_payment . "],";
+        }
+        $arr['chartData'] = rtrim($chartData, ",");
+        return view('pages.dashboard.general', $arr);
     }
 }

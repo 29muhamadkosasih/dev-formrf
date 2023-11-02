@@ -9,6 +9,8 @@
                     <h5 class="mb-0">PENGAJUAN DANA</h5>
                 </div>
                 <div class="col-auto">
+                    <a href="{{ route('form-approve.edit', $show->id) }}" class="btn btn-warning">Edit</a>
+                    <a href="{{ url('approve/approve', $show->id) }}" class="btn btn-success">Approve</a>
                     <a href="{{ route('form-approve.index') }}" class="btn btn-secondary">Back</a>
                 </div>
             </div>
@@ -375,6 +377,12 @@
                             @endswitch
                         </tbody>
                     </table>
+
+                    <p class="mt-3">
+                        <b>Catatan :</b> <br>
+                        {{ $show->catatan }}
+                    </p>
+
                 </div>
             </div>
         </div>
@@ -383,3 +391,4 @@
 </div>
 
 @endsection
+

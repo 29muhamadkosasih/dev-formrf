@@ -257,7 +257,7 @@ class CheckedController extends Controller
 
             ]
         );
-        return back()
+        return redirect()->route('form-checked.index')
             ->with('success', 'Congratulation !  Data Berhasil Di Approve');
     }
 

@@ -1,9 +1,9 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
         {{-- <span class="app-brand-logo demo"> --}}
-            <img src="{{ asset('assets/img/favicon/lgo.png') }}" width="110" height="90" alt
-                class="me-3 ms-3 h-auto text-right" />
-
+            <img src="{{ asset('assets/img/favicon/logonew-removebg-preview.png') }}" width="40" height="10" alt
+                class="me-3 h-auto" />
+            {{-- me-3 ms-3 h-auto text-right width="110" --}}
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
                 <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"></i>
                 <i class="ti ti-x d-block d-xl-none ti-sm align-middle"></i>
@@ -182,7 +182,7 @@
 
 
         @can('report.reportPB.index')
-        <li class="menu-item {{ Route::currentRouteNamed('reportPB') ? 'active' : '' }}">
+        <li class="menu-item {{ Route::currentRouteNamed('reportPB','laporan.getLaporan.reportPB') ? 'active' : '' }}">
             <a href="{{ route('reportPB') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-brand-tabler"></i>
                 <div data-i18n="Report PB">Report PB</div>
@@ -216,9 +216,8 @@
                 <div data-i18n="A/E Revenue">A/E Revenue</div>
             </a>
         </li>
-
         @endcan
-        @endcanany
+
         @can('reportpph.index')
         <li
             class="menu-item {{ Route::currentRouteNamed('reportpph.index','reportpph.edit','laporan.getLaporan.reportpph') ? 'active' : '' }}">
@@ -228,6 +227,43 @@
             </a>
         </li>
         @endcan
+        @endcanany
+
+
+        @canany(['resume.index','summary.index','rincian-arus-kas.index'])
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text"> <b>Arus Kas</b> </span>
+        </li>
+        @can('resume.index')
+        <li
+            class="menu-item {{ Route::currentRouteNamed('resume.index','resume.edit','resume.create','resume.show','resume.laporan') ? 'active' : '' }}">
+            <a href="{{ route('resume.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-report-analytics"></i>
+                <div data-i18n="Resume">Resume </div>
+            </a>
+        </li>
+        @endcan
+
+        @can('rincian-arus-kas.index')
+        <li
+            class="menu-item {{ Route::currentRouteNamed('rincian-arus-kas.index','rincian-arus-kas.edit') ? 'active' : '' }}">
+            <a href="{{ route('rincian-arus-kas.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-building-castle"></i>
+                <div data-i18n="Rincian Arus Kas">Rincian Arus Kas </div>
+            </a>
+        </li>
+        @endcan
+
+        @can('summary.index')
+        <li
+            class="menu-item {{ Route::currentRouteNamed('summary.index','summary.edit','summary.create') ? 'active' : '' }}">
+            <a href="{{ route('summary.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-brand-feedly"></i>
+                <div data-i18n="Summary">Summary </div>
+            </a>
+        </li>
+        @endcan
+        @endcanany
 
 
         @canany(['bank.index','norek.index','keperluan.index','kpengajuan.index','rujukan.index','departement.index','jabatan.index'])
@@ -306,7 +342,8 @@
         </li>
 
         @can('users.index')
-        <li class="menu-item {{ (request()->is('users')) ? 'active' : '' }}">
+        <li
+            class="menu-item {{ Route::currentRouteNamed('users.index','users.edit','users.show','users.create') ? 'active' : '' }}">
             <a href="{{ route('users.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-users"></i>
                 <div data-i18n="Users">Users</div>
@@ -315,7 +352,8 @@
         @endcan
 
         @can('roles.index')
-        <li class="menu-item {{ (request()->is('roles')) ? 'active' : '' }}">
+        <li
+            class="menu-item {{ Route::currentRouteNamed('roles.index','roles.edit','roles.show','roles.create') ? 'active' : '' }}">
             <a href="{{ route('roles.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-settings"></i>
                 <div data-i18n="Roles">Roles</div>
@@ -325,7 +363,8 @@
 
 
         @can('permissions.index')
-        <li class="menu-item {{ (request()->is('permissions')) ? 'active' : '' }}">
+        <li
+            class="menu-item {{ Route::currentRouteNamed('permissions.index','permissions.edit','permissions.show') ? 'active' : '' }}">
             <a href="{{ route('permissions.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-lock-access"></i>
                 <div data-i18n="Permissions">Permissions</div>

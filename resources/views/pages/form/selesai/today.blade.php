@@ -1,13 +1,12 @@
 @extends('layouts/master')
 @section('content')
 @section('title', 'Resume RF')
-<!-- Projects table -->
 <div class="col-12 col-xl-9 col-sm-12 order-1 order-lg-2 mb-4 mb-lg-0">
     <div class="card">
         <div class="card-body">
             <div class="row mb-3">
                 <div class="col-auto me-auto ">
-                    <h5 class="mb-0">Tanggal : {{ $currentDate }}
+                    <h5 class="mb-0">{{ \Carbon\Carbon::parse($currentDate)->translatedFormat('l, j F Y') }}
                 </div>
                 <div class="col-auto">
                     <a href="{{ url('form-list/print') }}" class="btn btn-primary btn-sm" target="_blank"><i
@@ -15,26 +14,21 @@
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover table-bordered">
+                <table class="table table-bordered" style="border: 1px solid black">
                     <thead>
                         <tr style="background-color: skyblue">
                             <th width='10px' style="text-align: center">No</th>
                             <th>No. RF</th>
                             <th>Dari</th>
-                            <th>Payment Method</th>
+                            <th>Payment <br> Method</th>
                             <th>Bank</th>
-                            <th>Kategori
+                            <th>Kategori <br>
                                 Pengajuan</th>
                             <th>Jumlah (Rp)</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($form as $data)
-                        {{-- <tr colspan="5" class="mb-2">
-                            <a href="{{ url('form-list/print', $data->id) }}" target="_blank">
-                                <i class="menu-icon tf-icons ti ti-download"></i>
-                            </a>
-                        </tr> --}}
                         <tr>
                             <td style="text-align: center">{{ $loop->iteration }}</td>
                             <td>
@@ -114,10 +108,52 @@
                                 '.') }}</td>
                         </tr>
                         @foreach ($latestData as $item)
-                        <tr style="color:black; background-color: lightgreen">
-                            <th colspan="6" style="text-align :right ">JUMLAH TOTAL SALDO </th>
+                        <tr style="color:black; background-color: #FF5733">
+                            <th colspan="6" style="text-align :right ">JUMLAH TOTAL SALDO 899 </th>
 
-                            <td style="text-align :right">{{ number_format($item->jumlah_saldo, 0, ',',
+                            <td style="text-align :right">{{ number_format($item->jumlah_saldo_899, 0, ',',
+                                '.') }}</td>
+                        </tr>
+                        <tr style="color:black; background-color: #FF5733">
+                            <th colspan="6" style="text-align :right ">JUMLAH TOTAL SALDO 893 </th>
+
+                            <td style="text-align :right">{{ number_format($item->jumlah_saldo_893, 0, ',',
+                                '.') }}</td>
+                        </tr>
+                        <tr style="color:black; background-color: #FF5733">
+                            <th colspan="6" style="text-align :right ">JUMLAH TOTAL PETTY CASH </th>
+
+                            <td style="text-align :right">{{ number_format($item->p_cash, 0, ',',
+                                '.') }}</td>
+                        </tr>
+                        @endforeach
+
+                        @foreach ($latestData2 as $item)
+                        <tr style="color:black; background-color: #EEE600">
+                            <th colspan="6" style="text-align :right ">Jumlah Penarikan Uang Kas </th>
+
+                            <td style="text-align :right">{{ number_format($item->p_uang_kas, 0, ',',
+                                '.') }}</td>
+                        </tr>
+                        <tr style="color:black; background-color: #EEE600">
+                            <th colspan="6" style="text-align :right "> Jumlah PB 899-893 </th>
+
+                            <td style="text-align :right">{{ number_format($item->a_b, 0, ',',
+                                '.') }}</td>
+                        </tr>
+                        <tr style="color:black; background-color: #EEE600">
+                            <th colspan="6" style="text-align :right "> Jumlah PB 893-899 </th>
+
+                            <td style="text-align :right">{{ number_format($item->b_a, 0, ',',
+                                '.') }}</td>
+                        </tr>
+                        @endforeach
+
+                        @foreach ($latestData3 as $item)
+                        <tr style="color:black; background-color: skyblue">
+                            <th colspan="6" style="text-align :right ">Jumlah Pengajuan </th>
+
+                            <td style="text-align :right">{{ number_format($item->jumlah, 0, ',',
                                 '.') }}</td>
                         </tr>
                         @endforeach
@@ -130,36 +166,19 @@
 <!--/ Projects table -->
 <!-- Source Visit -->
 <div class="col-xl-3 col-md-6 order-2 order-lg-1">
-    <div class="card">
+    <div class="card mb-3">
         <div class="card-header d-flex justify-content-between">
             <div class="card-title mb-0">
-                <h5 class="mb-0">Report PB</h5>
+                <h5 class="mb-0">Total Pengajuan</h5>
             </div>
         </div>
         <div class="card-body">
-            <form action="{{ route('saldoStore') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('tpengajuan.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                    <label class="form-label">Saldo 899</label>
-                    <input type="text" class="form-control @error('jumlah_saldo') is-invalid @enderror"
-                        placeholder="Masukkan Jumlah Saldo" id="tanpa-rupiah" name="jumlah_saldo" required />
-                </div>
-                <div class="mb-3">
-                    <label class="form-label"></label>
-                    <button type="submit" class="btn btn-primary float-end ms-2 mb-2 ">Submit</button>
-                </div>
-            </form>
-            <form action="{{ route('reportPB.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="mb-3">
-                    <label class="form-label">PB 899-893</label>
-                    <input type="text" class="form-control @error('a_b') is-invalid @enderror"
-                        placeholder="Masukkan Jumlah Saldo" id="tanpa-rupiah2" name="a_b" />
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">PB 893-899</label>
-                    <input type="text" class="form-control @error('b_a') is-invalid @enderror"
-                        placeholder="Masukkan Jumlah Saldo" id="tanpa-rupiah3" name="b_a" />
+                    {{-- <label class="form-label"></label> --}}
+                    <input type="text" class="form-control @error('jumlah') is-invalid @enderror"
+                        placeholder="Masukkan Jumlah Pengajuan" id="tanpa-rupiah" name="jumlah" />
                 </div>
                 <div class="mb-2">
                     <button type="submit" class="btn btn-primary float-end ms-2 mb-2 ">Submit</button>
@@ -167,7 +186,66 @@
             </form>
         </div>
     </div>
-    <div class="card-body">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between">
+            <div class="card-title mb-0">
+                <h5 class="mb-0">Informasi Saldo</h5>
+            </div>
+        </div>
+        <div class="card-body">
+            <form action="{{ route('saldoStore') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="mb-3">
+                    <label class="form-label">Saldo 899</label>
+                    <input type="text" class="form-control @error('jumlah_saldo_899') is-invalid @enderror"
+                        placeholder="Masukkan Jumlah Saldo 899" id="tanpa-rupiah2" name="jumlah_saldo_899" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Saldo 893</label>
+                    <input type="text" class="form-control @error('jumlah_saldo_893') is-invalid @enderror"
+                        placeholder="Masukkan Jumlah Saldo 899" id="tanpa-rupiah4" name="jumlah_saldo_893" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Saldo Petty Cash</label>
+                    <input type="text" class="form-control @error('b_a') is-invalid @enderror"
+                        placeholder="Masukkan Jumlah Saldo Petty Cash" id="tanpa-rupiah5" name="p_cash" />
+                </div>
+                <div class="mb-2">
+                    <button type="submit" class="btn btn-primary float-end ms-2 mb-2 ">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card mt-3">
+        <div class="card-header d-flex justify-content-between">
+            <div class="card-title mb-0">
+                <h5 class="mb-0">Laporan Pindah Buku dan Penarikan Uang Kas</h5>
+            </div>
+        </div>
+        <div class="card-body">
+            <form action="{{ route('reportPB.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="mb-3">
+                    <label class="form-label">Penarikan Uang Kas</label>
+                    <input type="text" class="form-control @error('p_uang_kas') is-invalid @enderror"
+                        placeholder="Masukkan Jumlah Kas" id="tanpa-rupiah8" name="p_uang_kas" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">PB 899-893</label>
+                    <input type="text" class="form-control @error('a_b') is-invalid @enderror"
+                        placeholder="Masukkan Jumlah Saldo" id="tanpa-rupiah6" name="a_b" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">PB 893-899</label>
+                    <input type="text" class="form-control @error('b_a') is-invalid @enderror"
+                        placeholder="Masukkan Jumlah Saldo" id="tanpa-rupiah7" name="b_a" />
+                </div>
+
+                <div class="mb-2">
+                    <button type="submit" class="btn btn-primary float-end ms-2 mb-2 ">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 <!--/ Source Visit -->

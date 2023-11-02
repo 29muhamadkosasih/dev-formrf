@@ -10,6 +10,7 @@ use App\Models\Kpengajuan;
 use App\Models\Departement;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
@@ -23,10 +24,17 @@ class ApproveController extends Controller
         $form = Form::where('status', '2')
             ->orderBy('created_at', 'desc')
             ->get();
-        // $form = Form::all();
-        // dd($form);
+
+
+        $jumlah_total =
+            Form::where('status', '2')
+            ->orderBy('created_at', 'desc')
+            ->get()
+            ->sum('jumlah_total');
+        // dd($jumlah_total);
         return view('pages.form.approve.index', [
             'form'   => $form,
+            'jumlah_total'   => $jumlah_total,
         ]);
     }
 
@@ -67,7 +75,7 @@ class ApproveController extends Controller
     {
         // dd($request->all());
         $this->validate($request, [
-            'no_rf'     => 'required|unique:form,no_rf,',
+            'no_rf'     => 'required',
         ]);
         $data = Form::findOrFail($id);
         $amount = $request->input('price');
@@ -143,7 +151,7 @@ class ApproveController extends Controller
         $badmin = $request->b_admin;
         // dd($badmin);
         $jumlah_total_akhir = $jumlah_akhir + 0;
-        // dd($jumlah_total_akhir);
+        // dd($data);
         $data->update([
             'from_id' => $request->from_id,
             'rujukan_id' => $request->rujukan_id,
@@ -207,7 +215,8 @@ class ApproveController extends Controller
             'j_peserta'  => $request->j_peserta,
             'j_traine_asesor'  => $request->j_traine_asesor,
             'j_assist'  => $request->j_assist,
-            'no_rf'  => $request->no_rf
+            'no_rf'  => $request->no_rf,
+            'catatan'  => $request->catatan
         ]);
         // dd($data);
         return redirect()->route('form-approve.index')
@@ -232,7 +241,7 @@ class ApproveController extends Controller
 
             ]
         );
-        return back()
+        return redirect()->route('form-approve.index')
             ->with('success', 'Congratulation !  Data Berhasil Di Process');
     }
 
@@ -454,6 +463,34 @@ class ApproveController extends Controller
         // dd($show->file);
         return view('pages.form.checked.showDetail', [
             'show'   => $show
+        ]);
+    }
+
+    public function getLaporan(Request $request)
+    {
+        // dd($request);
+        $from = $request->from . ' ';
+        $to = $request->to . ' ';
+        // dd($to);
+        $form = Form::whereBetween('tanggal_kebutuhan', [$from, $to])
+            ->where('status', '2')
+            ->get();
+
+        $jumlah_total =
+            Form::where(
+                'status',
+                '2'
+            )
+            ->whereBetween('tanggal_kebutuhan', [$from, $to])
+            ->get()
+            ->sum('jumlah_total');
+
+
+        return view('pages.form.approve.getlaporan', [
+            'form' => $form,
+            'from' => $from,
+            'to' => $to,
+            'jumlah_total' => $jumlah_total,
         ]);
     }
 }

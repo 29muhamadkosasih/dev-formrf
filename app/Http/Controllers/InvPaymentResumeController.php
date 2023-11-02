@@ -695,11 +695,11 @@ class InvPaymentResumeController extends Controller
         // dd($mei);
 
         $januari = DB::table('invpayment')
-            ->whereYear('date_invoice', $from)
             ->whereMonth(
                 'date_invoice',
                 $jan
             )
+            ->whereYear('date_invoice', $from)
             ->get()
             ->count();
 

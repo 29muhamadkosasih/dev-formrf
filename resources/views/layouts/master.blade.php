@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
-<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default"
-    data-assets-path="../../assets/" data-template="vertical-menu-template-no-customizer">
+<html lang="en" class="oading light-style layout-navbar-fixed layout-menu-fixed layout-menu-collapsed" dir="ltr"
+    data-theme="theme-default" data-assets-path="../../assets/" data-template="vertical-menu-template-no-customizer">
 
 <head>
     <meta charset="utf-8" />
@@ -10,7 +10,7 @@
     <title>@yield('title') - Request Fund Transafe Management System</title>
     <meta name="description" content="" />
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/lgo.png') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/logonew-removebg-preview.png') }}" />
     {{--
     <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/favicon.ico" /> --}}
     <!-- Fonts -->

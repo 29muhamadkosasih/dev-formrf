@@ -3,19 +3,37 @@
 @section('title', 'Permissions')
 
 @section('content')
-<!-- Invoice table -->
-<div class="col-12">
+
+<div class="col-xs-4 col-sm-4 col-md-4 mb-4">
+    <div class="card">
+        <div class="card-body">
+            <div class="row ">
+                <div class="col-auto me-auto ">
+                    @if (isset($edit))
+                    <h5 class="mb-0">Edit Data Permissions</h5>
+                    @else
+                    <h5 class="mb-0">Tambah Data Permissions</h5>
+                    @endif
+                </div>
+                <div class="card-body">
+                    @if (isset($edit))
+                    @include('pages.permissions.edit')
+                    @else
+                    @include('pages.permissions.create')
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="col-xs-8 col-sm-8 col-md-8">
     <div class="card">
         <div class="card-body">
             <div class="row ">
                 <div class="col-auto me-auto ">
                     <h5 class="mb-0">List Data Permissions</h5>
-                </div>
-                <div class="col-auto">
-                    @can('permissions.create')
-                    <a href="{{ route('permissions.create') }}" class="btn btn-primary">Create</a>
-                    @endcan
-
                 </div>
             </div>
             <div class="table-responsive text-nowrap">
@@ -66,6 +84,7 @@
         </div>
     </div>
 </div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">

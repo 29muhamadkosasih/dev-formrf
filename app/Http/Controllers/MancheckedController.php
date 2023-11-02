@@ -276,7 +276,7 @@ class MancheckedController extends Controller
 
             ]
         );
-        return back()
+        return redirect()->route('form-checkedman.index')
             ->with('success', 'Congratulation !  Data Berhasil Di Approve');
     }
 

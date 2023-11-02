@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TpController;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\FmanController;
 use App\Http\Controllers\FormController;
@@ -10,12 +11,14 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\NoRekController;
+use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\ApproveController;
 use App\Http\Controllers\CheckedController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RevenueController;
 use App\Http\Controllers\RujukanController;
+use App\Http\Controllers\SummaryController;
 use App\Http\Controllers\CashFlowController;
 use App\Http\Controllers\FapproveController;
 use App\Http\Controllers\LanguageController;
@@ -32,6 +35,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\ReportPPH23Controller;
 use App\Http\Controllers\InvPaymentResumeController;
+use App\Http\Controllers\RasController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -104,13 +108,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('export_excel/reportpph', [ReportPPH23Controller::class, 'export_excel'])->name('export_excel.reportpph');
     Route::get('export_pdf/reportpph', [ReportPPH23Controller::class, 'export_pdf'])->name('export_pdf');
     Route::post('getLaporan/reportpph', [ReportPPH23Controller::class, 'getLaporan'])->name('laporan.getLaporan.reportpph');
+    Route::post('getLaporan/reportPB', [ReportPBController::class, 'getLaporan'])->name('laporan.getLaporan.reportPB');
+    Route::post('getLaporan/reportApprove', [ApproveController::class, 'getLaporan'])->name('laporan.getLaporan.reportApprove');
     Route::post('getLaporan/InvPayment', [InvPaymentController::class, 'getLaporan'])->name('laporan.getLaporan.InvPayment');
     Route::post('getLaporan/InvPayment/getYears', [InvPaymentResumeController::class, 'getYears'])->name('laporan.getLaporan.getYears');
     Route::get('/pegawai/cetak_pdf', [FormsController::class, 'cetak_pdf'])->name('cetak_pdf');
     Route::get('/pegawai/cetak_pdf2/{from}/{to}', [FormsController::class, 'cetak_pdf2'])->name('cetak_pdf2');
     Route::get('/pegawai/cetak_pdfDay/{date}', [FormsController::class, 'cetak_pdfDay'])->name('cetak_pdfDay');
     Route::get('/pegawai/cetak_pdfpb', [FormsController::class, 'cetak_pdfpb'])->name('cetak_pdfpb');
-
     Route::get('form-checked/edit/delete/{id}', [MancheckedController::class, 'del1'])->name('delete.image1');
     Route::get('form-checked/edit/delete/{id}', [MancheckedController::class, 'del2'])->name('delete.image2');
     Route::get('form-checked/edit/delete/{id}', [MancheckedController::class, 'del3'])->name('delete.image3');
@@ -119,7 +124,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('form-checked/edit/delete/{id}', [MancheckedController::class, 'del6'])->name('delete.image6');
     Route::get('form-checked/edit/delete/{id}', [MancheckedController::class, 'del7'])->name('delete.image7');
     Route::get('form-checked/edit/delete/{id}', [MancheckedController::class, 'del8'])->name('delete.image8');
+    Route::get('resume/laporan', [ResumeController::class, 'laporan'])->name('resume.laporan');
 
+    Route::get('resume/get', [ResumeController::class, 'get'])->name('resume.get');
+    Route::get('summary/pdf', [SummaryController::class, 'printPdf'])->name('summary.pdf');
+    Route::get('resume/pdf/{id}', [ResumeController::class, 'printPdf'])->name('resume.pdf');
+
+    Route::get('resume/pre-view/{id}', [ResumeController::class, 'preView'])->name('resume.pre-view');
+    Route::put('resume/pre-view/{id}', [ResumeController::class, 'StorePreView'])->name('resume.store.pre-view');
 
     Route::resource('/users', UserController::class);
     Route::resource('/roles', RoleController::class);
@@ -149,4 +161,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('form-man', FmanController::class);
     Route::resource('form-app', FapproveController::class);
     Route::resource('form-checkedman', MancheckedController::class);
+    Route::resource('tpengajuan', TpController::class);
+    Route::resource('resume', ResumeController::class);
+    Route::resource('summary', SummaryController::class);
+    Route::resource('rincian-arus-kas', RasController::class);
 });

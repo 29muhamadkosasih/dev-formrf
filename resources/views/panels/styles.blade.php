@@ -21,13 +21,12 @@
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/select2/select2.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/toastr/toastr.css')}}" />
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/animate-css/animate.css')}}" />
-
+<link rel="stylesheet" href="{{ asset('assets/vendor/libs/tagify/tagify.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.css') }}" />
 <!-- Vendor -->
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/@form-validation/umd/styles/index.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/page-auth.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/page-faq.css') }}" />
-<!-- Page CSS -->
-
 
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/swiper/swiper.css') }}" />
 

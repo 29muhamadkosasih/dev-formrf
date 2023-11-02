@@ -58,6 +58,17 @@
 <!-- Page JS -->
 <script src="{{ asset('assets/js/ui-toasts.js') }}"></script>
 <script src="{{ asset('assets/js/ui-modals.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/tagify/tagify.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/bloodhound/bloodhound.js') }}"></script>
+<!-- Page CSS -->
+
+
+<script src="{{ asset('assets/js/forms-selects.js') }}"></script>
+<script src="{{ asset('assets/js/forms-tagify.js') }}"></script>
+<script src="{{ asset('assets/js/forms-typeahead.js') }}"></script>
 
 <!-- Vendors JS -->
 <script src="{{ asset('assets/vendor/libs/@form-validation/umd/bundle/popular.min.js') }}"></script>

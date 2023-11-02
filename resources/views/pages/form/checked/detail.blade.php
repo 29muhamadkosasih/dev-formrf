@@ -9,6 +9,8 @@
                     <h5 class="mb-0">PENGAJUAN DANA</h5>
                 </div>
                 <div class="col-auto">
+                    <a href="{{ url('approve/maker', $show->id) }}" class="btn btn-success">Approve</a>
+                    <a href="{{ route('form-checked.edit', $show->id) }}" class="btn btn-warning">Edit</a>
                     <a href="{{ route('form-checked.index') }}" class="btn btn-secondary">Back</a>
                 </div>
             </div>

@@ -35,22 +35,39 @@
                         @enderror
                     </div>
                 </div>
-                <div class="mb-3" id="permissions-select">
-                    <label class="form-label" for="multicol-country">Permissions</label>
-                    <select id="multicol-language"
-                        class="select2 form-select @error('permissions') is-invalid @enderror" multiple id="permissions"
-                        name="permissions[]">
-                        @foreach ($permissions as $id => $permission)
-                        <option value="{{ $id }}" {{ (in_array($id, old('permissions', []))) ? 'selected' : '' }}>{{
-                            $permission }}</option>
-                        @endforeach
-                    </select>
-                    @error('permissions')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                <label class="form-label">Permissions</label>
+                <div class="row g-4">
+                    @php
+                    $groupedPermissions = [];
+                    foreach ($permissions as $id => $permission) {
+                    $firstLetter = strtoupper(substr($permission, 0, 1));
+                    $groupedPermissions[$firstLetter][$id] = $permission;
+                    }
+                    ksort($groupedPermissions); // Menyortir izin-izin berdasarkan huruf pertama (abjad) dari A-Z
+                    @endphp
+
+                    @foreach ($groupedPermissions as $letter => $permissionGroup)
+                    <div class="col-xl-4 col-lg-6 col-md-6">
+                        <div class="d-flex align-items-center mb-2">
+                            <label class="form-check form-check-inline">
+                                <input type="checkbox" class="form-check-input select-all" data-target="{{ $letter }}">
+                                <div class="me-2 text-body h5 mb-0">{{ $letter }}</div>
+                            </label>
+                        </div>
+                        <p class="mb-1">
+                            @foreach ($permissionGroup as $id => $permission)
+                            <label class="form-check">
+                                <input type="checkbox" class="form-check-input {{ $letter }}" name="permissions[]"
+                                    value="{{ $id }}" {{ (in_array($id, old('permissions', []))) ? 'checked' : '' }}>
+                                {{ $permission }}
+                            </label>
+                            <br>
+                            @endforeach
+                        </p>
+                    </div>
+                    @endforeach
                 </div>
+
                 <div class="mb-3">
                     <button type="submit" class="btn btn-primary float-end ms-2">Submit</button>
                     <a href="{{ route('roles.index') }}" class="btn btn-secondary float-end ">Back</a>
@@ -58,5 +75,15 @@
         </div>
     </div>
 </div>
+<script>
+    // Script untuk mengatur checkbox "Select All"
+                        document.querySelectorAll('.select-all').forEach(checkbox => {
+                            checkbox.addEventListener('change', function () {
+                                const targetClass = this.getAttribute('data-target');
+                                const targetCheckboxes = document.querySelectorAll(`.${targetClass}`);
+                                targetCheckboxes.forEach(cb => cb.checked = this.checked);
+                            });
+                        });
+</script>
 <!-- /Invoice table -->
 @endsection
